@@ -30,8 +30,3 @@ parts:
         title: 6. WebGIS (notebook + Streamlit)
       - file: deployment
         title: Deployment (Streamlit & Book)
-  - caption: Lampiran
-    chapters:
-      - file: markdown
-      - file: notebooks
-      - file: markdown-notebooks
