@@ -22,3 +22,6 @@ __pycache__/
 # Tidak ditampilkan di repo publik
 prompt/
 panduan_deploy_github.md
+
+# Tool lokal (tombol double-click) — tidak diunggah
+update_web.bat
