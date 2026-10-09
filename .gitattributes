@@ -1,0 +1,9 @@
+# File besar yang DIPERLUKAN di repo → disimpan lewat Git LFS.
+# Aktifkan dulu: git lfs install
+# File lain yang lebih besar dan BISA dibuat ulang tetap dikecualikan (.gitignore),
+# karena kuota gratis LFS hanya 1 GB (lihat panduan_deploy_github.md).
+#
+# CATATAN: 2 file di bawah SENGAJA dinonaktifkan — belum diunggah (lihat .gitignore).
+# Hapus tanda "#" bila sudah siap menyimpan lewat Git LFS.
+# outputs/models/pixel_rf.pkl filter=lfs diff=lfs merge=lfs -text
+# outputs/models/random_forest_best.pkl filter=lfs diff=lfs merge=lfs -text

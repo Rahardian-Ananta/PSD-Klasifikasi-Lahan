@@ -1,0 +1,32 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: Klasifikasi Penggunaan/Penutupan Lahan Jawa Timur (Sentinel-2)
+author: The Jupyter Book Community
+logo: logo.png
+
+# File besar / mentah tidak ikut build (raster, model, data mentah) — hanya
+# dokumentasi & notebook ter-eksekusi yang dirender.
+exclude_patterns:
+  - data/*
+  - outputs/raster/*
+  - outputs/models/*
+  - outputs/tables/*.pkl
+  - outputs/tables/*.npz
+
+# Raster besar tidak dieksekusi saat build Jupyter Book: notebook sudah
+# ter-eksekusi (output tersimpan), jadi build hanya merender.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: off
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - references.bib
+
+# Repository GitHub dihapus (bawaan template menunjuk ke repo contoh).

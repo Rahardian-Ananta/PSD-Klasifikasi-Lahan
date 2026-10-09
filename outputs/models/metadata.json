@@ -1,0 +1,40 @@
+{
+  "best": [
+    "pixel",
+    "svm"
+  ],
+  "best_cv_polygon_f1": 0.5373,
+  "features": [
+    "B02",
+    "B03",
+    "B04",
+    "B08",
+    "B11",
+    "B12",
+    "NDVI",
+    "NDWI",
+    "NDBI"
+  ],
+  "class_mapping": {
+    "1": "Sawah",
+    "2": "Bangunan / Permukiman",
+    "3": "Mangrove",
+    "4": "Lahan hijau",
+    "5": "Laut",
+    "6": "Danau"
+  },
+  "pixel_rule": "centroid (all_touched=False)",
+  "cap_500": true,
+  "cap_rng": "RandomState(42) urut fid",
+  "mean_index_def": "indeks dari mean band",
+  "nodata": -32768,
+  "index_formulas": "NDVI=(B08-B04)/(B08+B04); NDWI=(B03-B08)/(B03+B08); NDBI=(B11-B08)/(B11+B08)",
+  "svm_subsample": "8861 (target 8000, stratified per kelas, seed 42, pixel train saja)",
+  "random_state": 42,
+  "cv": "StratifiedGroupKFold group=FID (5 fold pixel-based; 4 fold polygon-mean, adaptasi Laut 4 polygon)",
+  "libraries": {
+    "sklearn": "1.8.0",
+    "lightgbm": "4.7.0"
+  },
+  "tanggal": "2026-10-08T08:13:08"
+}

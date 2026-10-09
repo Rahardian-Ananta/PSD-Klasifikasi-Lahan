@@ -1,0 +1,41 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: BAB 1 — Business Understanding
+    chapters:
+      - file: notebooks/01_business_understanding
+        title: 1. Business Understanding
+  - caption: BAB 2 — Data Understanding
+    chapters:
+      - file: notebooks/02_data_understanding
+        title: 2. Data Understanding
+  - caption: BAB 3 — Data Preprocessing
+    chapters:
+      - file: notebooks/03_data_preprocessing
+        title: 3. Data Preprocessing
+  - caption: BAB 4 — Modeling
+    chapters:
+      - file: notebooks/04_modeling
+        title: 4. Modeling
+  - caption: BAB 5 — Evaluation
+    chapters:
+      - file: notebooks/05_evaluation
+        title: 5. Evaluation
+  - caption: BAB 6 — WebGIS & Deployment
+    chapters:
+      - file: notebooks/06_webgis
+        title: 6. WebGIS (notebook + Streamlit)
+      - file: deployment
+        title: Deployment (Streamlit & Book)
+  - caption: Lampiran
+    chapters:
+      - file: panduan_colab_bab5
+        title: Panduan Colab Bab 5
+      - file: panduan_deploy_github
+        title: Panduan Deploy GitHub
+      - file: markdown
+      - file: notebooks
+      - file: markdown-notebooks

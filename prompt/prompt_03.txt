@@ -1,0 +1,23 @@
+# TAHAP 3 — `03_data_preprocessing.ipynb` (BAB 3)
+
+Mengubah data mentah menjadi dataset ML. Jelaskan setiap transformasi.
+
+**3.1 Validasi dan pemilihan polygon.** Terapkan V1–V6, lalu pilih `N_PER_CLASS = 50` per kelas (0.6). Tampilkan tabel per kelas: `sebelum | dibuang (per kode) | pool valid | terpilih | tidak terpilih karena kuota`. Simpan `polygon_selected` dan `polygon_excluded.csv`. Jika FID 367 tidak terpilih, tulis alasannya (tidak valid, atau valid tetapi tidak terambil oleh kuota).
+
+**3.2 Ekstraksi pixel + capping 500** (0.7). Tampilkan jumlah pixel valid per polygon sebelum/sesudah cap dan berapa polygon terkena cap. Hitung NDVI/NDWI/NDBI dengan penanganan nodata dan pembagi nol (catat jumlah terdampak).
+
+**3.3 Train/test split per polygon.** Jelaskan mengapa per polygon, bukan per pixel, dengan diagram **CONTOH ILUSTRASI**:
+- Polygon A → semua pixel TRAIN; Polygon B → semua pixel TEST.
+- DILARANG: Polygon A → sebagian pixel train, sebagian test (pixel bertetangga sangat mirip → spatial/data leakage → metrik terlalu optimistis).
+
+Lakukan 80% / 20% polygon, `random_state=42`, **stratified per kelas**. Tampilkan total polygon, train, test, dan `class_id | class_name | training_polygon | testing_polygon`. **Buktikan secara programatik** irisan FID train∩test kosong untuk kedua metode. Contoh split detail: `FID | class | split` (FID 367 bila ada di data terpilih, minimal satu per kelas). Catatan jujur: split per polygon belum menjamin bebas autokorelasi spasial antar polygon bertetangga; laporkan jarak antar polygon train–test sebagai **informasi**, bukan untuk mengubah split.
+
+**3.4 Dataset pixel-based.** `training_pixel`, `testing_pixel`. Tabel train dan test: `class_id | class_name | polygon_count | pixel_count | mean_pixel_per_polygon`. Jelaskan mengapa jumlah pixel antar kelas berbeda walau jumlah polygon sama (ukuran polygon berbeda; capping meredamnya) dan dampaknya pada class imbalance. Bila memakai `class_weight`/pembobotan, terapkan **setara** pada kedua metode.
+
+**3.5 Dataset polygon-mean.** `training_mean`, `testing_mean`; tabel `class_id | class_name | training_polygon | testing_polygon`; contoh aktual `FID | class | mean_B02 … mean_B12`. Bandingkan ukuran dataset kedua metode (baris total dan per kelas) tanpa memilih pemenang.
+
+**3.6 Feature engineering.** Jelaskan setiap feature (B02, B03, B04, B08, B11, B12, NDVI, NDWI, NDBI): nama, sumber, arti, satuan, formula. Untuk **setiap formula**: tuliskan formula, tujuan, **contoh dari data aktual** (satu pixel/polygon nyata dengan nilai band yang dipakai), hitung langkah demi langkah, jelaskan makna nilai positif/negatif. Semua model memakai feature set **sama**; jangan memasukkan feature yang tidak benar-benar dipakai.
+
+**3.7 Simpan hasil perantara** ke `experiments/` atau `outputs/tables/` (daftar di 0.10). Sertakan FID di setiap baris pixel (dipakai sebagai group).
+
+**Checkpoint Tahap 3:** tabel pengecualian per kelas lengkap; maksimum 50 polygon terpilih per kelas; irisan FID train/test = kosong (terbukti dengan kode); CSV tersimpan.

@@ -1,0 +1,2824 @@
+fid,n_valid,n_nodata,status_v5
+0,231,0,ok
+1,0,12,V5: <1 pixel valid
+2,0,202,V5: <1 pixel valid
+3,0,249,V5: <1 pixel valid
+4,0,345,V5: <1 pixel valid
+5,528,0,ok
+6,0,127,V5: <1 pixel valid
+7,0,26,V5: <1 pixel valid
+8,0,1376,V5: <1 pixel valid
+9,0,3249,V5: <1 pixel valid
+10,0,70,V5: <1 pixel valid
+11,0,764,V5: <1 pixel valid
+12,0,375,V5: <1 pixel valid
+13,0,118,V5: <1 pixel valid
+14,0,860,V5: <1 pixel valid
+15,0,172,V5: <1 pixel valid
+16,395,0,ok
+17,0,14,V5: <1 pixel valid
+18,0,18,V5: <1 pixel valid
+19,0,493,V5: <1 pixel valid
+20,282,0,ok
+21,0,430,V5: <1 pixel valid
+22,0,229,V5: <1 pixel valid
+23,0,20370,V5: <1 pixel valid
+24,0,250,V5: <1 pixel valid
+25,0,58,V5: <1 pixel valid
+26,0,382,V5: <1 pixel valid
+27,0,104,V5: <1 pixel valid
+28,0,120,V5: <1 pixel valid
+29,0,163,V5: <1 pixel valid
+30,0,4205,V5: <1 pixel valid
+31,0,473,V5: <1 pixel valid
+32,0,26,V5: <1 pixel valid
+33,0,1327,V5: <1 pixel valid
+34,0,102,V5: <1 pixel valid
+35,0,353,V5: <1 pixel valid
+36,0,251,V5: <1 pixel valid
+37,0,30245,V5: <1 pixel valid
+38,0,153,V5: <1 pixel valid
+39,0,7325,V5: <1 pixel valid
+40,0,142,V5: <1 pixel valid
+41,0,585,V5: <1 pixel valid
+42,0,907,V5: <1 pixel valid
+43,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+44,0,41,V5: <1 pixel valid
+45,625,0,ok
+46,0,46,V5: <1 pixel valid
+47,0,121,V5: <1 pixel valid
+48,590,0,ok
+49,0,17,V5: <1 pixel valid
+50,11962,0,ok
+51,0,1815,V5: <1 pixel valid
+52,0,19,V5: <1 pixel valid
+53,0,262,V5: <1 pixel valid
+54,0,16,V5: <1 pixel valid
+55,0,247,V5: <1 pixel valid
+56,0,141,V5: <1 pixel valid
+57,0,158,V5: <1 pixel valid
+58,0,133,V5: <1 pixel valid
+59,0,24,V5: <1 pixel valid
+60,0,901,V5: <1 pixel valid
+61,0,2740,V5: <1 pixel valid
+62,0,5305,V5: <1 pixel valid
+63,0,211,V5: <1 pixel valid
+64,0,115,V5: <1 pixel valid
+65,0,2654,V5: <1 pixel valid
+66,138,0,ok
+67,0,852,V5: <1 pixel valid
+68,244,0,ok
+69,0,628,V5: <1 pixel valid
+70,0,431,V5: <1 pixel valid
+71,0,334,V5: <1 pixel valid
+72,168,0,ok
+73,0,361,V5: <1 pixel valid
+74,0,178,V5: <1 pixel valid
+75,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+76,0,22,V5: <1 pixel valid
+77,0,166,V5: <1 pixel valid
+78,0,135,V5: <1 pixel valid
+79,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+80,0,191,V5: <1 pixel valid
+81,913,0,ok
+82,0,1096,V5: <1 pixel valid
+83,0,524,V5: <1 pixel valid
+84,0,185,V5: <1 pixel valid
+85,0,79,V5: <1 pixel valid
+86,0,46,V5: <1 pixel valid
+87,0,8183,V5: <1 pixel valid
+88,0,6748,V5: <1 pixel valid
+89,0,24,V5: <1 pixel valid
+90,20,0,ok
+91,0,1675,V5: <1 pixel valid
+92,0,167,V5: <1 pixel valid
+93,0,16,V5: <1 pixel valid
+94,0,59,V5: <1 pixel valid
+95,0,19,V5: <1 pixel valid
+96,0,492,V5: <1 pixel valid
+97,0,144,V5: <1 pixel valid
+98,0,194,V5: <1 pixel valid
+99,103,0,ok
+100,42,0,ok
+101,0,152,V5: <1 pixel valid
+102,0,18,V5: <1 pixel valid
+103,0,337,V5: <1 pixel valid
+104,2657,0,ok
+105,0,1087,V5: <1 pixel valid
+106,1615,0,ok
+107,0,217,V5: <1 pixel valid
+108,2636,0,ok
+109,107,0,ok
+110,0,768,V5: <1 pixel valid
+111,8871,0,ok
+112,0,20,V5: <1 pixel valid
+113,13274,0,ok
+114,0,37,V5: <1 pixel valid
+115,0,5405,V5: <1 pixel valid
+116,0,1646,V5: <1 pixel valid
+117,0,56,V5: <1 pixel valid
+118,0,3059,V5: <1 pixel valid
+119,202,0,ok
+120,0,92,V5: <1 pixel valid
+121,0,723,V5: <1 pixel valid
+122,0,194,V5: <1 pixel valid
+123,0,74,V5: <1 pixel valid
+124,0,81,V5: <1 pixel valid
+125,0,648,V5: <1 pixel valid
+126,0,46,V5: <1 pixel valid
+127,2702,0,ok
+128,543,0,ok
+129,0,51,V5: <1 pixel valid
+130,0,51,V5: <1 pixel valid
+131,0,1414,V5: <1 pixel valid
+132,1143,0,ok
+133,0,161,V5: <1 pixel valid
+134,0,975,V5: <1 pixel valid
+135,0,10177,V5: <1 pixel valid
+136,0,73,V5: <1 pixel valid
+137,0,2916,V5: <1 pixel valid
+138,0,65,V5: <1 pixel valid
+139,13280,0,ok
+140,0,1394,V5: <1 pixel valid
+141,0,2420,V5: <1 pixel valid
+142,0,547,V5: <1 pixel valid
+143,0,264,V5: <1 pixel valid
+144,0,107,V5: <1 pixel valid
+145,0,7081,V5: <1 pixel valid
+146,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+147,0,26,V5: <1 pixel valid
+148,0,7470,V5: <1 pixel valid
+149,0,278,V5: <1 pixel valid
+150,0,437,V5: <1 pixel valid
+151,0,1015,V5: <1 pixel valid
+152,0,3994,V5: <1 pixel valid
+153,0,31,V5: <1 pixel valid
+154,2253,10102,ok
+155,0,14,V5: <1 pixel valid
+156,0,2936,V5: <1 pixel valid
+157,0,172,V5: <1 pixel valid
+158,0,1224,V5: <1 pixel valid
+159,0,557,V5: <1 pixel valid
+160,572,0,ok
+161,0,167,V5: <1 pixel valid
+162,0,1249,V5: <1 pixel valid
+163,0,16,V5: <1 pixel valid
+164,0,125,V5: <1 pixel valid
+165,0,360,V5: <1 pixel valid
+166,0,386,V5: <1 pixel valid
+167,0,141,V5: <1 pixel valid
+168,451,0,ok
+169,0,43,V5: <1 pixel valid
+170,0,112,V5: <1 pixel valid
+171,0,109,V5: <1 pixel valid
+172,0,58,V5: <1 pixel valid
+173,0,811,V5: <1 pixel valid
+174,0,15,V5: <1 pixel valid
+175,0,8114,V5: <1 pixel valid
+176,230,0,ok
+177,242,0,ok
+178,0,31,V5: <1 pixel valid
+179,0,807,V5: <1 pixel valid
+180,13136,0,ok
+181,0,15,V5: <1 pixel valid
+182,0,47,V5: <1 pixel valid
+183,76,0,ok
+184,0,3210,V5: <1 pixel valid
+185,0,664,V5: <1 pixel valid
+186,0,3146,V5: <1 pixel valid
+187,88,0,ok
+188,0,28,V5: <1 pixel valid
+189,866,0,ok
+190,1190,0,ok
+191,0,108,V5: <1 pixel valid
+192,0,118,V5: <1 pixel valid
+193,0,6791,V5: <1 pixel valid
+194,0,30,V5: <1 pixel valid
+195,0,16,V5: <1 pixel valid
+196,0,2790,V5: <1 pixel valid
+197,0,202,V5: <1 pixel valid
+198,0,1899,V5: <1 pixel valid
+199,0,33,V5: <1 pixel valid
+200,0,1400,V5: <1 pixel valid
+201,0,1911,V5: <1 pixel valid
+202,0,149,V5: <1 pixel valid
+203,0,37,V5: <1 pixel valid
+204,0,147,V5: <1 pixel valid
+205,0,37057,V5: <1 pixel valid
+206,44,0,ok
+207,0,2184,V5: <1 pixel valid
+208,0,1169,V5: <1 pixel valid
+209,0,811,V5: <1 pixel valid
+210,0,76,V5: <1 pixel valid
+211,0,56,V5: <1 pixel valid
+212,130,0,ok
+213,0,7465,V5: <1 pixel valid
+214,0,26677,V5: <1 pixel valid
+215,0,727,V5: <1 pixel valid
+216,0,1047,V5: <1 pixel valid
+217,0,21,V5: <1 pixel valid
+218,196,0,ok
+219,465,0,ok
+220,80,0,ok
+221,0,2938,V5: <1 pixel valid
+222,0,2013,V5: <1 pixel valid
+223,0,19960,V5: <1 pixel valid
+224,599,0,ok
+225,0,52,V5: <1 pixel valid
+226,295,0,ok
+227,0,28,V5: <1 pixel valid
+228,0,10175,V5: <1 pixel valid
+229,0,9,V5: <1 pixel valid
+230,0,103,V5: <1 pixel valid
+231,0,51,V5: <1 pixel valid
+232,0,25,V5: <1 pixel valid
+233,129,0,ok
+234,0,236,V5: <1 pixel valid
+235,0,921,V5: <1 pixel valid
+236,0,5672,V5: <1 pixel valid
+237,0,1412,V5: <1 pixel valid
+238,0,88,V5: <1 pixel valid
+239,0,198,V5: <1 pixel valid
+240,0,43,V5: <1 pixel valid
+241,0,16,V5: <1 pixel valid
+242,0,56,V5: <1 pixel valid
+243,0,34,V5: <1 pixel valid
+244,0,20065,V5: <1 pixel valid
+245,2222,0,ok
+246,0,182,V5: <1 pixel valid
+247,0,2689,V5: <1 pixel valid
+248,0,14,V5: <1 pixel valid
+249,0,25,V5: <1 pixel valid
+250,0,107,V5: <1 pixel valid
+251,0,42,V5: <1 pixel valid
+252,0,193,V5: <1 pixel valid
+253,0,84,V5: <1 pixel valid
+254,0,26,V5: <1 pixel valid
+255,0,22,V5: <1 pixel valid
+256,0,333,V5: <1 pixel valid
+257,0,15858,V5: <1 pixel valid
+258,0,50,V5: <1 pixel valid
+259,0,47,V5: <1 pixel valid
+260,0,55,V5: <1 pixel valid
+261,0,521,V5: <1 pixel valid
+262,0,499,V5: <1 pixel valid
+263,0,83,V5: <1 pixel valid
+264,18,0,ok
+265,0,1014,V5: <1 pixel valid
+266,0,452,V5: <1 pixel valid
+267,0,124,V5: <1 pixel valid
+268,0,802,V5: <1 pixel valid
+269,0,296,V5: <1 pixel valid
+270,0,147,V5: <1 pixel valid
+271,0,50,V5: <1 pixel valid
+272,0,225,V5: <1 pixel valid
+273,0,899,V5: <1 pixel valid
+274,0,117,V5: <1 pixel valid
+275,0,41,V5: <1 pixel valid
+276,0,108,V5: <1 pixel valid
+277,0,4655,V5: <1 pixel valid
+278,0,2656,V5: <1 pixel valid
+279,0,149,V5: <1 pixel valid
+280,608,0,ok
+281,368,0,ok
+282,0,486,V5: <1 pixel valid
+283,0,35,V5: <1 pixel valid
+284,1517,0,ok
+285,3207,0,ok
+286,0,25,V5: <1 pixel valid
+287,0,117,V5: <1 pixel valid
+288,0,3095,V5: <1 pixel valid
+289,0,22016,V5: <1 pixel valid
+290,0,23,V5: <1 pixel valid
+291,553,0,ok
+292,165,0,ok
+293,0,122,V5: <1 pixel valid
+294,0,273,V5: <1 pixel valid
+295,0,22,V5: <1 pixel valid
+296,0,115,V5: <1 pixel valid
+297,0,44,V5: <1 pixel valid
+298,0,128,V5: <1 pixel valid
+299,0,8424,V5: <1 pixel valid
+300,651,0,ok
+301,17,0,ok
+302,0,55,V5: <1 pixel valid
+303,0,208,V5: <1 pixel valid
+304,0,707,V5: <1 pixel valid
+305,284,0,ok
+306,0,15,V5: <1 pixel valid
+307,3779,0,ok
+308,0,665,V5: <1 pixel valid
+309,0,5153,V5: <1 pixel valid
+310,1501,0,ok
+311,0,35,V5: <1 pixel valid
+312,1310,0,ok
+313,0,1164,V5: <1 pixel valid
+314,0,117,V5: <1 pixel valid
+315,34990,0,ok
+316,0,1044,V5: <1 pixel valid
+317,0,24,V5: <1 pixel valid
+318,164,0,ok
+319,435,0,ok
+320,177,0,ok
+321,0,125,V5: <1 pixel valid
+322,0,94,V5: <1 pixel valid
+323,0,33,V5: <1 pixel valid
+324,0,24,V5: <1 pixel valid
+325,0,74,V5: <1 pixel valid
+326,0,6115,V5: <1 pixel valid
+327,0,18,V5: <1 pixel valid
+328,33,0,ok
+329,0,788,V5: <1 pixel valid
+330,0,167,V5: <1 pixel valid
+331,0,4039,V5: <1 pixel valid
+332,0,79,V5: <1 pixel valid
+333,0,285,V5: <1 pixel valid
+334,0,1641,V5: <1 pixel valid
+335,667,0,ok
+336,0,1443,V5: <1 pixel valid
+337,1314,0,ok
+338,0,726,V5: <1 pixel valid
+339,0,8782,V5: <1 pixel valid
+340,0,324,V5: <1 pixel valid
+341,0,95,V5: <1 pixel valid
+342,0,451,V5: <1 pixel valid
+343,0,117,V5: <1 pixel valid
+344,75,0,ok
+345,4579,0,ok
+346,0,17,V5: <1 pixel valid
+347,0,115,V5: <1 pixel valid
+348,1173,0,ok
+349,0,849,V5: <1 pixel valid
+350,0,75,V5: <1 pixel valid
+351,0,1606,V5: <1 pixel valid
+352,0,6758,V5: <1 pixel valid
+353,0,81,V5: <1 pixel valid
+354,0,13,V5: <1 pixel valid
+355,0,556,V5: <1 pixel valid
+356,0,106,V5: <1 pixel valid
+357,0,261,V5: <1 pixel valid
+358,0,30,V5: <1 pixel valid
+359,0,35830,V5: <1 pixel valid
+360,0,2551,V5: <1 pixel valid
+361,0,92,V5: <1 pixel valid
+362,0,18,V5: <1 pixel valid
+363,0,2629,V5: <1 pixel valid
+364,0,38,V5: <1 pixel valid
+365,0,183,V5: <1 pixel valid
+366,397,0,ok
+367,40,0,ok
+368,0,926,V5: <1 pixel valid
+369,0,85,V5: <1 pixel valid
+370,0,778,V5: <1 pixel valid
+371,0,2,V5: <1 pixel valid
+372,0,500,V5: <1 pixel valid
+373,0,84,V5: <1 pixel valid
+374,0,331,V5: <1 pixel valid
+375,0,524,V5: <1 pixel valid
+376,115,0,ok
+377,0,610,V5: <1 pixel valid
+378,0,22,V5: <1 pixel valid
+379,50,0,ok
+380,0,2030,V5: <1 pixel valid
+381,0,6440,V5: <1 pixel valid
+382,0,415,V5: <1 pixel valid
+383,0,39,V5: <1 pixel valid
+384,0,12,V5: <1 pixel valid
+385,0,27,V5: <1 pixel valid
+386,0,28,V5: <1 pixel valid
+387,0,22,V5: <1 pixel valid
+388,0,14166,V5: <1 pixel valid
+389,0,1213,V5: <1 pixel valid
+390,118,0,ok
+391,0,153,V5: <1 pixel valid
+392,1218,0,ok
+393,95,0,ok
+394,0,153,V5: <1 pixel valid
+395,0,4651,V5: <1 pixel valid
+396,4758,0,ok
+397,0,467,V5: <1 pixel valid
+398,0,205,V5: <1 pixel valid
+399,0,4865,V5: <1 pixel valid
+400,0,253,V5: <1 pixel valid
+401,35,0,ok
+402,0,294,V5: <1 pixel valid
+403,0,35632,V5: <1 pixel valid
+404,0,1491,V5: <1 pixel valid
+405,317,0,ok
+406,0,280,V5: <1 pixel valid
+407,0,208,V5: <1 pixel valid
+408,0,461,V5: <1 pixel valid
+409,0,103,V5: <1 pixel valid
+410,0,71,V5: <1 pixel valid
+411,0,12,V5: <1 pixel valid
+412,0,18973,V5: <1 pixel valid
+413,0,1188,V5: <1 pixel valid
+414,0,32,V5: <1 pixel valid
+415,0,32,V5: <1 pixel valid
+416,0,29,V5: <1 pixel valid
+417,0,301,V5: <1 pixel valid
+418,0,4810,V5: <1 pixel valid
+419,13,0,ok
+420,0,18,V5: <1 pixel valid
+421,0,14,V5: <1 pixel valid
+422,0,1467,V5: <1 pixel valid
+423,0,684,V5: <1 pixel valid
+424,0,2335,V5: <1 pixel valid
+425,0,86,V5: <1 pixel valid
+426,0,4322,V5: <1 pixel valid
+427,0,4876,V5: <1 pixel valid
+428,0,104,V5: <1 pixel valid
+429,0,30,V5: <1 pixel valid
+430,0,16,V5: <1 pixel valid
+431,0,39,V5: <1 pixel valid
+432,0,377,V5: <1 pixel valid
+433,0,857,V5: <1 pixel valid
+434,0,82,V5: <1 pixel valid
+435,0,15305,V5: <1 pixel valid
+436,0,43,V5: <1 pixel valid
+437,0,334,V5: <1 pixel valid
+438,173,0,ok
+439,0,1073,V5: <1 pixel valid
+440,0,743,V5: <1 pixel valid
+441,0,23,V5: <1 pixel valid
+442,0,42,V5: <1 pixel valid
+443,0,67,V5: <1 pixel valid
+444,0,11,V5: <1 pixel valid
+445,0,14,V5: <1 pixel valid
+446,0,22,V5: <1 pixel valid
+447,0,84,V5: <1 pixel valid
+448,0,384,V5: <1 pixel valid
+449,0,40,V5: <1 pixel valid
+450,0,182,V5: <1 pixel valid
+451,0,3985,V5: <1 pixel valid
+452,0,37,V5: <1 pixel valid
+453,174,0,ok
+454,0,1101,V5: <1 pixel valid
+455,0,36,V5: <1 pixel valid
+456,0,418,V5: <1 pixel valid
+457,398,0,ok
+458,0,4353,V5: <1 pixel valid
+459,0,2865,V5: <1 pixel valid
+460,0,46,V5: <1 pixel valid
+461,4085,0,ok
+462,0,9311,V5: <1 pixel valid
+463,0,6132,V5: <1 pixel valid
+464,0,549,V5: <1 pixel valid
+465,22,0,ok
+466,0,139,V5: <1 pixel valid
+467,0,12,V5: <1 pixel valid
+468,53,34,ok
+469,68,0,ok
+470,0,59,V5: <1 pixel valid
+471,0,246,V5: <1 pixel valid
+472,0,86,V5: <1 pixel valid
+473,0,445,V5: <1 pixel valid
+474,0,419,V5: <1 pixel valid
+475,0,87,V5: <1 pixel valid
+476,0,81,V5: <1 pixel valid
+477,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+478,0,1548,V5: <1 pixel valid
+479,108,0,ok
+480,0,529,V5: <1 pixel valid
+481,0,558,V5: <1 pixel valid
+482,0,14,V5: <1 pixel valid
+483,0,22,V5: <1 pixel valid
+484,0,77,V5: <1 pixel valid
+485,0,41,V5: <1 pixel valid
+486,15438,0,ok
+487,0,334,V5: <1 pixel valid
+488,0,74,V5: <1 pixel valid
+489,0,14,V5: <1 pixel valid
+490,0,28,V5: <1 pixel valid
+491,0,238,V5: <1 pixel valid
+492,0,49,V5: <1 pixel valid
+493,0,126,V5: <1 pixel valid
+494,0,114,V5: <1 pixel valid
+495,0,182,V5: <1 pixel valid
+496,0,18,V5: <1 pixel valid
+497,0,212,V5: <1 pixel valid
+498,0,26,V5: <1 pixel valid
+499,13,0,ok
+500,59,0,ok
+501,0,52,V5: <1 pixel valid
+502,25,0,ok
+503,31,0,ok
+504,63,0,ok
+505,39,0,ok
+506,0,53,V5: <1 pixel valid
+507,12,0,ok
+508,0,31,V5: <1 pixel valid
+509,0,17,V5: <1 pixel valid
+510,0,75,V5: <1 pixel valid
+511,0,1171,V5: <1 pixel valid
+512,0,926,V5: <1 pixel valid
+513,368,0,ok
+514,0,447,V5: <1 pixel valid
+515,16,0,ok
+516,46,0,ok
+517,15,0,ok
+518,0,15,V5: <1 pixel valid
+519,603,0,ok
+520,202,0,ok
+521,0,20,V5: <1 pixel valid
+522,0,22,V5: <1 pixel valid
+523,120,0,ok
+524,0,217,V5: <1 pixel valid
+525,0,276,V5: <1 pixel valid
+526,187,0,ok
+527,0,62,V5: <1 pixel valid
+528,0,25,V5: <1 pixel valid
+529,41,0,ok
+530,4025,0,ok
+531,0,236,V5: <1 pixel valid
+532,220,0,ok
+533,0,48,V5: <1 pixel valid
+534,0,57,V5: <1 pixel valid
+535,219,0,ok
+536,21,0,ok
+537,59,0,ok
+538,0,405,V5: <1 pixel valid
+539,61,0,ok
+540,593,0,ok
+541,64,0,ok
+542,0,197,V5: <1 pixel valid
+543,82,0,ok
+544,78,0,ok
+545,0,546,V5: <1 pixel valid
+546,669,0,ok
+547,0,233,V5: <1 pixel valid
+548,0,76,V5: <1 pixel valid
+549,32,0,ok
+550,0,77,V5: <1 pixel valid
+551,87,0,ok
+552,0,280,V5: <1 pixel valid
+553,0,13,V5: <1 pixel valid
+554,353,0,ok
+555,22,0,ok
+556,5120,0,ok
+557,0,23,V5: <1 pixel valid
+558,0,701,V5: <1 pixel valid
+559,0,12,V5: <1 pixel valid
+560,38,0,ok
+561,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+562,0,15,V5: <1 pixel valid
+563,0,94,V5: <1 pixel valid
+564,347,0,ok
+565,92,0,ok
+566,0,12,V5: <1 pixel valid
+567,64,0,ok
+568,0,102,V5: <1 pixel valid
+569,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+570,801,0,ok
+571,159,0,ok
+572,166,0,ok
+573,0,106,V5: <1 pixel valid
+574,146,0,ok
+575,152,0,ok
+576,0,28,V5: <1 pixel valid
+577,0,25,V5: <1 pixel valid
+578,21,0,ok
+579,0,28,V5: <1 pixel valid
+580,19,0,ok
+581,163,0,ok
+582,36,0,ok
+583,0,116,V5: <1 pixel valid
+584,0,19,V5: <1 pixel valid
+585,0,22,V5: <1 pixel valid
+586,25,0,ok
+587,17,0,ok
+588,0,1130,V5: <1 pixel valid
+589,43,0,ok
+590,146,0,ok
+591,0,37,V5: <1 pixel valid
+592,0,168,V5: <1 pixel valid
+593,0,502,V5: <1 pixel valid
+594,0,59,V5: <1 pixel valid
+595,0,533,V5: <1 pixel valid
+596,3658,0,ok
+597,0,1285,V5: <1 pixel valid
+598,74,0,ok
+599,0,625,V5: <1 pixel valid
+600,315,0,ok
+601,222,0,ok
+602,0,473,V5: <1 pixel valid
+603,19,0,ok
+604,127,0,ok
+605,483,0,ok
+606,0,113,V5: <1 pixel valid
+607,0,113,V5: <1 pixel valid
+608,99,0,ok
+609,0,22,V5: <1 pixel valid
+610,209,0,ok
+611,71,0,ok
+612,0,39,V5: <1 pixel valid
+613,18,0,ok
+614,0,470,V5: <1 pixel valid
+615,0,18,V5: <1 pixel valid
+616,0,28,V5: <1 pixel valid
+617,0,33,V5: <1 pixel valid
+618,161,0,ok
+619,109,0,ok
+620,19,0,ok
+621,0,19,V5: <1 pixel valid
+622,0,844,V5: <1 pixel valid
+623,0,24,V5: <1 pixel valid
+624,0,2158,V5: <1 pixel valid
+625,48,0,ok
+626,0,487,V5: <1 pixel valid
+627,451,0,ok
+628,0,202,V5: <1 pixel valid
+629,0,199,V5: <1 pixel valid
+630,2330,0,ok
+631,0,21,V5: <1 pixel valid
+632,12,0,ok
+633,12,0,ok
+634,17,0,ok
+635,1219,0,ok
+636,0,3742,V5: <1 pixel valid
+637,0,205,V5: <1 pixel valid
+638,224,0,ok
+639,112,0,ok
+640,0,51,V5: <1 pixel valid
+641,45,0,ok
+642,0,41,V5: <1 pixel valid
+643,237,0,ok
+644,0,20,V5: <1 pixel valid
+645,351,0,ok
+646,228,0,ok
+647,0,186,V5: <1 pixel valid
+648,0,746,V5: <1 pixel valid
+649,0,87,V5: <1 pixel valid
+650,0,1039,V5: <1 pixel valid
+651,669,0,ok
+652,239,0,ok
+653,171,0,ok
+654,211,0,ok
+655,22,0,ok
+656,0,97,V5: <1 pixel valid
+657,154,0,ok
+658,114,0,ok
+659,57,0,ok
+660,207,0,ok
+661,0,52,V5: <1 pixel valid
+662,0,21,V5: <1 pixel valid
+663,0,84,V5: <1 pixel valid
+664,0,14,V5: <1 pixel valid
+665,0,1309,V5: <1 pixel valid
+666,30,0,ok
+667,94,0,ok
+668,0,68,V5: <1 pixel valid
+669,98,0,ok
+670,0,252,V5: <1 pixel valid
+671,0,1737,V5: <1 pixel valid
+672,0,128,V5: <1 pixel valid
+673,0,21,V5: <1 pixel valid
+674,0,183,V5: <1 pixel valid
+675,333,0,ok
+676,344,0,ok
+677,89,0,ok
+678,21,0,ok
+679,94,0,ok
+680,181,0,ok
+681,89,0,ok
+682,57,0,ok
+683,0,206,V5: <1 pixel valid
+684,233,0,ok
+685,30,0,ok
+686,0,16155,V5: <1 pixel valid
+687,0,418,V5: <1 pixel valid
+688,0,1027,V5: <1 pixel valid
+689,16,0,ok
+690,73,0,ok
+691,0,111,V5: <1 pixel valid
+692,0,10,V5: <1 pixel valid
+693,0,113,V5: <1 pixel valid
+694,0,195,V5: <1 pixel valid
+695,90,0,ok
+696,49,0,ok
+697,0,80,V5: <1 pixel valid
+698,68,0,ok
+699,0,9,V5: <1 pixel valid
+700,0,462,V5: <1 pixel valid
+701,105,0,ok
+702,109,0,ok
+703,0,71,V5: <1 pixel valid
+704,0,56,V5: <1 pixel valid
+705,0,18355,V5: <1 pixel valid
+706,0,153,V5: <1 pixel valid
+707,43,0,ok
+708,94,0,ok
+709,250,0,ok
+710,0,41,V5: <1 pixel valid
+711,51,0,ok
+712,92,0,ok
+713,135,0,ok
+714,2413,0,ok
+715,39,0,ok
+716,0,46,V5: <1 pixel valid
+717,0,1317,V5: <1 pixel valid
+718,0,276,V5: <1 pixel valid
+719,58,0,ok
+720,27,0,ok
+721,77,0,ok
+722,0,123,V5: <1 pixel valid
+723,0,150,V5: <1 pixel valid
+724,0,37,V5: <1 pixel valid
+725,112,0,ok
+726,0,14,V5: <1 pixel valid
+727,924,0,ok
+728,521,0,ok
+729,0,56,V5: <1 pixel valid
+730,109,0,ok
+731,3006,0,ok
+732,0,28,V5: <1 pixel valid
+733,57,0,ok
+734,39,0,ok
+735,73,0,ok
+736,592,0,ok
+737,0,23,V5: <1 pixel valid
+738,0,110,V5: <1 pixel valid
+739,243,0,ok
+740,0,55,V5: <1 pixel valid
+741,0,129,V5: <1 pixel valid
+742,0,28,V5: <1 pixel valid
+743,0,619,V5: <1 pixel valid
+744,0,145,V5: <1 pixel valid
+745,75,0,ok
+746,0,29,V5: <1 pixel valid
+747,629,0,ok
+748,0,22,V5: <1 pixel valid
+749,0,202,V5: <1 pixel valid
+750,0,16,V5: <1 pixel valid
+751,2709,0,ok
+752,0,380,V5: <1 pixel valid
+753,0,66,V5: <1 pixel valid
+754,0,2495,V5: <1 pixel valid
+755,0,20,V5: <1 pixel valid
+756,37,0,ok
+757,1043,0,ok
+758,13,0,ok
+759,152,0,ok
+760,203,0,ok
+761,198,0,ok
+762,48,0,ok
+763,42,0,ok
+764,2910,0,ok
+765,18,0,ok
+766,0,64,V5: <1 pixel valid
+767,0,59,V5: <1 pixel valid
+768,61,0,ok
+769,39,0,ok
+770,326,0,ok
+771,0,147,V5: <1 pixel valid
+772,48,0,ok
+773,0,42,V5: <1 pixel valid
+774,311,0,ok
+775,0,109,V5: <1 pixel valid
+776,0,20,V5: <1 pixel valid
+777,130,0,ok
+778,0,61,V5: <1 pixel valid
+779,0,238,V5: <1 pixel valid
+780,38,0,ok
+781,50,0,ok
+782,144,0,ok
+783,0,22,V5: <1 pixel valid
+784,0,506,V5: <1 pixel valid
+785,0,46,V5: <1 pixel valid
+786,0,157,V5: <1 pixel valid
+787,0,16,V5: <1 pixel valid
+788,162,0,ok
+789,15,0,ok
+790,0,66,V5: <1 pixel valid
+791,100,0,ok
+792,0,14,V5: <1 pixel valid
+793,32,0,ok
+794,0,22,V5: <1 pixel valid
+795,73,0,ok
+796,59,0,ok
+797,0,25,V5: <1 pixel valid
+798,57,0,ok
+799,52,0,ok
+800,0,134,V5: <1 pixel valid
+801,13,0,ok
+802,0,192,V5: <1 pixel valid
+803,0,144,V5: <1 pixel valid
+804,0,231,V5: <1 pixel valid
+805,0,80,V5: <1 pixel valid
+806,25,0,ok
+807,0,136,V5: <1 pixel valid
+808,0,1048,V5: <1 pixel valid
+809,0,17,V5: <1 pixel valid
+810,3418,0,ok
+811,0,400,V5: <1 pixel valid
+812,0,428,V5: <1 pixel valid
+813,606,0,ok
+814,0,18,V5: <1 pixel valid
+815,182,0,ok
+816,203,0,ok
+817,28,0,ok
+818,0,279,V5: <1 pixel valid
+819,0,199,V5: <1 pixel valid
+820,0,125,V5: <1 pixel valid
+821,7,0,ok
+822,52,0,ok
+823,0,67,V5: <1 pixel valid
+824,0,197,V5: <1 pixel valid
+825,0,20,V5: <1 pixel valid
+826,71,0,ok
+827,0,561,V5: <1 pixel valid
+828,524,0,ok
+829,0,33,V5: <1 pixel valid
+830,0,16,V5: <1 pixel valid
+831,70,0,ok
+832,0,651,V5: <1 pixel valid
+833,0,82,V5: <1 pixel valid
+834,0,3131,V5: <1 pixel valid
+835,168,0,ok
+836,0,2277,V5: <1 pixel valid
+837,0,45,V5: <1 pixel valid
+838,10,0,ok
+839,20,0,ok
+840,40,0,ok
+841,0,18,V5: <1 pixel valid
+842,172,0,ok
+843,2161,0,ok
+844,76,0,ok
+845,0,57,V5: <1 pixel valid
+846,5718,0,ok
+847,196,0,ok
+848,0,23,V5: <1 pixel valid
+849,0,603,V5: <1 pixel valid
+850,0,107,V5: <1 pixel valid
+851,0,96,V5: <1 pixel valid
+852,204,0,ok
+853,0,77,V5: <1 pixel valid
+854,20,0,ok
+855,757,0,ok
+856,124,0,ok
+857,187,0,ok
+858,101,0,ok
+859,706,0,ok
+860,856,0,ok
+861,12,0,ok
+862,0,264,V5: <1 pixel valid
+863,0,72,V5: <1 pixel valid
+864,0,537,V5: <1 pixel valid
+865,0,17,V5: <1 pixel valid
+866,61,0,ok
+867,43,0,ok
+868,0,175,V5: <1 pixel valid
+869,13,0,ok
+870,587,0,ok
+871,0,35,V5: <1 pixel valid
+872,156,0,ok
+873,0,71,V5: <1 pixel valid
+874,73,0,ok
+875,115,0,ok
+876,472,0,ok
+877,651,0,ok
+878,88,0,ok
+879,27,0,ok
+880,0,527,V5: <1 pixel valid
+881,0,95,V5: <1 pixel valid
+882,0,83,V5: <1 pixel valid
+883,310,0,ok
+884,99,0,ok
+885,626,0,ok
+886,0,207,V5: <1 pixel valid
+887,0,175,V5: <1 pixel valid
+888,87,0,ok
+889,53,0,ok
+890,0,65,V5: <1 pixel valid
+891,22,0,ok
+892,0,71,V5: <1 pixel valid
+893,900,0,ok
+894,0,44,V5: <1 pixel valid
+895,40,0,ok
+896,0,325,V5: <1 pixel valid
+897,0,42,V5: <1 pixel valid
+898,2106,0,ok
+899,0,13,V5: <1 pixel valid
+900,0,595,V5: <1 pixel valid
+901,48,0,ok
+902,173,0,ok
+903,81,0,ok
+904,45,0,ok
+905,0,1273,V5: <1 pixel valid
+906,0,51,V5: <1 pixel valid
+907,75,0,ok
+908,60,0,ok
+909,10,0,ok
+910,0,50,V5: <1 pixel valid
+911,0,261,V5: <1 pixel valid
+912,0,598,V5: <1 pixel valid
+913,220,0,ok
+914,0,293,V5: <1 pixel valid
+915,708,0,ok
+916,0,40,V5: <1 pixel valid
+917,0,107,V5: <1 pixel valid
+918,22,0,ok
+919,0,230,V5: <1 pixel valid
+920,0,108,V5: <1 pixel valid
+921,1094,0,ok
+922,457,0,ok
+923,0,203,V5: <1 pixel valid
+924,0,990,V5: <1 pixel valid
+925,44,0,ok
+926,0,594,V5: <1 pixel valid
+927,0,96,V5: <1 pixel valid
+928,0,32,V5: <1 pixel valid
+929,18,0,ok
+930,25,0,ok
+931,0,258,V5: <1 pixel valid
+932,99,0,ok
+933,0,32,V5: <1 pixel valid
+934,342,0,ok
+935,0,22,V5: <1 pixel valid
+936,0,147,V5: <1 pixel valid
+937,0,58,V5: <1 pixel valid
+938,84,0,ok
+939,0,54,V5: <1 pixel valid
+940,0,177,V5: <1 pixel valid
+941,24,0,ok
+942,0,130,V5: <1 pixel valid
+943,0,29,V5: <1 pixel valid
+944,0,16,V5: <1 pixel valid
+945,0,1769,V5: <1 pixel valid
+946,214,0,ok
+947,91,0,ok
+948,40,0,ok
+949,908,0,ok
+950,0,31,V5: <1 pixel valid
+951,0,379,V5: <1 pixel valid
+952,323,0,ok
+953,0,73,V5: <1 pixel valid
+954,0,11,V5: <1 pixel valid
+955,0,132,V5: <1 pixel valid
+956,0,524,V5: <1 pixel valid
+957,0,79,V5: <1 pixel valid
+958,127,0,ok
+959,225,0,ok
+960,51,0,ok
+961,140,0,ok
+962,5444,0,ok
+963,146,0,ok
+964,23,0,ok
+965,46,0,ok
+966,0,512,V5: <1 pixel valid
+967,0,15,V5: <1 pixel valid
+968,0,189,V5: <1 pixel valid
+969,17,0,ok
+970,0,478,V5: <1 pixel valid
+971,0,111,V5: <1 pixel valid
+972,114,0,ok
+973,0,1651,V5: <1 pixel valid
+974,0,24,V5: <1 pixel valid
+975,0,1475,V5: <1 pixel valid
+976,0,65,V5: <1 pixel valid
+977,70,0,ok
+978,144,0,ok
+979,0,404,V5: <1 pixel valid
+980,0,1249,V5: <1 pixel valid
+981,77,0,ok
+982,0,636,V5: <1 pixel valid
+983,0,1823,V5: <1 pixel valid
+984,167,0,ok
+985,201,0,ok
+986,146,0,ok
+987,72,0,ok
+988,49,0,ok
+989,49,0,ok
+990,0,178,V5: <1 pixel valid
+991,0,411,V5: <1 pixel valid
+992,316,0,ok
+993,0,342,V5: <1 pixel valid
+994,8,0,ok
+995,109,0,ok
+996,0,2389,V5: <1 pixel valid
+997,0,38,V5: <1 pixel valid
+998,0,27,V5: <1 pixel valid
+999,12,0,ok
+1000,0,6,V5: <1 pixel valid
+1001,2,0,ok
+1002,3,0,ok
+1003,0,1231,V5: <1 pixel valid
+1004,0,2,V5: <1 pixel valid
+1005,0,31,V5: <1 pixel valid
+1006,0,6743,V5: <1 pixel valid
+1007,0,0,V5: <1 pixel valid
+1008,3674,0,ok
+1009,126,0,ok
+1010,0,2,V5: <1 pixel valid
+1011,0,41,V5: <1 pixel valid
+1012,0,265,V5: <1 pixel valid
+1013,0,0,gagal baca: ValueError
+1014,0,15,V5: <1 pixel valid
+1015,154,0,ok
+1016,116,0,ok
+1017,0,5,V5: <1 pixel valid
+1018,0,0,gagal baca: ValueError
+1019,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1020,0,4,V5: <1 pixel valid
+1021,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1022,0,93,V5: <1 pixel valid
+1023,0,0,V5: <1 pixel valid
+1024,0,18,V5: <1 pixel valid
+1025,0,91,V5: <1 pixel valid
+1026,1832,0,ok
+1027,0,25,V5: <1 pixel valid
+1028,0,40,V5: <1 pixel valid
+1029,0,58,V5: <1 pixel valid
+1030,0,226,V5: <1 pixel valid
+1031,0,6,V5: <1 pixel valid
+1032,0,4,V5: <1 pixel valid
+1033,0,78,V5: <1 pixel valid
+1034,0,21,V5: <1 pixel valid
+1035,380,0,ok
+1036,456,0,ok
+1037,52,0,ok
+1038,0,35,V5: <1 pixel valid
+1039,65,5,ok
+1040,0,15,V5: <1 pixel valid
+1041,0,114,V5: <1 pixel valid
+1042,2,0,ok
+1043,0,12,V5: <1 pixel valid
+1044,0,8,V5: <1 pixel valid
+1045,0,0,V5: <1 pixel valid
+1046,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1047,468,0,ok
+1048,5463,0,ok
+1049,24605,4,ok
+1050,0,0,gagal baca: ValueError
+1051,0,0,gagal baca: ValueError
+1052,0,0,V5: <1 pixel valid
+1053,0,0,V5: <1 pixel valid
+1054,0,22,V5: <1 pixel valid
+1055,0,4,V5: <1 pixel valid
+1056,0,98,V5: <1 pixel valid
+1057,151,0,ok
+1058,0,126,V5: <1 pixel valid
+1059,0,3,V5: <1 pixel valid
+1060,0,0,V5: <1 pixel valid
+1061,251,0,ok
+1062,0,1,V5: <1 pixel valid
+1063,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1064,0,125,V5: <1 pixel valid
+1065,0,128,V5: <1 pixel valid
+1066,0,553,V5: <1 pixel valid
+1067,0,0,gagal baca: ValueError
+1068,0,84,V5: <1 pixel valid
+1069,0,0,V5: <1 pixel valid
+1070,0,34,V5: <1 pixel valid
+1071,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1072,0,18,V5: <1 pixel valid
+1073,0,3,V5: <1 pixel valid
+1074,0,44,V5: <1 pixel valid
+1075,0,21,V5: <1 pixel valid
+1076,3,0,ok
+1077,0,5,V5: <1 pixel valid
+1078,0,10,V5: <1 pixel valid
+1079,0,66,V5: <1 pixel valid
+1080,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1081,0,0,gagal baca: ValueError
+1082,0,3,V5: <1 pixel valid
+1083,4,0,ok
+1084,637,0,ok
+1085,0,10,V5: <1 pixel valid
+1086,5,4,ok
+1087,0,0,gagal baca: ValueError
+1088,0,20,V5: <1 pixel valid
+1089,0,36,V5: <1 pixel valid
+1090,0,15,V5: <1 pixel valid
+1091,0,23,V5: <1 pixel valid
+1092,0,36,V5: <1 pixel valid
+1093,110,0,ok
+1094,0,4,V5: <1 pixel valid
+1095,0,0,V5: <1 pixel valid
+1096,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1097,0,25,V5: <1 pixel valid
+1098,0,0,gagal baca: ValueError
+1099,12243,0,ok
+1100,58,0,ok
+1101,862,0,ok
+1102,0,2,V5: <1 pixel valid
+1103,0,0,gagal baca: ValueError
+1104,0,268,V5: <1 pixel valid
+1105,0,749,V5: <1 pixel valid
+1106,0,10,V5: <1 pixel valid
+1107,0,37,V5: <1 pixel valid
+1108,0,3,V5: <1 pixel valid
+1109,6,0,ok
+1110,0,222,V5: <1 pixel valid
+1111,0,36,V5: <1 pixel valid
+1112,33,0,ok
+1113,0,199,V5: <1 pixel valid
+1114,222,0,ok
+1115,0,0,V5: <1 pixel valid
+1116,0,4,V5: <1 pixel valid
+1117,0,0,V5: <1 pixel valid
+1118,1456,0,ok
+1119,0,0,gagal baca: ValueError
+1120,0,44,V5: <1 pixel valid
+1121,33,0,ok
+1122,28,0,ok
+1123,54,0,ok
+1124,0,4,V5: <1 pixel valid
+1125,0,130,V5: <1 pixel valid
+1126,0,33,V5: <1 pixel valid
+1127,0,7,V5: <1 pixel valid
+1128,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1129,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1130,0,0,gagal baca: ValueError
+1131,0,0,V5: <1 pixel valid
+1132,0,1495,V5: <1 pixel valid
+1133,0,2,V5: <1 pixel valid
+1134,3,0,ok
+1135,26,0,ok
+1136,0,262,V5: <1 pixel valid
+1137,0,18,V5: <1 pixel valid
+1138,0,0,gagal baca: ValueError
+1139,0,18,V5: <1 pixel valid
+1140,0,0,gagal baca: ValueError
+1141,0,9,V5: <1 pixel valid
+1142,0,1737,V5: <1 pixel valid
+1143,0,69,V5: <1 pixel valid
+1144,14,0,ok
+1145,0,11,V5: <1 pixel valid
+1146,347,0,ok
+1147,1,0,ok
+1148,0,64,V5: <1 pixel valid
+1149,0,55,V5: <1 pixel valid
+1150,0,0,gagal baca: ValueError
+1151,0,11,V5: <1 pixel valid
+1152,0,414,V5: <1 pixel valid
+1153,0,98,V5: <1 pixel valid
+1154,0,1,V5: <1 pixel valid
+1155,3,0,ok
+1156,0,1008,V5: <1 pixel valid
+1157,0,843,V5: <1 pixel valid
+1158,57,0,ok
+1159,0,4,V5: <1 pixel valid
+1160,0,12,V5: <1 pixel valid
+1161,0,16,V5: <1 pixel valid
+1162,0,0,V5: <1 pixel valid
+1163,0,14,V5: <1 pixel valid
+1164,0,35,V5: <1 pixel valid
+1165,0,2,V5: <1 pixel valid
+1166,0,0,gagal baca: ValueError
+1167,0,1,V5: <1 pixel valid
+1168,0,1700,V5: <1 pixel valid
+1169,0,7,V5: <1 pixel valid
+1170,0,0,gagal baca: ValueError
+1171,0,6,V5: <1 pixel valid
+1172,321,0,ok
+1173,473,0,ok
+1174,0,14,V5: <1 pixel valid
+1175,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1176,0,0,gagal baca: ValueError
+1177,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1178,0,0,gagal baca: ValueError
+1179,0,12,V5: <1 pixel valid
+1180,0,58,V5: <1 pixel valid
+1181,0,11,V5: <1 pixel valid
+1182,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1183,0,14,V5: <1 pixel valid
+1184,0,0,gagal baca: ValueError
+1185,68,0,ok
+1186,15,0,ok
+1187,0,0,gagal baca: ValueError
+1188,0,30,V5: <1 pixel valid
+1189,331,0,ok
+1190,0,27,V5: <1 pixel valid
+1191,63,0,ok
+1192,0,0,V5: <1 pixel valid
+1193,0,23,V5: <1 pixel valid
+1194,1230,7,ok
+1195,0,31,V5: <1 pixel valid
+1196,0,16,V5: <1 pixel valid
+1197,0,1,V5: <1 pixel valid
+1198,0,1468,V5: <1 pixel valid
+1199,55,0,ok
+1200,57,0,ok
+1201,0,0,gagal baca: ValueError
+1202,0,0,gagal baca: ValueError
+1203,0,0,V5: <1 pixel valid
+1204,0,1289,V5: <1 pixel valid
+1205,0,3,V5: <1 pixel valid
+1206,0,9384,V5: <1 pixel valid
+1207,0,1022,V5: <1 pixel valid
+1208,0,211,V5: <1 pixel valid
+1209,0,5998,V5: <1 pixel valid
+1210,0,0,gagal baca: ValueError
+1211,7514,0,ok
+1212,0,2,V5: <1 pixel valid
+1213,0,101,V5: <1 pixel valid
+1214,40,0,ok
+1215,46,0,ok
+1216,198,0,ok
+1217,0,237,V5: <1 pixel valid
+1218,0,6,V5: <1 pixel valid
+1219,199,45,ok
+1220,0,30,V5: <1 pixel valid
+1221,0,0,V5: <1 pixel valid
+1222,0,2,V5: <1 pixel valid
+1223,0,322,V5: <1 pixel valid
+1224,0,0,V5: <1 pixel valid
+1225,0,149,V5: <1 pixel valid
+1226,0,1,V5: <1 pixel valid
+1227,0,25,V5: <1 pixel valid
+1228,3,0,ok
+1229,19,1,ok
+1230,0,3,V5: <1 pixel valid
+1231,0,48,V5: <1 pixel valid
+1232,788,0,ok
+1233,0,5,V5: <1 pixel valid
+1234,0,0,gagal baca: ValueError
+1235,0,6,V5: <1 pixel valid
+1236,0,16,V5: <1 pixel valid
+1237,0,161,V5: <1 pixel valid
+1238,165,0,ok
+1239,0,0,V5: <1 pixel valid
+1240,0,14,V5: <1 pixel valid
+1241,64,0,ok
+1242,0,55,V5: <1 pixel valid
+1243,422,0,ok
+1244,0,15,V5: <1 pixel valid
+1245,0,65,V5: <1 pixel valid
+1246,0,0,gagal baca: ValueError
+1247,1,0,ok
+1248,0,1853,V5: <1 pixel valid
+1249,0,1649,V5: <1 pixel valid
+1250,0,157,V5: <1 pixel valid
+1251,0,5,V5: <1 pixel valid
+1252,173,0,ok
+1253,0,39,V5: <1 pixel valid
+1254,0,0,V5: <1 pixel valid
+1255,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1256,3,0,ok
+1257,0,3,V5: <1 pixel valid
+1258,0,3,V5: <1 pixel valid
+1259,0,1,V5: <1 pixel valid
+1260,0,0,V5: <1 pixel valid
+1261,0,19,V5: <1 pixel valid
+1262,0,2,V5: <1 pixel valid
+1263,2,0,ok
+1264,11,0,ok
+1265,1,1,ok
+1266,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1267,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1268,0,0,V5: <1 pixel valid
+1269,0,77,V5: <1 pixel valid
+1270,66,0,ok
+1271,1,0,ok
+1272,0,0,gagal baca: ValueError
+1273,0,4,V5: <1 pixel valid
+1274,19,0,ok
+1275,0,1,V5: <1 pixel valid
+1276,0,2,V5: <1 pixel valid
+1277,0,1,V5: <1 pixel valid
+1278,0,30,V5: <1 pixel valid
+1279,0,1,V5: <1 pixel valid
+1280,0,20,V5: <1 pixel valid
+1281,0,8,V5: <1 pixel valid
+1282,3466,0,ok
+1283,0,0,V5: <1 pixel valid
+1284,0,59,V5: <1 pixel valid
+1285,0,19,V5: <1 pixel valid
+1286,0,864,V5: <1 pixel valid
+1287,0,0,V5: <1 pixel valid
+1288,0,0,V5: <1 pixel valid
+1289,0,18,V5: <1 pixel valid
+1290,0,1,V5: <1 pixel valid
+1291,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1292,0,24,V5: <1 pixel valid
+1293,0,2,V5: <1 pixel valid
+1294,0,46,V5: <1 pixel valid
+1295,0,287,V5: <1 pixel valid
+1296,0,182,V5: <1 pixel valid
+1297,0,1,V5: <1 pixel valid
+1298,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1299,0,0,gagal baca: ValueError
+1300,0,0,V5: <1 pixel valid
+1301,0,0,gagal baca: ValueError
+1302,0,784,V5: <1 pixel valid
+1303,0,218,V5: <1 pixel valid
+1304,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1305,0,45,V5: <1 pixel valid
+1306,0,9,V5: <1 pixel valid
+1307,3,0,ok
+1308,0,186,V5: <1 pixel valid
+1309,0,23,V5: <1 pixel valid
+1310,0,16,V5: <1 pixel valid
+1311,162,0,ok
+1312,0,144,V5: <1 pixel valid
+1313,0,496,V5: <1 pixel valid
+1314,0,2,V5: <1 pixel valid
+1315,0,110,V5: <1 pixel valid
+1316,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1317,0,784,V5: <1 pixel valid
+1318,18,0,ok
+1319,13,0,ok
+1320,0,0,V5: <1 pixel valid
+1321,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1322,0,58,V5: <1 pixel valid
+1323,0,215,V5: <1 pixel valid
+1324,34,1,ok
+1325,0,11,V5: <1 pixel valid
+1326,0,3,V5: <1 pixel valid
+1327,0,0,gagal baca: ValueError
+1328,0,0,gagal baca: ValueError
+1329,0,0,V5: <1 pixel valid
+1330,0,0,V5: <1 pixel valid
+1331,0,44,V5: <1 pixel valid
+1332,0,94,V5: <1 pixel valid
+1333,0,196,V5: <1 pixel valid
+1334,0,33,V5: <1 pixel valid
+1335,0,0,gagal baca: ValueError
+1336,24,0,ok
+1337,0,0,gagal baca: ValueError
+1338,0,13,V5: <1 pixel valid
+1339,0,4,V5: <1 pixel valid
+1340,0,46,V5: <1 pixel valid
+1341,0,7,V5: <1 pixel valid
+1342,0,10,V5: <1 pixel valid
+1343,0,0,gagal baca: ValueError
+1344,0,0,gagal baca: ValueError
+1345,0,17,V5: <1 pixel valid
+1346,0,65,V5: <1 pixel valid
+1347,487,0,ok
+1348,0,34,V5: <1 pixel valid
+1349,215,0,ok
+1350,0,19,V5: <1 pixel valid
+1351,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1352,0,97,V5: <1 pixel valid
+1353,0,38,V5: <1 pixel valid
+1354,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1355,0,18,V5: <1 pixel valid
+1356,0,5,V5: <1 pixel valid
+1357,0,14,V5: <1 pixel valid
+1358,1853,0,ok
+1359,0,0,V5: <1 pixel valid
+1360,0,28,V5: <1 pixel valid
+1361,78,0,ok
+1362,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1363,0,35,V5: <1 pixel valid
+1364,0,46,V5: <1 pixel valid
+1365,0,48,V5: <1 pixel valid
+1366,0,0,gagal baca: ValueError
+1367,0,0,gagal baca: ValueError
+1368,2493,0,ok
+1369,22,0,ok
+1370,190,0,ok
+1371,0,1,V5: <1 pixel valid
+1372,0,58,V5: <1 pixel valid
+1373,0,0,gagal baca: ValueError
+1374,0,5,V5: <1 pixel valid
+1375,0,280,V5: <1 pixel valid
+1376,2,0,ok
+1377,0,61,V5: <1 pixel valid
+1378,0,1,V5: <1 pixel valid
+1379,0,3,V5: <1 pixel valid
+1380,0,0,gagal baca: ValueError
+1381,0,15,V5: <1 pixel valid
+1382,0,29,V5: <1 pixel valid
+1383,0,2005,V5: <1 pixel valid
+1384,0,15,V5: <1 pixel valid
+1385,0,1010,V5: <1 pixel valid
+1386,0,51,V5: <1 pixel valid
+1387,2736,0,ok
+1388,0,107,V5: <1 pixel valid
+1389,0,1,V5: <1 pixel valid
+1390,0,0,gagal baca: ValueError
+1391,0,169,V5: <1 pixel valid
+1392,0,9,V5: <1 pixel valid
+1393,0,0,V5: <1 pixel valid
+1394,0,2507,V5: <1 pixel valid
+1395,503,0,ok
+1396,0,1342,V5: <1 pixel valid
+1397,0,0,V5: <1 pixel valid
+1398,0,26,V5: <1 pixel valid
+1399,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1400,6,0,ok
+1401,0,0,gagal baca: ValueError
+1402,0,82,V5: <1 pixel valid
+1403,0,20,V5: <1 pixel valid
+1404,763,0,ok
+1405,0,0,V5: <1 pixel valid
+1406,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1407,90,2,ok
+1408,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1409,6,0,ok
+1410,0,13,V5: <1 pixel valid
+1411,8210,0,ok
+1412,0,719,V5: <1 pixel valid
+1413,0,20,V5: <1 pixel valid
+1414,0,3,V5: <1 pixel valid
+1415,0,13,V5: <1 pixel valid
+1416,0,58,V5: <1 pixel valid
+1417,0,153,V5: <1 pixel valid
+1418,0,20,V5: <1 pixel valid
+1419,0,6,V5: <1 pixel valid
+1420,0,44,V5: <1 pixel valid
+1421,0,0,gagal baca: ValueError
+1422,0,1,V5: <1 pixel valid
+1423,14,0,ok
+1424,937,0,ok
+1425,0,28,V5: <1 pixel valid
+1426,0,16,V5: <1 pixel valid
+1427,0,213,V5: <1 pixel valid
+1428,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1429,0,18,V5: <1 pixel valid
+1430,0,817,V5: <1 pixel valid
+1431,36,0,ok
+1432,0,38,V5: <1 pixel valid
+1433,0,5015,V5: <1 pixel valid
+1434,2733,0,ok
+1435,0,86,V5: <1 pixel valid
+1436,27,4,ok
+1437,0,129,V5: <1 pixel valid
+1438,0,1,V5: <1 pixel valid
+1439,0,1952,V5: <1 pixel valid
+1440,20,4,ok
+1441,0,3743,V5: <1 pixel valid
+1442,0,1,V5: <1 pixel valid
+1443,0,0,gagal baca: ValueError
+1444,0,114,V5: <1 pixel valid
+1445,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1446,5,0,ok
+1447,0,27,V5: <1 pixel valid
+1448,0,0,gagal baca: ValueError
+1449,0,18,V5: <1 pixel valid
+1450,0,1212,V5: <1 pixel valid
+1451,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1452,0,3,V5: <1 pixel valid
+1453,0,28,V5: <1 pixel valid
+1454,0,5,V5: <1 pixel valid
+1455,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1456,0,322,V5: <1 pixel valid
+1457,0,14,V5: <1 pixel valid
+1458,0,17,V5: <1 pixel valid
+1459,0,0,gagal baca: ValueError
+1460,4,0,ok
+1461,0,167,V5: <1 pixel valid
+1462,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1463,33,0,ok
+1464,24,0,ok
+1465,0,44,V5: <1 pixel valid
+1466,49,0,ok
+1467,0,1,V5: <1 pixel valid
+1468,34,2,ok
+1469,382,0,ok
+1470,0,0,gagal baca: ValueError
+1471,0,794,V5: <1 pixel valid
+1472,0,84,V5: <1 pixel valid
+1473,0,24,V5: <1 pixel valid
+1474,0,1,V5: <1 pixel valid
+1475,0,76,V5: <1 pixel valid
+1476,0,10,V5: <1 pixel valid
+1477,0,58,V5: <1 pixel valid
+1478,110,0,ok
+1479,0,30,V5: <1 pixel valid
+1480,0,0,gagal baca: ValueError
+1481,0,1268,V5: <1 pixel valid
+1482,0,3,V5: <1 pixel valid
+1483,0,543,V5: <1 pixel valid
+1484,0,8,V5: <1 pixel valid
+1485,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1486,0,87,V5: <1 pixel valid
+1487,0,3,V5: <1 pixel valid
+1488,147,0,ok
+1489,36,0,ok
+1490,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1491,21,0,ok
+1492,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1493,0,119,V5: <1 pixel valid
+1494,0,0,gagal baca: ValueError
+1495,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1496,0,0,V5: <1 pixel valid
+1497,0,7,V5: <1 pixel valid
+1498,0,22,V5: <1 pixel valid
+1499,332,1,ok
+1500,38,0,ok
+1501,0,34,V5: <1 pixel valid
+1502,65,0,ok
+1503,0,1022,V5: <1 pixel valid
+1504,21,0,ok
+1505,0,94,V5: <1 pixel valid
+1506,38,0,ok
+1507,0,81,V5: <1 pixel valid
+1508,0,389,V5: <1 pixel valid
+1509,0,509,V5: <1 pixel valid
+1510,0,128,V5: <1 pixel valid
+1511,0,23709,V5: <1 pixel valid
+1512,0,12,V5: <1 pixel valid
+1513,0,172,V5: <1 pixel valid
+1514,0,20,V5: <1 pixel valid
+1515,0,180,V5: <1 pixel valid
+1516,0,277,V5: <1 pixel valid
+1517,248,0,ok
+1518,0,3861,V5: <1 pixel valid
+1519,0,229,V5: <1 pixel valid
+1520,0,158,V5: <1 pixel valid
+1521,0,120,V5: <1 pixel valid
+1522,0,194,V5: <1 pixel valid
+1523,0,160,V5: <1 pixel valid
+1524,204,0,ok
+1525,0,236,V5: <1 pixel valid
+1526,0,1063,V5: <1 pixel valid
+1527,0,530,V5: <1 pixel valid
+1528,1,0,ok
+1529,0,1001,V5: <1 pixel valid
+1530,0,14,V5: <1 pixel valid
+1531,0,2764,V5: <1 pixel valid
+1532,418,0,ok
+1533,0,43,V5: <1 pixel valid
+1534,0,40,V5: <1 pixel valid
+1535,0,83,V5: <1 pixel valid
+1536,0,14,V5: <1 pixel valid
+1537,0,460,V5: <1 pixel valid
+1538,0,557,V5: <1 pixel valid
+1539,0,250,V5: <1 pixel valid
+1540,0,2142,V5: <1 pixel valid
+1541,26,0,ok
+1542,0,20,V5: <1 pixel valid
+1543,0,36,V5: <1 pixel valid
+1544,0,1628,V5: <1 pixel valid
+1545,0,3526,V5: <1 pixel valid
+1546,0,13,V5: <1 pixel valid
+1547,0,1,V5: <1 pixel valid
+1548,0,67,V5: <1 pixel valid
+1549,0,86,V5: <1 pixel valid
+1550,0,176,V5: <1 pixel valid
+1551,0,1067,V5: <1 pixel valid
+1552,0,0,gagal baca: ValueError
+1553,0,0,gagal baca: ValueError
+1554,598,0,ok
+1555,0,5115,V5: <1 pixel valid
+1556,0,282,V5: <1 pixel valid
+1557,0,168,V5: <1 pixel valid
+1558,0,61,V5: <1 pixel valid
+1559,670,0,ok
+1560,8201,0,ok
+1561,0,121,V5: <1 pixel valid
+1562,0,125,V5: <1 pixel valid
+1563,0,250,V5: <1 pixel valid
+1564,0,68,V5: <1 pixel valid
+1565,0,56,V5: <1 pixel valid
+1566,444,0,ok
+1567,0,4021,V5: <1 pixel valid
+1568,0,2457,V5: <1 pixel valid
+1569,0,2464,V5: <1 pixel valid
+1570,0,38,V5: <1 pixel valid
+1571,138,0,ok
+1572,0,4186,V5: <1 pixel valid
+1573,0,17,V5: <1 pixel valid
+1574,0,125,V5: <1 pixel valid
+1575,64,0,ok
+1576,0,219,V5: <1 pixel valid
+1577,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1578,3779,0,ok
+1579,0,3022,V5: <1 pixel valid
+1580,0,648,V5: <1 pixel valid
+1581,0,2742,V5: <1 pixel valid
+1582,0,1212,V5: <1 pixel valid
+1583,0,52,V5: <1 pixel valid
+1584,0,698,V5: <1 pixel valid
+1585,0,1492528,V5: <1 pixel valid
+1586,0,712,V5: <1 pixel valid
+1587,0,10940,V5: <1 pixel valid
+1588,0,15,V5: <1 pixel valid
+1589,0,3,V5: <1 pixel valid
+1590,0,4,V5: <1 pixel valid
+1591,294,0,ok
+1592,0,8,V5: <1 pixel valid
+1593,0,253,V5: <1 pixel valid
+1594,0,0,V5: <1 pixel valid
+1595,0,128,V5: <1 pixel valid
+1596,0,104,V5: <1 pixel valid
+1597,0,39,V5: <1 pixel valid
+1598,0,232,V5: <1 pixel valid
+1599,0,299,V5: <1 pixel valid
+1600,0,677,V5: <1 pixel valid
+1601,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1602,0,52,V5: <1 pixel valid
+1603,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1604,0,130089,V5: <1 pixel valid
+1605,0,23901,V5: <1 pixel valid
+1606,0,66,V5: <1 pixel valid
+1607,0,2213,V5: <1 pixel valid
+1608,5,2,ok
+1609,0,374,V5: <1 pixel valid
+1610,0,0,gagal baca: ValueError
+1611,0,0,gagal baca: ValueError
+1612,0,0,V5: <1 pixel valid
+1613,0,818,V5: <1 pixel valid
+1614,0,2214,V5: <1 pixel valid
+1615,0,0,gagal baca: ValueError
+1616,0,23,V5: <1 pixel valid
+1617,0,0,V5: <1 pixel valid
+1618,0,199,V5: <1 pixel valid
+1619,1059,0,ok
+1620,0,1541,V5: <1 pixel valid
+1621,0,2193,V5: <1 pixel valid
+1622,0,7417,V5: <1 pixel valid
+1623,172,0,ok
+1624,0,83,V5: <1 pixel valid
+1625,0,48,V5: <1 pixel valid
+1626,0,2240,V5: <1 pixel valid
+1627,0,195,V5: <1 pixel valid
+1628,871,0,ok
+1629,426,0,ok
+1630,0,141,V5: <1 pixel valid
+1631,0,2651,V5: <1 pixel valid
+1632,0,48,V5: <1 pixel valid
+1633,0,97,V5: <1 pixel valid
+1634,0,975,V5: <1 pixel valid
+1635,0,245,V5: <1 pixel valid
+1636,0,234,V5: <1 pixel valid
+1637,0,13,V5: <1 pixel valid
+1638,0,258,V5: <1 pixel valid
+1639,0,36,V5: <1 pixel valid
+1640,0,97,V5: <1 pixel valid
+1641,7459,0,ok
+1642,0,1466,V5: <1 pixel valid
+1643,0,20098,V5: <1 pixel valid
+1644,0,20,V5: <1 pixel valid
+1645,0,279,V5: <1 pixel valid
+1646,0,36,V5: <1 pixel valid
+1647,0,336,V5: <1 pixel valid
+1648,0,1885,V5: <1 pixel valid
+1649,0,322,V5: <1 pixel valid
+1650,0,3919,V5: <1 pixel valid
+1651,0,35,V5: <1 pixel valid
+1652,0,65,V5: <1 pixel valid
+1653,0,121,V5: <1 pixel valid
+1654,0,41,V5: <1 pixel valid
+1655,0,150,V5: <1 pixel valid
+1656,45,0,ok
+1657,0,0,gagal baca: ValueError
+1658,0,47,V5: <1 pixel valid
+1659,15,2,ok
+1660,0,129,V5: <1 pixel valid
+1661,0,16978,V5: <1 pixel valid
+1662,0,204,V5: <1 pixel valid
+1663,0,196,V5: <1 pixel valid
+1664,0,84,V5: <1 pixel valid
+1665,0,53,V5: <1 pixel valid
+1666,0,214,V5: <1 pixel valid
+1667,0,14,V5: <1 pixel valid
+1668,67,3,ok
+1669,0,30,V5: <1 pixel valid
+1670,0,48,V5: <1 pixel valid
+1671,0,42,V5: <1 pixel valid
+1672,0,48,V5: <1 pixel valid
+1673,0,16,V5: <1 pixel valid
+1674,373,0,ok
+1675,0,249,V5: <1 pixel valid
+1676,0,5414,V5: <1 pixel valid
+1677,55,0,ok
+1678,0,198,V5: <1 pixel valid
+1679,2097,0,ok
+1680,0,43,V5: <1 pixel valid
+1681,0,1165,V5: <1 pixel valid
+1682,1120,0,ok
+1683,517,0,ok
+1684,180,0,ok
+1685,0,0,gagal baca: ValueError
+1686,50,0,ok
+1687,0,5646,V5: <1 pixel valid
+1688,761,0,ok
+1689,142,0,ok
+1690,0,1301,V5: <1 pixel valid
+1691,0,837,V5: <1 pixel valid
+1692,0,1814,V5: <1 pixel valid
+1693,0,4,V5: <1 pixel valid
+1694,0,58,V5: <1 pixel valid
+1695,0,0,V5: <1 pixel valid
+1696,0,44,V5: <1 pixel valid
+1697,0,0,V5: <1 pixel valid
+1698,0,58,V5: <1 pixel valid
+1699,15,0,ok
+1700,0,744,V5: <1 pixel valid
+1701,0,706,V5: <1 pixel valid
+1702,0,8034,V5: <1 pixel valid
+1703,0,444,V5: <1 pixel valid
+1704,0,6,V5: <1 pixel valid
+1705,319,0,ok
+1706,0,3132,V5: <1 pixel valid
+1707,87,0,ok
+1708,66,0,ok
+1709,0,1193,V5: <1 pixel valid
+1710,0,437,V5: <1 pixel valid
+1711,0,3,V5: <1 pixel valid
+1712,0,456,V5: <1 pixel valid
+1713,0,12,V5: <1 pixel valid
+1714,0,317,V5: <1 pixel valid
+1715,0,225,V5: <1 pixel valid
+1716,0,247,V5: <1 pixel valid
+1717,0,21,V5: <1 pixel valid
+1718,0,123,V5: <1 pixel valid
+1719,0,34,V5: <1 pixel valid
+1720,0,163,V5: <1 pixel valid
+1721,0,22,V5: <1 pixel valid
+1722,0,157,V5: <1 pixel valid
+1723,0,70,V5: <1 pixel valid
+1724,0,303,V5: <1 pixel valid
+1725,0,2048,V5: <1 pixel valid
+1726,0,338,V5: <1 pixel valid
+1727,0,3948,V5: <1 pixel valid
+1728,0,6715,V5: <1 pixel valid
+1729,0,11,V5: <1 pixel valid
+1730,0,82,V5: <1 pixel valid
+1731,0,0,gagal baca: ValueError
+1732,0,5401,V5: <1 pixel valid
+1733,29,0,ok
+1734,10824,0,ok
+1735,2234,0,ok
+1736,109,0,ok
+1737,0,228,V5: <1 pixel valid
+1738,0,2384,V5: <1 pixel valid
+1739,0,6563,V5: <1 pixel valid
+1740,0,33362,V5: <1 pixel valid
+1741,0,1231,V5: <1 pixel valid
+1742,0,221,V5: <1 pixel valid
+1743,0,16,V5: <1 pixel valid
+1744,17,0,ok
+1745,0,12421,V5: <1 pixel valid
+1746,0,1013,V5: <1 pixel valid
+1747,0,9996,V5: <1 pixel valid
+1748,0,24,V5: <1 pixel valid
+1749,0,35597,V5: <1 pixel valid
+1750,1735,0,ok
+1751,0,214,V5: <1 pixel valid
+1752,0,90570,V5: <1 pixel valid
+1753,0,4900,V5: <1 pixel valid
+1754,0,51,V5: <1 pixel valid
+1755,0,3794,V5: <1 pixel valid
+1756,0,51,V5: <1 pixel valid
+1757,0,23,V5: <1 pixel valid
+1758,0,2576,V5: <1 pixel valid
+1759,0,9158,V5: <1 pixel valid
+1760,1,0,ok
+1761,0,73362,V5: <1 pixel valid
+1762,0,161,V5: <1 pixel valid
+1763,0,1230,V5: <1 pixel valid
+1764,0,146,V5: <1 pixel valid
+1765,20,0,ok
+1766,98,0,ok
+1767,0,509,V5: <1 pixel valid
+1768,557,0,ok
+1769,11,0,ok
+1770,0,37,V5: <1 pixel valid
+1771,0,94,V5: <1 pixel valid
+1772,0,0,gagal baca: ValueError
+1773,297,0,ok
+1774,2,0,ok
+1775,0,0,gagal baca: ValueError
+1776,59,0,ok
+1777,0,30,V5: <1 pixel valid
+1778,0,7485,V5: <1 pixel valid
+1779,0,53,V5: <1 pixel valid
+1780,0,0,gagal baca: ValueError
+1781,0,143,V5: <1 pixel valid
+1782,424,0,ok
+1783,0,106,V5: <1 pixel valid
+1784,0,417,V5: <1 pixel valid
+1785,0,2,V5: <1 pixel valid
+1786,0,41,V5: <1 pixel valid
+1787,0,1518,V5: <1 pixel valid
+1788,0,43,V5: <1 pixel valid
+1789,1159,0,ok
+1790,0,23,V5: <1 pixel valid
+1791,0,3656,V5: <1 pixel valid
+1792,0,167,V5: <1 pixel valid
+1793,0,165,V5: <1 pixel valid
+1794,0,32,V5: <1 pixel valid
+1795,2036,0,ok
+1796,7695,0,ok
+1797,0,277,V5: <1 pixel valid
+1798,0,0,gagal baca: ValueError
+1799,0,38,V5: <1 pixel valid
+1800,321,0,ok
+1801,0,21421,V5: <1 pixel valid
+1802,0,172,V5: <1 pixel valid
+1803,0,48,V5: <1 pixel valid
+1804,0,88,V5: <1 pixel valid
+1805,0,202,V5: <1 pixel valid
+1806,0,29,V5: <1 pixel valid
+1807,24,0,ok
+1808,1176,0,ok
+1809,0,37,V5: <1 pixel valid
+1810,0,415,V5: <1 pixel valid
+1811,0,14856,V5: <1 pixel valid
+1812,0,260,V5: <1 pixel valid
+1813,0,0,gagal baca: ValueError
+1814,116,0,ok
+1815,0,854,V5: <1 pixel valid
+1816,0,325,V5: <1 pixel valid
+1817,0,1,V5: <1 pixel valid
+1818,0,24,V5: <1 pixel valid
+1819,0,46,V5: <1 pixel valid
+1820,0,1864,V5: <1 pixel valid
+1821,0,32,V5: <1 pixel valid
+1822,27108,0,ok
+1823,0,21,V5: <1 pixel valid
+1824,22,7,ok
+1825,0,822,V5: <1 pixel valid
+1826,212,0,ok
+1827,0,2800,V5: <1 pixel valid
+1828,0,746,V5: <1 pixel valid
+1829,0,1105,V5: <1 pixel valid
+1830,0,298,V5: <1 pixel valid
+1831,0,73,V5: <1 pixel valid
+1832,0,65,V5: <1 pixel valid
+1833,0,5720,V5: <1 pixel valid
+1834,0,8100,V5: <1 pixel valid
+1835,0,302,V5: <1 pixel valid
+1836,108,0,ok
+1837,118,0,ok
+1838,0,1446,V5: <1 pixel valid
+1839,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1840,0,157,V5: <1 pixel valid
+1841,0,17,V5: <1 pixel valid
+1842,0,3983,V5: <1 pixel valid
+1843,0,91,V5: <1 pixel valid
+1844,0,173,V5: <1 pixel valid
+1845,23,0,ok
+1846,0,75,V5: <1 pixel valid
+1847,128,0,ok
+1848,0,2538,V5: <1 pixel valid
+1849,0,66,V5: <1 pixel valid
+1850,0,1,V5: <1 pixel valid
+1851,0,27,V5: <1 pixel valid
+1852,0,932,V5: <1 pixel valid
+1853,0,8,V5: <1 pixel valid
+1854,0,42,V5: <1 pixel valid
+1855,0,543,V5: <1 pixel valid
+1856,0,54,V5: <1 pixel valid
+1857,0,1217,V5: <1 pixel valid
+1858,785,0,ok
+1859,0,41,V5: <1 pixel valid
+1860,1704,0,ok
+1861,0,93,V5: <1 pixel valid
+1862,0,6548,V5: <1 pixel valid
+1863,0,61,V5: <1 pixel valid
+1864,48,0,ok
+1865,894,0,ok
+1866,0,169,V5: <1 pixel valid
+1867,-1,-1,tidak dihitung (V1-V4/V6/invalid)
+1868,0,5,V5: <1 pixel valid
+1869,104194,0,ok
+1870,0,2314,V5: <1 pixel valid
+1871,0,1017,V5: <1 pixel valid
+1872,0,690,V5: <1 pixel valid
+1873,71,0,ok
+1874,0,822,V5: <1 pixel valid
+1875,0,148,V5: <1 pixel valid
+1876,0,221,V5: <1 pixel valid
+1877,0,0,V5: <1 pixel valid
+1878,0,20,V5: <1 pixel valid
+1879,7,2,ok
+1880,0,9,V5: <1 pixel valid
+1881,0,134,V5: <1 pixel valid
+1882,0,3545,V5: <1 pixel valid
+1883,0,59,V5: <1 pixel valid
+1884,1,0,ok
+1885,0,392,V5: <1 pixel valid
+1886,0,604,V5: <1 pixel valid
+1887,2,0,ok
+1888,0,276,V5: <1 pixel valid
+1889,1564,0,ok
+1890,0,5173,V5: <1 pixel valid
+1891,0,250,V5: <1 pixel valid
+1892,0,128,V5: <1 pixel valid
+1893,1589,0,ok
+1894,0,307,V5: <1 pixel valid
+1895,0,14,V5: <1 pixel valid
+1896,0,1687,V5: <1 pixel valid
+1897,0,38,V5: <1 pixel valid
+1898,0,20233,V5: <1 pixel valid
+1899,0,168,V5: <1 pixel valid
+1900,0,121,V5: <1 pixel valid
+1901,0,204,V5: <1 pixel valid
+1902,0,24,V5: <1 pixel valid
+1903,0,689,V5: <1 pixel valid
+1904,8879967,14,ok
+1905,0,27,V5: <1 pixel valid
+1906,0,2841,V5: <1 pixel valid
+1907,3537,0,ok
+1908,0,163,V5: <1 pixel valid
+1909,0,11,V5: <1 pixel valid
+1910,0,17,V5: <1 pixel valid
+1911,92,0,ok
+1912,0,122,V5: <1 pixel valid
+1913,0,12676,V5: <1 pixel valid
+1914,285,0,ok
+1915,0,398,V5: <1 pixel valid
+1916,0,19357,V5: <1 pixel valid
+1917,7,0,ok
+1918,151,0,ok
+1919,0,795,V5: <1 pixel valid
+1920,0,26628,V5: <1 pixel valid
+1921,0,13,V5: <1 pixel valid
+1922,0,3,V5: <1 pixel valid
+1923,0,13,V5: <1 pixel valid
+1924,0,40,V5: <1 pixel valid
+1925,1203315,2,ok
+1926,0,0,gagal baca: ValueError
+1927,0,19,V5: <1 pixel valid
+1928,0,3,V5: <1 pixel valid
+1929,0,4254,V5: <1 pixel valid
+1930,0,1997,V5: <1 pixel valid
+1931,8,0,ok
+1932,0,102,V5: <1 pixel valid
+1933,0,21,V5: <1 pixel valid
+1934,0,2125,V5: <1 pixel valid
+1935,0,265,V5: <1 pixel valid
+1936,0,5047,V5: <1 pixel valid
+1937,0,140,V5: <1 pixel valid
+1938,0,493,V5: <1 pixel valid
+1939,0,9,V5: <1 pixel valid
+1940,726,0,ok
+1941,0,36,V5: <1 pixel valid
+1942,0,28,V5: <1 pixel valid
+1943,0,123,V5: <1 pixel valid
+1944,0,13192,V5: <1 pixel valid
+1945,0,1,V5: <1 pixel valid
+1946,0,18725,V5: <1 pixel valid
+1947,0,75,V5: <1 pixel valid
+1948,0,142678,V5: <1 pixel valid
+1949,0,6376,V5: <1 pixel valid
+1950,0,30,V5: <1 pixel valid
+1951,88,0,ok
+1952,0,12,V5: <1 pixel valid
+1953,0,67,V5: <1 pixel valid
+1954,848,0,ok
+1955,0,1,V5: <1 pixel valid
+1956,0,44,V5: <1 pixel valid
+1957,0,14,V5: <1 pixel valid
+1958,41932,0,ok
+1959,0,18,V5: <1 pixel valid
+1960,0,11,V5: <1 pixel valid
+1961,0,15801,V5: <1 pixel valid
+1962,0,0,gagal baca: ValueError
+1963,0,0,V5: <1 pixel valid
+1964,130,0,ok
+1965,0,7,V5: <1 pixel valid
+1966,0,2,V5: <1 pixel valid
+1967,59,0,ok
+1968,59,0,ok
+1969,0,0,gagal baca: ValueError
+1970,0,488,V5: <1 pixel valid
+1971,0,864,V5: <1 pixel valid
+1972,5,3,ok
+1973,0,4745,V5: <1 pixel valid
+1974,0,1321,V5: <1 pixel valid
+1975,0,125,V5: <1 pixel valid
+1976,0,23,V5: <1 pixel valid
+1977,0,9,V5: <1 pixel valid
+1978,0,23,V5: <1 pixel valid
+1979,0,59,V5: <1 pixel valid
+1980,0,654,V5: <1 pixel valid
+1981,1,0,ok
+1982,0,1352,V5: <1 pixel valid
+1983,0,3936,V5: <1 pixel valid
+1984,0,127,V5: <1 pixel valid
+1985,0,1285,V5: <1 pixel valid
+1986,0,50,V5: <1 pixel valid
+1987,0,1756,V5: <1 pixel valid
+1988,0,42686,V5: <1 pixel valid
+1989,7,0,ok
+1990,0,0,gagal baca: ValueError
+1991,177,0,ok
+1992,0,119,V5: <1 pixel valid
+1993,0,7068,V5: <1 pixel valid
+1994,12,0,ok
+1995,0,17,V5: <1 pixel valid
+1996,7,0,ok
+1997,0,203,V5: <1 pixel valid
+1998,0,27,V5: <1 pixel valid
+1999,2016,0,ok
+2000,0,0,gagal baca: ValueError
+2001,0,0,gagal baca: ValueError
+2002,0,0,gagal baca: ValueError
+2003,0,22605,V5: <1 pixel valid
+2004,0,40451,V5: <1 pixel valid
+2005,0,30695,V5: <1 pixel valid
+2006,0,250398,V5: <1 pixel valid
+2007,0,250557,V5: <1 pixel valid
+2008,0,250515,V5: <1 pixel valid
+2009,0,250442,V5: <1 pixel valid
+2010,0,0,gagal baca: ValueError
+2011,0,0,gagal baca: ValueError
+2012,0,0,gagal baca: ValueError
+2013,0,0,gagal baca: ValueError
+2014,0,19720,V5: <1 pixel valid
+2015,0,250558,V5: <1 pixel valid
+2016,0,250613,V5: <1 pixel valid
+2017,0,250559,V5: <1 pixel valid
+2018,0,250697,V5: <1 pixel valid
+2019,0,250698,V5: <1 pixel valid
+2020,0,0,gagal baca: ValueError
+2021,0,0,gagal baca: ValueError
+2022,0,0,gagal baca: ValueError
+2023,0,250805,V5: <1 pixel valid
+2024,0,250802,V5: <1 pixel valid
+2025,31663,219108,ok
+2026,0,250746,V5: <1 pixel valid
+2027,0,250772,V5: <1 pixel valid
+2028,0,250782,V5: <1 pixel valid
+2029,0,250753,V5: <1 pixel valid
+2030,0,250258,V5: <1 pixel valid
+2031,0,250274,V5: <1 pixel valid
+2032,0,250273,V5: <1 pixel valid
+2033,0,250166,V5: <1 pixel valid
+2034,0,250125,V5: <1 pixel valid
+2035,0,250306,V5: <1 pixel valid
+2036,0,250308,V5: <1 pixel valid
+2037,0,250228,V5: <1 pixel valid
+2038,0,250173,V5: <1 pixel valid
+2039,0,250187,V5: <1 pixel valid
+2040,0,250369,V5: <1 pixel valid
+2041,0,250394,V5: <1 pixel valid
+2042,0,250466,V5: <1 pixel valid
+2043,0,250304,V5: <1 pixel valid
+2044,50,250389,ok
+2045,0,250362,V5: <1 pixel valid
+2046,0,250339,V5: <1 pixel valid
+2047,0,250396,V5: <1 pixel valid
+2048,0,250362,V5: <1 pixel valid
+2049,0,250441,V5: <1 pixel valid
+2050,0,250676,V5: <1 pixel valid
+2051,0,250695,V5: <1 pixel valid
+2052,0,250693,V5: <1 pixel valid
+2053,8655,242052,ok
+2054,0,250673,V5: <1 pixel valid
+2055,0,250728,V5: <1 pixel valid
+2056,0,250709,V5: <1 pixel valid
+2057,0,250623,V5: <1 pixel valid
+2058,0,250732,V5: <1 pixel valid
+2059,0,250620,V5: <1 pixel valid
+2060,0,250378,V5: <1 pixel valid
+2061,0,250548,V5: <1 pixel valid
+2062,0,250522,V5: <1 pixel valid
+2063,0,250417,V5: <1 pixel valid
+2064,0,250467,V5: <1 pixel valid
+2065,0,250359,V5: <1 pixel valid
+2066,0,250360,V5: <1 pixel valid
+2067,0,250386,V5: <1 pixel valid
+2068,0,250404,V5: <1 pixel valid
+2069,0,250356,V5: <1 pixel valid
+2070,0,250737,V5: <1 pixel valid
+2071,0,250837,V5: <1 pixel valid
+2072,0,250868,V5: <1 pixel valid
+2073,0,250771,V5: <1 pixel valid
+2074,0,250759,V5: <1 pixel valid
+2075,0,250840,V5: <1 pixel valid
+2076,0,250750,V5: <1 pixel valid
+2077,0,250736,V5: <1 pixel valid
+2078,0,250852,V5: <1 pixel valid
+2079,0,250815,V5: <1 pixel valid
+2080,0,250499,V5: <1 pixel valid
+2081,0,250423,V5: <1 pixel valid
+2082,0,250520,V5: <1 pixel valid
+2083,0,250407,V5: <1 pixel valid
+2084,0,250456,V5: <1 pixel valid
+2085,0,250565,V5: <1 pixel valid
+2086,0,250524,V5: <1 pixel valid
+2087,0,250455,V5: <1 pixel valid
+2088,0,250416,V5: <1 pixel valid
+2089,0,250478,V5: <1 pixel valid
+2090,0,250700,V5: <1 pixel valid
+2091,0,250607,V5: <1 pixel valid
+2092,0,250670,V5: <1 pixel valid
+2093,0,250721,V5: <1 pixel valid
+2094,0,250592,V5: <1 pixel valid
+2095,0,250714,V5: <1 pixel valid
+2096,0,250739,V5: <1 pixel valid
+2097,0,250673,V5: <1 pixel valid
+2098,0,250642,V5: <1 pixel valid
+2099,0,250590,V5: <1 pixel valid
+2100,0,250788,V5: <1 pixel valid
+2101,0,250819,V5: <1 pixel valid
+2102,0,250843,V5: <1 pixel valid
+2103,0,250807,V5: <1 pixel valid
+2104,0,250803,V5: <1 pixel valid
+2105,0,250751,V5: <1 pixel valid
+2106,0,250776,V5: <1 pixel valid
+2107,0,250804,V5: <1 pixel valid
+2108,0,250858,V5: <1 pixel valid
+2109,0,250833,V5: <1 pixel valid
+2110,0,0,gagal baca: ValueError
+2111,0,0,gagal baca: ValueError
+2112,0,250900,V5: <1 pixel valid
+2113,0,250868,V5: <1 pixel valid
+2114,0,250873,V5: <1 pixel valid
+2115,0,250862,V5: <1 pixel valid
+2116,0,250868,V5: <1 pixel valid
+2117,0,250900,V5: <1 pixel valid
+2118,0,250933,V5: <1 pixel valid
+2119,0,251230,V5: <1 pixel valid
+2120,0,251533,V5: <1 pixel valid
+2121,0,251665,V5: <1 pixel valid
+2122,0,251750,V5: <1 pixel valid
+2123,0,251404,V5: <1 pixel valid
+2124,0,251615,V5: <1 pixel valid
+2125,0,251833,V5: <1 pixel valid
+2126,0,251403,V5: <1 pixel valid
+2127,0,251437,V5: <1 pixel valid
+2128,0,251616,V5: <1 pixel valid
+2129,0,251656,V5: <1 pixel valid
+2130,0,251368,V5: <1 pixel valid
+2131,0,250965,V5: <1 pixel valid
+2132,0,250894,V5: <1 pixel valid
+2133,0,251092,V5: <1 pixel valid
+2134,0,251062,V5: <1 pixel valid
+2135,0,251001,V5: <1 pixel valid
+2136,0,250947,V5: <1 pixel valid
+2137,0,251032,V5: <1 pixel valid
+2138,0,251059,V5: <1 pixel valid
+2139,0,251165,V5: <1 pixel valid
+2140,0,251542,V5: <1 pixel valid
+2141,0,251398,V5: <1 pixel valid
+2142,0,251620,V5: <1 pixel valid
+2143,0,251830,V5: <1 pixel valid
+2144,0,251743,V5: <1 pixel valid
+2145,0,251785,V5: <1 pixel valid
+2146,0,170315,V5: <1 pixel valid
+2147,0,251423,V5: <1 pixel valid
+2148,0,0,gagal baca: ValueError
+2149,0,168110,V5: <1 pixel valid
+2150,0,251324,V5: <1 pixel valid
+2151,0,251125,V5: <1 pixel valid
+2152,0,251196,V5: <1 pixel valid
+2153,0,251328,V5: <1 pixel valid
+2154,0,251024,V5: <1 pixel valid
+2155,0,251300,V5: <1 pixel valid
+2156,0,251087,V5: <1 pixel valid
+2157,0,250915,V5: <1 pixel valid
+2158,0,250941,V5: <1 pixel valid
+2159,0,251300,V5: <1 pixel valid
+2160,0,251197,V5: <1 pixel valid
+2161,0,250917,V5: <1 pixel valid
+2162,0,250961,V5: <1 pixel valid
+2163,0,251160,V5: <1 pixel valid
+2164,0,251198,V5: <1 pixel valid
+2165,0,251336,V5: <1 pixel valid
+2166,0,251085,V5: <1 pixel valid
+2167,0,250958,V5: <1 pixel valid
+2168,0,251027,V5: <1 pixel valid
+2169,0,251409,V5: <1 pixel valid
+2170,0,251747,V5: <1 pixel valid
+2171,0,0,gagal baca: ValueError
+2172,0,251780,V5: <1 pixel valid
+2173,0,251715,V5: <1 pixel valid
+2174,0,0,gagal baca: ValueError
+2175,0,0,gagal baca: ValueError
+2176,0,251644,V5: <1 pixel valid
+2177,0,251558,V5: <1 pixel valid
+2178,0,251855,V5: <1 pixel valid
+2179,0,251815,V5: <1 pixel valid
+2180,0,251517,V5: <1 pixel valid
+2181,0,251777,V5: <1 pixel valid
+2182,0,251711,V5: <1 pixel valid
+2183,0,251778,V5: <1 pixel valid
+2184,0,251555,V5: <1 pixel valid
+2185,0,251711,V5: <1 pixel valid
+2186,0,157122,V5: <1 pixel valid
+2187,0,251594,V5: <1 pixel valid
+2188,0,251819,V5: <1 pixel valid
+2189,0,155362,V5: <1 pixel valid
+2190,0,251090,V5: <1 pixel valid
+2191,0,251371,V5: <1 pixel valid
+2192,0,251002,V5: <1 pixel valid
+2193,0,251374,V5: <1 pixel valid
+2194,0,251129,V5: <1 pixel valid
+2195,0,251337,V5: <1 pixel valid
+2196,0,251132,V5: <1 pixel valid
+2197,0,251193,V5: <1 pixel valid
+2198,0,251103,V5: <1 pixel valid
+2199,0,251225,V5: <1 pixel valid
+2200,0,249994,V5: <1 pixel valid
+2201,0,250014,V5: <1 pixel valid
+2202,0,250050,V5: <1 pixel valid
+2203,0,250110,V5: <1 pixel valid
+2204,0,250055,V5: <1 pixel valid
+2205,0,250110,V5: <1 pixel valid
+2206,0,249998,V5: <1 pixel valid
+2207,0,250106,V5: <1 pixel valid
+2208,0,249995,V5: <1 pixel valid
+2209,0,250089,V5: <1 pixel valid
+2210,0,249923,V5: <1 pixel valid
+2211,0,249977,V5: <1 pixel valid
+2212,0,249849,V5: <1 pixel valid
+2213,0,249950,V5: <1 pixel valid
+2214,0,249943,V5: <1 pixel valid
+2215,0,249959,V5: <1 pixel valid
+2216,0,249848,V5: <1 pixel valid
+2217,0,249923,V5: <1 pixel valid
+2218,0,249874,V5: <1 pixel valid
+2219,0,249878,V5: <1 pixel valid
+2220,0,249902,V5: <1 pixel valid
+2221,0,249867,V5: <1 pixel valid
+2222,0,249934,V5: <1 pixel valid
+2223,0,249982,V5: <1 pixel valid
+2224,0,249862,V5: <1 pixel valid
+2225,0,249878,V5: <1 pixel valid
+2226,0,249953,V5: <1 pixel valid
+2227,0,249966,V5: <1 pixel valid
+2228,0,250062,V5: <1 pixel valid
+2229,0,249910,V5: <1 pixel valid
+2230,0,249925,V5: <1 pixel valid
+2231,0,249897,V5: <1 pixel valid
+2232,0,249971,V5: <1 pixel valid
+2233,0,249983,V5: <1 pixel valid
+2234,0,249928,V5: <1 pixel valid
+2235,0,876,V5: <1 pixel valid
+2236,0,249851,V5: <1 pixel valid
+2237,0,250032,V5: <1 pixel valid
+2238,0,250098,V5: <1 pixel valid
+2239,0,250098,V5: <1 pixel valid
+2240,0,250098,V5: <1 pixel valid
+2241,0,249902,V5: <1 pixel valid
+2242,0,250098,V5: <1 pixel valid
+2243,0,250098,V5: <1 pixel valid
+2244,0,250098,V5: <1 pixel valid
+2245,0,876,V5: <1 pixel valid
+2246,0,249922,V5: <1 pixel valid
+2247,0,250098,V5: <1 pixel valid
+2248,0,250098,V5: <1 pixel valid
+2249,0,250098,V5: <1 pixel valid
+2250,0,250151,V5: <1 pixel valid
+2251,0,250148,V5: <1 pixel valid
+2252,0,250196,V5: <1 pixel valid
+2253,0,250285,V5: <1 pixel valid
+2254,0,250162,V5: <1 pixel valid
+2255,0,250337,V5: <1 pixel valid
+2256,0,250311,V5: <1 pixel valid
+2257,0,250162,V5: <1 pixel valid
+2258,0,250184,V5: <1 pixel valid
+2259,0,250111,V5: <1 pixel valid
+2260,0,249999,V5: <1 pixel valid
+2261,0,250043,V5: <1 pixel valid
+2262,0,250058,V5: <1 pixel valid
+2263,146,249876,ok
+2264,0,249997,V5: <1 pixel valid
+2265,379,249659,ok
+2266,5250,244837,ok
+2267,0,250050,V5: <1 pixel valid
+2268,0,250038,V5: <1 pixel valid
+2269,0,250020,V5: <1 pixel valid
+2270,0,250236,V5: <1 pixel valid
+2271,0,250170,V5: <1 pixel valid
+2272,0,250193,V5: <1 pixel valid
+2273,0,250132,V5: <1 pixel valid
+2274,0,250120,V5: <1 pixel valid
+2275,0,250166,V5: <1 pixel valid
+2276,0,250229,V5: <1 pixel valid
+2277,0,250155,V5: <1 pixel valid
+2278,0,250127,V5: <1 pixel valid
+2279,0,250237,V5: <1 pixel valid
+2280,0,876,V5: <1 pixel valid
+2281,0,249938,V5: <1 pixel valid
+2282,0,249878,V5: <1 pixel valid
+2283,0,249973,V5: <1 pixel valid
+2284,0,249843,V5: <1 pixel valid
+2285,0,249845,V5: <1 pixel valid
+2286,0,249997,V5: <1 pixel valid
+2287,0,249845,V5: <1 pixel valid
+2288,0,249834,V5: <1 pixel valid
+2289,0,249948,V5: <1 pixel valid
+2290,0,250152,V5: <1 pixel valid
+2291,0,250114,V5: <1 pixel valid
+2292,0,250198,V5: <1 pixel valid
+2293,0,250248,V5: <1 pixel valid
+2294,0,250228,V5: <1 pixel valid
+2295,0,250299,V5: <1 pixel valid
+2296,0,250210,V5: <1 pixel valid
+2297,0,250283,V5: <1 pixel valid
+2298,0,250090,V5: <1 pixel valid
+2299,0,250130,V5: <1 pixel valid
+2300,0,250004,V5: <1 pixel valid
+2301,0,250026,V5: <1 pixel valid
+2302,0,250031,V5: <1 pixel valid
+2303,0,250005,V5: <1 pixel valid
+2304,0,249997,V5: <1 pixel valid
+2305,0,250007,V5: <1 pixel valid
+2306,0,250002,V5: <1 pixel valid
+2307,0,249980,V5: <1 pixel valid
+2308,0,250015,V5: <1 pixel valid
+2309,0,250004,V5: <1 pixel valid
+2310,0,249845,V5: <1 pixel valid
+2311,0,249841,V5: <1 pixel valid
+2312,0,249851,V5: <1 pixel valid
+2313,0,249841,V5: <1 pixel valid
+2314,0,249899,V5: <1 pixel valid
+2315,0,249866,V5: <1 pixel valid
+2316,0,249903,V5: <1 pixel valid
+2317,0,249851,V5: <1 pixel valid
+2318,0,249856,V5: <1 pixel valid
+2319,0,249871,V5: <1 pixel valid
+2320,0,250139,V5: <1 pixel valid
+2321,0,250239,V5: <1 pixel valid
+2322,0,250107,V5: <1 pixel valid
+2323,0,250215,V5: <1 pixel valid
+2324,0,250204,V5: <1 pixel valid
+2325,0,250242,V5: <1 pixel valid
+2326,0,250252,V5: <1 pixel valid
+2327,0,250154,V5: <1 pixel valid
+2328,0,250129,V5: <1 pixel valid
+2329,0,250087,V5: <1 pixel valid
+2330,0,250010,V5: <1 pixel valid
+2331,0,250042,V5: <1 pixel valid
+2332,0,249994,V5: <1 pixel valid
+2333,0,250004,V5: <1 pixel valid
+2334,0,250035,V5: <1 pixel valid
+2335,0,250047,V5: <1 pixel valid
+2336,0,250065,V5: <1 pixel valid
+2337,0,250037,V5: <1 pixel valid
+2338,0,250040,V5: <1 pixel valid
+2339,0,250035,V5: <1 pixel valid
+2340,0,249877,V5: <1 pixel valid
+2341,0,249871,V5: <1 pixel valid
+2342,0,249981,V5: <1 pixel valid
+2343,0,250052,V5: <1 pixel valid
+2344,0,250039,V5: <1 pixel valid
+2345,0,250055,V5: <1 pixel valid
+2346,0,250041,V5: <1 pixel valid
+2347,0,250016,V5: <1 pixel valid
+2348,0,250060,V5: <1 pixel valid
+2349,0,250066,V5: <1 pixel valid
+2350,0,250064,V5: <1 pixel valid
+2351,0,250063,V5: <1 pixel valid
+2352,0,249983,V5: <1 pixel valid
+2353,0,250088,V5: <1 pixel valid
+2354,0,250145,V5: <1 pixel valid
+2355,0,250089,V5: <1 pixel valid
+2356,0,250074,V5: <1 pixel valid
+2357,0,250038,V5: <1 pixel valid
+2358,0,250049,V5: <1 pixel valid
+2359,0,250028,V5: <1 pixel valid
+2360,0,250053,V5: <1 pixel valid
+2361,0,250057,V5: <1 pixel valid
+2362,0,250081,V5: <1 pixel valid
+2363,0,250040,V5: <1 pixel valid
+2364,0,249974,V5: <1 pixel valid
+2365,0,250047,V5: <1 pixel valid
+2366,0,250010,V5: <1 pixel valid
+2367,0,250044,V5: <1 pixel valid
+2368,0,250043,V5: <1 pixel valid
+2369,0,250546,V5: <1 pixel valid
+2370,0,250567,V5: <1 pixel valid
+2371,0,250432,V5: <1 pixel valid
+2372,0,250523,V5: <1 pixel valid
+2373,0,250571,V5: <1 pixel valid
+2374,0,250549,V5: <1 pixel valid
+2375,0,250551,V5: <1 pixel valid
+2376,0,250409,V5: <1 pixel valid
+2377,0,250482,V5: <1 pixel valid
+2378,0,250384,V5: <1 pixel valid
+2379,0,250109,V5: <1 pixel valid
+2380,0,250325,V5: <1 pixel valid
+2381,0,250211,V5: <1 pixel valid
+2382,0,250192,V5: <1 pixel valid
+2383,0,250218,V5: <1 pixel valid
+2384,0,250270,V5: <1 pixel valid
+2385,0,250205,V5: <1 pixel valid
+2386,0,250289,V5: <1 pixel valid
+2387,0,250187,V5: <1 pixel valid
+2388,0,250219,V5: <1 pixel valid
+2389,0,250571,V5: <1 pixel valid
+2390,0,250574,V5: <1 pixel valid
+2391,0,250675,V5: <1 pixel valid
+2392,0,250575,V5: <1 pixel valid
+2393,0,250680,V5: <1 pixel valid
+2394,0,250650,V5: <1 pixel valid
+2395,0,250587,V5: <1 pixel valid
+2396,0,250705,V5: <1 pixel valid
+2397,0,250677,V5: <1 pixel valid
+2398,0,250645,V5: <1 pixel valid
+2399,0,250353,V5: <1 pixel valid
+2400,0,250444,V5: <1 pixel valid
+2401,0,250389,V5: <1 pixel valid
+2402,0,250420,V5: <1 pixel valid
+2403,0,250551,V5: <1 pixel valid
+2404,0,250571,V5: <1 pixel valid
+2405,0,250423,V5: <1 pixel valid
+2406,0,250520,V5: <1 pixel valid
+2407,0,250329,V5: <1 pixel valid
+2408,0,250484,V5: <1 pixel valid
+2409,0,250615,V5: <1 pixel valid
+2410,0,250597,V5: <1 pixel valid
+2411,0,250662,V5: <1 pixel valid
+2412,0,250658,V5: <1 pixel valid
+2413,0,250607,V5: <1 pixel valid
+2414,0,250653,V5: <1 pixel valid
+2415,0,250712,V5: <1 pixel valid
+2416,0,250605,V5: <1 pixel valid
+2417,0,250678,V5: <1 pixel valid
+2418,0,250716,V5: <1 pixel valid
+2419,0,250526,V5: <1 pixel valid
+2420,0,250535,V5: <1 pixel valid
+2421,0,250574,V5: <1 pixel valid
+2422,0,250625,V5: <1 pixel valid
+2423,0,250682,V5: <1 pixel valid
+2424,0,250648,V5: <1 pixel valid
+2425,0,250597,V5: <1 pixel valid
+2426,0,250722,V5: <1 pixel valid
+2427,0,250616,V5: <1 pixel valid
+2428,0,250687,V5: <1 pixel valid
+2429,0,250688,V5: <1 pixel valid
+2430,0,118915,V5: <1 pixel valid
+2431,0,122344,V5: <1 pixel valid
+2432,0,250753,V5: <1 pixel valid
+2433,0,250850,V5: <1 pixel valid
+2434,0,250755,V5: <1 pixel valid
+2435,0,250877,V5: <1 pixel valid
+2436,0,250760,V5: <1 pixel valid
+2437,0,250797,V5: <1 pixel valid
+2438,0,250834,V5: <1 pixel valid
+2439,0,250801,V5: <1 pixel valid
+2440,0,0,gagal baca: ValueError
+2441,0,0,gagal baca: ValueError
+2442,0,0,gagal baca: ValueError
+2443,0,0,gagal baca: ValueError
+2444,0,0,gagal baca: ValueError
+2445,0,251593,V5: <1 pixel valid
+2446,0,251747,V5: <1 pixel valid
+2447,0,251462,V5: <1 pixel valid
+2448,0,251598,V5: <1 pixel valid
+2449,0,251629,V5: <1 pixel valid
+2450,0,251500,V5: <1 pixel valid
+2451,0,251635,V5: <1 pixel valid
+2452,0,251490,V5: <1 pixel valid
+2453,0,251487,V5: <1 pixel valid
+2454,0,251674,V5: <1 pixel valid
+2455,0,251570,V5: <1 pixel valid
+2456,0,251709,V5: <1 pixel valid
+2457,0,251646,V5: <1 pixel valid
+2458,0,251559,V5: <1 pixel valid
+2459,0,251680,V5: <1 pixel valid
+2460,0,251641,V5: <1 pixel valid
+2461,0,251433,V5: <1 pixel valid
+2462,0,251509,V5: <1 pixel valid
+2463,0,251679,V5: <1 pixel valid
+2464,0,250850,V5: <1 pixel valid
+2465,0,250727,V5: <1 pixel valid
+2466,0,250767,V5: <1 pixel valid
+2467,0,250802,V5: <1 pixel valid
+2468,0,250909,V5: <1 pixel valid
+2469,0,250795,V5: <1 pixel valid
+2470,0,250761,V5: <1 pixel valid
+2471,0,250762,V5: <1 pixel valid
+2472,0,250800,V5: <1 pixel valid
+2473,0,250799,V5: <1 pixel valid
+2474,0,251375,V5: <1 pixel valid
+2475,0,251264,V5: <1 pixel valid
+2476,0,251289,V5: <1 pixel valid
+2477,0,251322,V5: <1 pixel valid
+2478,0,251234,V5: <1 pixel valid
+2479,0,251324,V5: <1 pixel valid
+2480,0,251360,V5: <1 pixel valid
+2481,0,251289,V5: <1 pixel valid
+2482,0,251327,V5: <1 pixel valid
+2483,0,250916,V5: <1 pixel valid
+2484,0,250832,V5: <1 pixel valid
+2485,0,250797,V5: <1 pixel valid
+2486,0,250862,V5: <1 pixel valid
+2487,0,250894,V5: <1 pixel valid
+2488,0,250768,V5: <1 pixel valid
+2489,0,250832,V5: <1 pixel valid
+2490,0,250745,V5: <1 pixel valid
+2491,0,250750,V5: <1 pixel valid
+2492,0,250865,V5: <1 pixel valid
+2493,0,250846,V5: <1 pixel valid
+2494,0,250941,V5: <1 pixel valid
+2495,0,0,gagal baca: ValueError
+2496,0,0,gagal baca: ValueError
+2497,0,0,gagal baca: ValueError
+2498,0,0,gagal baca: ValueError
+2499,0,0,gagal baca: ValueError
+2500,0,287,V5: <1 pixel valid
+2501,0,6507,V5: <1 pixel valid
+2502,0,55,V5: <1 pixel valid
+2503,0,15244,V5: <1 pixel valid
+2504,0,19,V5: <1 pixel valid
+2505,0,338,V5: <1 pixel valid
+2506,0,452,V5: <1 pixel valid
+2507,0,3927,V5: <1 pixel valid
+2508,0,27363,V5: <1 pixel valid
+2509,0,89,V5: <1 pixel valid
+2510,0,3919,V5: <1 pixel valid
+2511,0,14245,V5: <1 pixel valid
+2512,0,32690,V5: <1 pixel valid
+2513,0,848,V5: <1 pixel valid
+2514,0,464,V5: <1 pixel valid
+2515,0,446,V5: <1 pixel valid
+2516,0,244,V5: <1 pixel valid
+2517,0,77,V5: <1 pixel valid
+2518,0,76,V5: <1 pixel valid
+2519,0,36,V5: <1 pixel valid
+2520,0,25,V5: <1 pixel valid
+2521,0,21,V5: <1 pixel valid
+2522,0,12,V5: <1 pixel valid
+2523,0,7,V5: <1 pixel valid
+2524,0,4,V5: <1 pixel valid
+2525,0,3,V5: <1 pixel valid
+2526,0,4,V5: <1 pixel valid
+2527,0,2,V5: <1 pixel valid
+2528,0,3,V5: <1 pixel valid
+2529,0,1,V5: <1 pixel valid
+2530,0,0,gagal baca: ValueError
+2531,0,975,V5: <1 pixel valid
+2532,0,26,V5: <1 pixel valid
+2533,0,40,V5: <1 pixel valid
+2534,0,232,V5: <1 pixel valid
+2535,0,114,V5: <1 pixel valid
+2536,0,36,V5: <1 pixel valid
+2537,0,663,V5: <1 pixel valid
+2538,0,638,V5: <1 pixel valid
+2539,0,2890,V5: <1 pixel valid
+2540,0,3643,V5: <1 pixel valid
+2541,0,16,V5: <1 pixel valid
+2542,0,23,V5: <1 pixel valid
+2543,0,205,V5: <1 pixel valid
+2544,0,1599,V5: <1 pixel valid
+2545,0,2,V5: <1 pixel valid
+2546,0,1,V5: <1 pixel valid
+2547,0,34,V5: <1 pixel valid
+2548,0,593,V5: <1 pixel valid
+2549,0,17,V5: <1 pixel valid
+2550,0,13,V5: <1 pixel valid
+2551,0,319,V5: <1 pixel valid
+2552,230,0,ok
+2553,13,0,ok
+2554,5,0,ok
+2555,97,0,ok
+2556,29,0,ok
+2557,13,0,ok
+2558,109,0,ok
+2559,87,0,ok
+2560,53,0,ok
+2561,50,0,ok
+2562,45,0,ok
+2563,38,0,ok
+2564,22,0,ok
+2565,8,0,ok
+2566,5,0,ok
+2567,2,0,ok
+2568,0,0,V5: <1 pixel valid
+2569,0,0,V5: <1 pixel valid
+2570,0,0,V5: <1 pixel valid
+2571,1,0,ok
+2572,0,0,V5: <1 pixel valid
+2573,0,0,V5: <1 pixel valid
+2574,0,0,V5: <1 pixel valid
+2575,0,0,V5: <1 pixel valid
+2576,0,0,V5: <1 pixel valid
+2577,113,0,ok
+2578,78,0,ok
+2579,224,0,ok
+2580,0,33498,V5: <1 pixel valid
+2581,3620,0,ok
+2582,323,0,ok
+2583,73,0,ok
+2584,159,0,ok
+2585,63,0,ok
+2586,44,0,ok
+2587,1358,0,ok
+2588,805,0,ok
+2589,664,0,ok
+2590,661,0,ok
+2591,549,0,ok
+2592,512,0,ok
+2593,474,0,ok
+2594,479,0,ok
+2595,350,0,ok
+2596,331,0,ok
+2597,320,0,ok
+2598,306,0,ok
+2599,296,0,ok
+2600,284,0,ok
+2601,269,0,ok
+2602,245,0,ok
+2603,215,0,ok
+2604,215,0,ok
+2605,219,0,ok
+2606,211,0,ok
+2607,202,0,ok
+2608,203,0,ok
+2609,211,0,ok
+2610,202,0,ok
+2611,203,0,ok
+2612,194,0,ok
+2613,174,0,ok
+2614,162,0,ok
+2615,151,0,ok
+2616,144,0,ok
+2617,147,0,ok
+2618,131,0,ok
+2619,124,0,ok
+2620,125,0,ok
+2621,121,0,ok
+2622,117,0,ok
+2623,111,0,ok
+2624,111,0,ok
+2625,108,0,ok
+2626,105,0,ok
+2627,98,0,ok
+2628,90,0,ok
+2629,94,0,ok
+2630,92,0,ok
+2631,84,0,ok
+2632,84,0,ok
+2633,81,0,ok
+2634,77,0,ok
+2635,76,0,ok
+2636,75,0,ok
+2637,75,0,ok
+2638,72,0,ok
+2639,64,0,ok
+2640,60,0,ok
+2641,60,0,ok
+2642,57,0,ok
+2643,56,0,ok
+2644,55,0,ok
+2645,53,0,ok
+2646,48,0,ok
+2647,46,0,ok
+2648,43,0,ok
+2649,42,0,ok
+2650,42,0,ok
+2651,43,0,ok
+2652,39,0,ok
+2653,39,0,ok
+2654,35,0,ok
+2655,36,0,ok
+2656,30,0,ok
+2657,30,0,ok
+2658,29,0,ok
+2659,29,0,ok
+2660,26,0,ok
+2661,24,0,ok
+2662,19,0,ok
+2663,24,0,ok
+2664,22,0,ok
+2665,22,0,ok
+2666,24,0,ok
+2667,22,0,ok
+2668,22,0,ok
+2669,17,0,ok
+2670,17,0,ok
+2671,17,0,ok
+2672,18,0,ok
+2673,18,0,ok
+2674,16,0,ok
+2675,15,0,ok
+2676,13,0,ok
+2677,14,0,ok
+2678,15,0,ok
+2679,15,0,ok
+2680,11,0,ok
+2681,11,0,ok
+2682,11,0,ok
+2683,12,0,ok
+2684,9,0,ok
+2685,9,0,ok
+2686,9,0,ok
+2687,7,0,ok
+2688,6,0,ok
+2689,6,0,ok
+2690,6,0,ok
+2691,5,0,ok
+2692,6,0,ok
+2693,4,0,ok
+2694,6,0,ok
+2695,4,0,ok
+2696,4,0,ok
+2697,5,0,ok
+2698,5,0,ok
+2699,4,0,ok
+2700,1,0,ok
+2701,3,0,ok
+2702,3,0,ok
+2703,2,0,ok
+2704,2,0,ok
+2705,0,0,V5: <1 pixel valid
+2706,0,0,gagal baca: ValueError
+2707,0,0,V5: <1 pixel valid
+2708,0,0,V5: <1 pixel valid
+2709,0,0,V5: <1 pixel valid
+2710,1,0,ok
+2711,1,0,ok
+2712,1,0,ok
+2713,0,0,gagal baca: ValueError
+2714,1,0,ok
+2715,1,0,ok
+2716,1,0,ok
+2717,0,0,gagal baca: ValueError
+2718,0,0,V5: <1 pixel valid
+2719,0,0,V5: <1 pixel valid
+2720,0,0,gagal baca: ValueError
+2721,0,0,gagal baca: ValueError
+2722,0,0,gagal baca: ValueError
+2723,0,0,gagal baca: ValueError
+2724,0,0,gagal baca: ValueError
+2725,0,0,gagal baca: ValueError
+2726,532,0,ok
+2727,320,0,ok
+2728,296,0,ok
+2729,255,0,ok
+2730,225,0,ok
+2731,194,0,ok
+2732,188,0,ok
+2733,187,0,ok
+2734,169,0,ok
+2735,146,0,ok
+2736,122,0,ok
+2737,115,0,ok
+2738,112,0,ok
+2739,108,0,ok
+2740,91,0,ok
+2741,93,0,ok
+2742,88,0,ok
+2743,83,0,ok
+2744,82,0,ok
+2745,77,0,ok
+2746,74,0,ok
+2747,68,0,ok
+2748,61,0,ok
+2749,59,0,ok
+2750,48,0,ok
+2751,40,0,ok
+2752,35,0,ok
+2753,35,0,ok
+2754,35,0,ok
+2755,31,0,ok
+2756,28,0,ok
+2757,30,0,ok
+2758,19,0,ok
+2759,23,0,ok
+2760,23,0,ok
+2761,21,0,ok
+2762,17,0,ok
+2763,17,0,ok
+2764,17,0,ok
+2765,15,0,ok
+2766,12,0,ok
+2767,13,0,ok
+2768,10,0,ok
+2769,9,0,ok
+2770,9,0,ok
+2771,6,0,ok
+2772,9,0,ok
+2773,6,0,ok
+2774,7,0,ok
+2775,5,0,ok
+2776,5,0,ok
+2777,6,0,ok
+2778,4,0,ok
+2779,3,0,ok
+2780,4,0,ok
+2781,4,0,ok
+2782,1,0,ok
+2783,0,0,V5: <1 pixel valid
+2784,1,0,ok
+2785,1,0,ok
+2786,0,0,V5: <1 pixel valid
+2787,0,0,V5: <1 pixel valid
+2788,2,0,ok
+2789,0,0,gagal baca: ValueError
+2790,1,0,ok
+2791,1,0,ok
+2792,0,0,gagal baca: ValueError
+2793,0,0,gagal baca: ValueError
+2794,0,0,gagal baca: ValueError
+2795,0,0,gagal baca: ValueError
+2796,0,0,V5: <1 pixel valid
+2797,0,0,gagal baca: ValueError
+2798,0,0,gagal baca: ValueError
+2799,0,163,V5: <1 pixel valid
+2800,265,0,ok
+2801,0,19,V5: <1 pixel valid
+2802,0,341,V5: <1 pixel valid
+2803,0,186,V5: <1 pixel valid
+2804,0,24,V5: <1 pixel valid
+2805,0,120,V5: <1 pixel valid
+2806,0,628,V5: <1 pixel valid
+2807,0,869,V5: <1 pixel valid
+2808,0,1266,V5: <1 pixel valid
+2809,0,2006,V5: <1 pixel valid
+2810,0,895,V5: <1 pixel valid
+2811,0,23167,V5: <1 pixel valid
+2812,0,2047,V5: <1 pixel valid
+2813,0,5745,V5: <1 pixel valid
+2814,0,898,V5: <1 pixel valid
+2815,0,362,V5: <1 pixel valid
+2816,0,10407,V5: <1 pixel valid
+2817,0,12468,V5: <1 pixel valid
+2818,0,35,V5: <1 pixel valid
+2819,0,24,V5: <1 pixel valid
+2820,0,37,V5: <1 pixel valid
+2821,0,141,V5: <1 pixel valid
+2822,0,12,V5: <1 pixel valid

@@ -1,0 +1,29 @@
+{
+  "koleksi": "SENTINEL2_L2A",
+  "tanggal_mulai": "2025-09-01",
+  "tanggal_akhir": "2025-09-02",
+  "temporal_extent": [
+    "2025-09-01",
+    "2025-09-03"
+  ],
+  "komposit": "median",
+  "bands": [
+    "B02",
+    "B03",
+    "B04",
+    "B08",
+    "B11",
+    "B12"
+  ],
+  "max_cloud_cover_pct": 20,
+  "bbox": {
+    "west": 110.8988,
+    "south": -8.7804,
+    "east": 116.2701,
+    "north": -5.0489,
+    "crs": "EPSG:4326"
+  },
+  "aoi_file": "boundary_jatim.geojson",
+  "output": "s2_jatim.tif",
+  "job_id": "j-26100607452343a2be0930a04fc04519"
+}

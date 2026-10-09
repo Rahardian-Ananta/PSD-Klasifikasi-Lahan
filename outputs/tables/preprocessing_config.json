@@ -1,0 +1,11 @@
+{
+  "RANDOM_STATE": 42,
+  "TEST_SIZE": 0.2,
+  "N_PER_CLASS": 50,
+  "MAX_PIXELS_PER_POLYGON": 500,
+  "MIN_VALID_PIXELS": 1,
+  "pixel_rule": "centroid (all_touched=False)",
+  "cap_rng": "RandomState(42) urut fid",
+  "mean_index_def": "indeks dari mean band",
+  "split": "per polygon stratified"
+}

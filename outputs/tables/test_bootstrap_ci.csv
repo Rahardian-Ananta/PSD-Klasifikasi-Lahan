@@ -1,0 +1,11 @@
+tag,model,f1m_pol,ci5,ci95
+pixel,rf,0.465,0.351,0.561
+pixel,et,0.447,0.338,0.538
+pixel,lgbm,0.45,0.345,0.548
+pixel,svm,0.474,0.366,0.565
+pixel,logreg,0.391,0.324,0.486
+mean,rf,0.444,0.34,0.534
+mean,et,0.404,0.301,0.518
+mean,lgbm,0.45,0.349,0.566
+mean,svm,0.444,0.358,0.548
+mean,logreg,0.466,0.387,0.579

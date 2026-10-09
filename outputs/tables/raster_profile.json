@@ -1,0 +1,13 @@
+{
+ "width": 59412,
+ "height": 41323,
+ "crs": "EPSG:32749",
+ "count": 1,
+ "nodata": 0.0,
+ "dtype": "uint8",
+ "total_pixel": 2455082076,
+ "res": [
+  10.0,
+  10.0
+ ]
+}
