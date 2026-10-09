@@ -32,10 +32,6 @@ parts:
         title: Deployment (Streamlit & Book)
   - caption: Lampiran
     chapters:
-      - file: panduan_colab_bab5
-        title: Panduan Colab Bab 5
-      - file: panduan_deploy_github
-        title: Panduan Deploy GitHub
       - file: markdown
       - file: notebooks
       - file: markdown-notebooks

@@ -9,7 +9,7 @@ data/s2_jatim.tif
 data/geoboundaries_IDN_ADM1.geojson
 outputs/models/pixel_et.pkl
 # Model besar (~474 MB) — BELUM diunggah. Hapus 2 baris ini (dan aktifkan LFS saat siap)
-# bila mau ikut disimpan; lihat .gitattributes dan panduan_deploy_github.md.
+# bila mau ikut disimpan; lihat .gitattributes dan deployment.md.
 outputs/models/pixel_rf.pkl
 outputs/models/random_forest_best.pkl
 outputs/tables/*.pkl
@@ -18,3 +18,7 @@ _build/
 __pycache__/
 .ipynb_checkpoints/
 .venv/
+
+# Tidak ditampilkan di repo publik
+prompt/
+panduan_deploy_github.md

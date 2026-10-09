@@ -14,6 +14,10 @@ exclude_patterns:
   - outputs/tables/*.pkl
   - outputs/tables/*.npz
 
+# Hanya berkas yang ada di _toc.yml yang dibangun/diterbitkan, sehingga berkas
+# bantu (mis. panduan internal) tidak ikut tampil di situs.
+only_build_toc_files: true
+
 # Raster besar tidak dieksekusi saat build Jupyter Book: notebook sudah
 # ter-eksekusi (output tersimpan), jadi build hanya merender.
 # See https://jupyterbook.org/content/execute.html

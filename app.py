@@ -217,7 +217,7 @@ if bad:
         "boundary), jadi aman untuk **dikecualikan** lewat `.gitignore`.\n\n"
         + "\n".join(f"- `{p}` = {mb:,.1f} MB" for p, mb in bad)
         + "\n\nPilihan: (1) kecualikan dari repo (disarankan), (2) pakai **Git LFS**, atau "
-        "(3) unggah sebagai **GitHub Release asset**. Langkah lengkap: file `panduan_deploy_github.md`."
+        "(3) unggah sebagai **GitHub Release asset**. Langkah lengkap: halaman **Deployment** (`deployment.md`)."
     )
 
 PAGES = ["Ringkasan", "Alur Data → Model", "Peta klasifikasi", "Luas per kelas",
@@ -864,7 +864,7 @@ elif page == "Unduh model":
             "Tautan model besar **belum diatur**. Setel konstanta `MODEL_RELEASE_BASE` di `app.py` ke "
             "URL rilis setelah mengunggah `pixel_rf.pkl`, `random_forest_best.pkl`, dan `pixel_et.pkl` "
             "ke hosting (mis. `https://github.com/USERNAME/REPO/releases/download/models-v1`). "
-            "Langkah singkat ada di expander di bawah; panduan lengkap di `panduan_deploy_github.md` §6.")
+            "Langkah singkat ada di expander di bawah; panduan lengkap di halaman **Deployment** (`deployment.md`).")
     rows = []
     for fn, rep, algo, note, gh in MODEL_FILES:
         p = os.path.join(MODELS, fn)
