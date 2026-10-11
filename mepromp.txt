@@ -1,0 +1,244 @@
+PERAN
+Kamu orkestrator perbaikan 6 notebook Jupyter proyek klasifikasi lahan Jawa
+Timur (CRISP-DM, Jupyter Book 1.0.3 dengan execute_notebooks: off, jadi yang
+tampil di buku adalah OUTPUT YANG TERSIMPAN di file .ipynb).
+
+Kerjakan dengan SUB-AGENT, satu sub-agent per file:
+  Agent-01 -> 01_business_understanding.ipynb
+  Agent-02 -> 02_data_understanding.ipynb
+  Agent-04 -> 04_modeling.ipynb
+  Agent-05 -> 05_evaluation.ipynb
+  Agent-06 -> 06_webgis.ipynb
+  03_data_preprocessing.ipynb: TIDAK diedit (sudah konsisten). Cukup dibuka
+  dan dipastikan tidak ada backtick di dalam baris tabel.
+Tiap sub-agent hanya boleh menyentuh file miliknya. Orkestrator menggabungkan
+laporan di akhir.
+
+ATURAN KERAS (berlaku untuk semua sub-agent)
+1. JANGAN menjalankan sel apa pun yang memuat raster, model, loop cross
+   validation, atau inferensi. Beberapa sel butuh berjam-jam. Pengecualian
+   yang diizinkan hanya dua sel ringan yang murni membaca CSV kecil:
+   04 Code #8 [14] dan 05 Code #5 [9]. Jika ragu, jangan dijalankan; tambal
+   output secara manual.
+2. Jangan mengubah logika. Edit kode sekecil mungkin (ganti satu baris, satu
+   label, satu konstanta). Jangan refactor, jangan merapikan gaya, jangan
+   menambah sel, jangan menghapus sel.
+3. Setiap kali kode sebuah sel diedit, OUTPUT TERSIMPAN sel itu harus ditambal
+   agar persis seperti yang akan dicetak kode baru. Kode, output, dan markdown
+   harus saling cocok.
+4. Jika output berupa GAMBAR (image/png), jangan edit kodenya karena gambar
+   tidak bisa dibuat ulang tanpa run. Ganti dengan catatan di markdown
+   terdekat yang menjelaskan apa yang sebenarnya ditampilkan gambar itu.
+5. Jangan menebak angka. Semua angka baru harus berasal dari: (a) daftar
+   FAKTA ACUAN di bawah, (b) output sel lain yang tersimpan di notebook, atau
+   (c) CSV di folder outputs/tables yang dibaca tanpa model. Jika angka tidak
+   bisa diverifikasi, BERHENTI dan laporkan, jangan mengarang.
+6. Jangan menyentuh sel yang tidak tercantum di tugas.
+7. Sebelum mengedit, buat cadangan file (nama_file.bak.ipynb). Edit lewat
+   script Python yang memuat JSON notebook (nbformat). Pertahankan metadata,
+   execution_count, dan struktur output. Setelah selesai, jalankan
+   nbformat.validate dan pastikan jumlah sel tidak berubah serta sel yang
+   tidak dalam tugas tidak berubah (bandingkan hash source).
+
+CARA MENAMBAL OUTPUT
+- stream: ubah isi list "text" (pertahankan baris baru).
+- display_data text/markdown: ubah isi "text/markdown".
+- display_data text/html: ubah "text/html" dan "text/plain" agar sejalan.
+- Jangan mengubah nomor In[] atau execution_count.
+
+ATURAN TABEL MARKDOWN (Jupyter Book 1.0.3)
+Karakter backtick di dalam baris tabel (baris yang diawali tanda pipa) tidak
+terender dengan benar. Hapus backtick di dalam sel tabel, baik di markdown
+biasa, di string f-string dalam kode yang menghasilkan display(Markdown(...)),
+maupun di output text/markdown yang tersimpan. Isi tabel ditulis sebagai teks
+biasa (boleh tebal dengan dua tanda bintang). Backtick di luar tabel tetap
+boleh. Pastikan tidak ada karakter pipa atau baris baru di dalam isi satu sel
+tabel.
+
+ATURAN PENJELASAN (agar jelas, tidak kalap)
+- Ubah hanya kalimat yang salah atau menyesatkan. Jangan menulis ulang seluruh
+  sel markdown dan jangan menambah analisis baru di luar daftar tugas.
+- Setiap kalimat hasil edit memakai bahasa Indonesia sederhana, satu gagasan
+  per kalimat, dan menyebut angka konkretnya. Jelaskan arti istilah teknis
+  pada kemunculan pertama (mis. "recall = berapa persen polygon kelas itu
+  yang tertangkap benar").
+- Bedakan fakta (dari output) dan interpretasi. Interpretasi diberi kata
+  seperti "tampaknya" atau "cenderung", bukan klaim kausal.
+- Jika sebuah koreksi memengaruhi sel lain (angka yang sama muncul di tempat
+  lain), laporkan, jangan diam-diam mengubah file lain.
+
+FAKTA ACUAN (sudah diverifikasi dari output notebook)
+- Polygon mentah 2823; V1-V4 = 0; V6 = 47; V5 = 2008 (1901 tanpa pixel valid
+  + 107 gagal baca di luar extent); VALID berpixel = 768.
+- Pool berpixel per kelas: Sawah 88, Bangunan 252, Mangrove 108, Lahan hijau
+  101, Laut 6, Danau 213. Seleksi maksimal 256 (50x5 + 6). Laut kurang 44
+  dari ambang 50.
+- Per kelas V5: Bangunan 246, Danau 110, Lahan hijau 394, Laut 494,
+  Mangrove 357, Sawah 407. V6: Bangunan 2, Lahan hijau 5, Mangrove 35,
+  Sawah 5.
+- Raster: 94,16% pixel nodata (2.311.793.971 dari 2.455.082.076). Pixel
+  terklasifikasi (kelas 1-6) = 143.288.105. Total luas terklasifikasi
+  1.432.881,0 ha = sekitar 29,8% dari luas boundary 4.801.413 ha (48.014 km2).
+- CV konfigurasi TERBAIK (polygon macro-F1, mean +- std antar fold, np.std
+  ddof=0): pixel svm 0,537+-0,072; lgbm 0,522+-0,110; et 0,513+-0,097;
+  rf 0,507+-0,106; logreg 0,335+-0,018. Mean (4 fold): et 0,444+-0,061;
+  rf 0,441+-0,040; logreg 0,425+-0,016; lgbm 0,422+-0,053; svm 0,421+-0,034.
+- Throughput: svm 592 px/detik (67,3 jam), rf 19.010 px/detik (2,1 jam);
+  rf sekitar 32x lebih cepat.
+- Subsample SVM pixel = 8.861 baris. Polygon-mean memakai 4 fold.
+
+======================================================================
+TUGAS Agent-01 (01_business_understanding.ipynb)
+- Markdown [1]: perbaiki typo "perairan).peta project" menjadi
+  "perairan). Peta project".
+- Markdown [3], [4], [8]: hapus backtick di dalam baris tabel (isi tabel jadi
+  teks biasa). Jangan ubah isi makna.
+
+======================================================================
+TUGAS Agent-02 (02_data_understanding.ipynb)
+A. Aturan tabel (backtick):
+ - Code #3 [8]: di f-string md_table hapus backtick pada sel tabel. Nilai
+   Affine Transform: ganti str(src.transform) menjadi ringkasan satu baris
+   tanpa pipa dan tanpa baris baru, contoh
+   "a=10.0, b=0.0, c=488850.0, d=0.0, e=-10.0, f=9440820.0" (ambil dari
+   atribut transform). Tambal Output 1 sesuai.
+ - Code #4 [9]: hapus backtick pada setiap baris tabel (variabel row dan
+   baris tabel di f-string). Tambal Output 1.
+ - Code #6 [14]: hapus backtick pada sel tabel (jumlah fitur, CRS, tipe
+   geometri, luas, dan tabel distribusi kelas). Backtick pada daftar di luar
+   tabel (Komposisi Atribut, Batas Spasial) boleh tetap. Tambal Output 1.
+ - Code #8 [19]: hapus backtick pada kolom Keterangan dan Jumlah Fitur.
+   Tambal Output 1. Angka tetap: V5 2.008, V6 47, VALID final 768.
+B. Koreksi angka (tanpa run):
+ - Code #9 [20]: ubah HANYA teks print menjadi
+   "polygon V5 (<1 pixel valid, belum termasuk 107 gagal baca) = ..."
+   Tambal Output 1 menjadi
+   "DATA AKTUAL PROJECT: polygon V5 (<1 pixel valid, belum termasuk 107
+   gagal baca) = 1901".
+ - Code #10 [21]: ubah satu baris. Kondisi penandaan V5 menjadi
+   (g["kode"] == "VALID") & (g["status_v5"] != "ok"), sehingga polygon
+   "gagal baca" ikut V5. Tambal output:
+   * Output 2 (Tabel 1): kolom V5, V6, VALID per kelas -> Bangunan 246/2/252;
+     Danau 110/0/213; Lahan hijau 394/5/101; Laut 494/0/6; Mangrove
+     357/35/108; Sawah 407/5/88; TOTAL 2008/47/768.
+   * Output 3: "Total VALID = 768 dari 2823 polygon".
+   * Output 4 (Tabel 2): V5 jumlah 2008 (contoh fid tetap 1, 2, 3); V6 tetap.
+   * Output 6 (Tabel 3): n_valid Sawah 88, Bangunan 252, Mangrove 108,
+     Lahan hijau 101, Laut 6, Danau 213; status_50 "cukup" kecuali Laut
+     "kurang" dengan kekurangan 44.
+   Periksa jumlah tiap baris tabel 1 sama dengan jumlah polygon kelas itu
+   (500, 500, 500, 500, 500, 323).
+ - Markdown [22]: perbaiki kalimat yang salah: V5 = 2008 (1901 tanpa pixel
+   valid ditambah 107 gagal baca); pool VALID final 768 (bukan 875); Laut
+   hanya 6 (kurang 44, bukan 32 kurang 18); seleksi maksimal 256 (bukan 282).
+   Hapus kalimat bahwa 107 polygon "masih berkode VALID".
+ - Markdown [42]: samakan poin Validitas dan Pool dengan FAKTA ACUAN. Hapus
+   duplikasi "Koreksi Bab 3" karena kini angkanya sudah benar di poin
+   utamanya, kecuali kalimat itu masih perlu sebagai penjelasan.
+ - Markdown [11] (Interpretasi 2.3): tambahkan satu paragraf pendek berisi
+   fakta dari Code #4 [9] Output 1: pada sampel 1:400, 362.273 pixel valid
+   dan 5.849.779 nodata per band, jadi sekitar 94,2% area raster berisi
+   nodata dan hanya sekitar 5,8% berisi data. Jangan menebak penyebabnya.
+
+======================================================================
+TUGAS Agent-04 (04_modeling.ipynb)
+Sumber kebenaran: ../outputs/tables/cv_pixel.csv dan cv_mean.csv. Hitung
+dengan pandas, groupby (model, params), mean dan np.std(ddof=0) dari
+polygon_f1. Konfigurasi terbaik tiap model = mean tertinggi. Verifikasi bahwa
+hasilnya sama dengan FAKTA ACUAN; bila beda, BERHENTI dan laporkan.
+- Code #4 [9] dan Code #7 [12], bagian TABEL 2: ubah loop dari recs (per
+  fold) menjadi agregasi per (model, params) dengan mean dan std. Tambal
+  Output 4 (HTML TABEL 2): satu baris per konfigurasi (pixel: rf 4, et 4,
+  lgbm 4, svm 2, logreg 2; mean: sama), nilai dihitung dari CSV.
+- Code #8 [14]: ubah agar menampilkan konfigurasi terbaik tiap model (bukan
+  rata-rata semua konfigurasi). Boleh dijalankan (hanya membaca CSV). Output 1
+  harus sama dengan angka FAKTA ACUAN.
+- Code #9 [16]: ubah hanya teks print terakhir menjadi
+  "errorbar = std antar fold (5 fold untuk pixel-based, 4 fold untuk
+  polygon-mean)". Tambal Output 2. Gambar Output 1 tidak diubah.
+- Markdown [20] (Interpretasi visual): tulis ulang bagian yang tidak cocok
+  dengan gambar, singkat dan eksplisit:
+  * Recall Mangrove 0,60-0,78. Mangrove bukan selalu yang tertinggi: pixel-svm
+    dan mean-svm tertinggi di Danau (0,77 dan 0,75), pixel-logreg di Sawah (0,75).
+  * Recall Danau 0,07-0,77 (pixel-logreg hanya 0,07, tertukar ke Sawah 0,42 dan
+    Mangrove 0,40).
+  * Lahan hijau bocor ke Sawah hingga 0,57 (pixel-logreg).
+  * Laut recall 0,00 pada 9 dari 10 kombinasi (pixel-svm 0,25). Laut salah ke
+    Bangunan 0,50 hanya pada pixel-rf dan pixel-et; pixel-lgbm ke Sawah 0,50,
+    pixel-svm ke Danau 0,50, pixel-logreg ke Mangrove 0,50.
+  * Importance pixel-based: B12, B11, dan B02 tertinggi, NDBI menengah.
+    Importance polygon-mean: NDBI, B11, B12 tertinggi dan B08 cukup tinggi
+    (mean-lgbm B08 sejajar B11).
+  * Tambahkan catatan: grafik bar dan boxplot 4.5 memakai rata-rata semua
+    konfigurasi grid sehingga angkanya lebih rendah daripada konfigurasi
+    terbaik di Tabel 1.
+- Markdown [6] (4.3): polygon-mean memakai StratifiedGroupKFold 4 fold
+  (karena Laut hanya 4 polygon train); subsample SVM pixel 8.861 baris
+  (bukan 8000).
+- Code #13 [22]: ubah string metadata svm_subsample dari 8000 menjadi 8861.
+  (Output sel ini tidak memuat string itu; tidak perlu tambal. Laporkan
+  bahwa file metadata.json di disk masih lama sampai sel dijalankan oleh
+  pemilik.)
+- Markdown [4]: ilustrasi voting "tree1 Sawah, tree2 Sawah, tree3 Lahan hijau,
+  2-1" diberi label jelas sebagai ilustrasi konsep, dan tambahkan satu
+  kalimat bahwa contoh nyata di sel berikutnya memakai 5 tree dengan hasil
+  5 suara untuk kelas 1.
+
+======================================================================
+TUGAS Agent-05 (05_evaluation.ipynb)
+- Code #5 [9]: ubah pengambilan cv_mean dan cv_std menjadi konfigurasi
+  terbaik per model (groupby model dan params dari CSV, np.std ddof=0).
+  Boleh dijalankan (hanya membaca CSV). Output 1 harus memakai CV terbaik
+  seperti FAKTA ACUAN. Catat bahwa test_vs_cv.csv ikut diperbarui hanya
+  jika sel dijalankan.
+- Samakan angka CV di Markdown [4], [10], [15], [23] dengan FAKTA ACUAN.
+  Satu sumber saja: konfigurasi terbaik (mis. pixel-svm 0,537+-0,072).
+  Di Markdown [4], "CV svm 0,521+-0,071" menjadi 0,537+-0,072 dan hitung
+  ulang kalimat "dalam 1 std" (0,537-0,474 = 0,063 < 0,072, tetap benar).
+- Code #7 [14]: ganti konstanta TOTAL_VALID dari 143288207 menjadi 143288105.
+  Output tidak berubah (hasil jam sama pada 1 desimal). Ganti angka di
+  Markdown [23] menjadi 143.288.105.
+- Markdown [15] (5.6): "±25x lebih cepat" menjadi "±32x lebih cepat";
+  "SVM ±62 jam" menjadi "SVM ±67 jam".
+- Markdown [10]: "semua non-linear berkumpul 0,44-0,47" menjadi
+  "0,404-0,474 (mean-et terendah 0,404)". Perjelas kalimat visual FID 1228
+  dan FID 2688 seperti di bawah.
+- Markdown [10] dan [23], temuan visual (dari gambar Code #11 [22] Output 2):
+  * FID 1228: area kota dengan awan dan bayangan; sebagian awan menjadi
+    Bangunan, bayangan menjadi Laut (biru). Polygon ini berlabel Mangrove
+    tetapi zoom-nya tampak area kota.
+  * FID 2688: sebagian besar tubuh waduk menjadi Danau, tetapi bagian
+    utara salah menjadi Mangrove (hijau). Hapus kata "dengan benar".
+- Code #6 [12] (learning curve): JANGAN ubah kode atau gambar. Di Markdown
+  [11] ganti penjelasan "subsampling polygon" dengan: kurva ini
+  mengurangi pixel per polygon (n_poly tetap 204), bukan jumlah polygon;
+  garis mean-et datar 0,404 karena setiap polygon hanya punya 1 baris;
+  titik 100% (0,371) lebih rendah dari model tersimpan (0,474) karena dilatih
+  dengan 40.076 pixel, bukan subsample 8.861; pertanyaan "50 polygon per kelas
+  cukup?" belum terjawab. Judul sumbu pada gambar tetap lama, jadi tulis
+  catatan bahwa label sumbu pada gambar menyebut "fraksi polygon" padahal
+  yang berubah adalah fraksi pixel.
+
+======================================================================
+TUGAS Agent-06 (06_webgis.ipynb)
+- Markdown [5]: "13x lebih kecil dari asli 59412x41323" menjadi
+  "sekitar 20x lebih kecil per sisi (sekitar 396x lebih sedikit pixel)".
+- Markdown [0]: 143.288.207 menjadi 143.288.105.
+- Markdown [6] (6.2): tambahkan fakta bahwa persentase adalah porsi dari
+  pixel yang terklasifikasi, dan total 1.432.881 ha hanya sekitar 29,8%
+  dari luas boundary (4.801.413 ha), sehingga angka ini bukan komposisi
+  seluruh Jawa Timur. Ganti kalimat "menunjukkan tekanan konversi" dengan
+  kalimat deskriptif tanpa klaim kausal, mis. "Sawah memiliki luas sekitar
+  2 kali lipat Bangunan pada area yang terklasifikasi; ini belum menunjukkan
+  perubahan atau penyebabnya karena hanya ada satu snapshot".
+  Jangan menambah sel kode.
+
+======================================================================
+LAPORAN AKHIR (wajib)
+Tiap sub-agent mengirim tabel: File | Sel (Code #N / Markdown [idx]) |
+Sebelum -> Sesudah (singkat) | Alasan (satu kalimat sederhana) | Cara
+verifikasi (mis. "jumlah baris tabel = 500"). Tambahkan daftar hal yang
+TIDAK bisa dibereskan tanpa run (mis. gambar lama, file CSV/JSON di disk
+yang masih versi lama) dan keputusan yang kamu hentikan karena angka tidak
+bisa diverifikasi. Orkestrator menggabungkan laporan dan mengecek bahwa
+angka lintas notebook (768, 2008, 256, 143.288.105, 0,537+-0,072) seragam.
