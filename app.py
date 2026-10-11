@@ -1,10 +1,12 @@
 # Streamlit app — Klasifikasi Penggunaan/Penutupan Lahan Jawa Timur (Sentinel-2)
 # Membaca HASIL Tahap 5 (bukan angka hardcode): CSV metrik/luas, overlay PNG, model, boundary.
+import ast
 import json
 import os
 
 import folium
 import joblib
+import numpy as np
 import pandas as pd
 import streamlit as st
 from sklearn.metrics import confusion_matrix
@@ -62,52 +64,52 @@ MODEL_FILES = [
 # langsung isi berkas .pkl (node pohon, support vector, koefisien) per model.
 # (tag, model, algoritma, ukuran, struktur, cv_pol, test_pol, peran, narasi)
 MODEL_CARDS = [
-    ("pixel", "rf", "Random Forest — 300 pohon, max_depth=25", "496 MB",
+    ("pixel", "rf", "Random Forest — 300 pohon, max_depth=25, min_samples_leaf=1", "496 MB",
      "4.427.198 node total; 14.757 node/pohon; kedalaman tepat 25 (dibatasi)",
      0.507, 0.465, "Model peta (+ salinan random_forest_best.pkl)",
      "Pohon **dihentikan di kedalaman 25**, jadi ukurannya sedang (496 MB). Model ini yang "
      "benar-benar menggambar peta karena inferensinya cepat (±2,1 jam untuk 143 juta pixel)."),
-    ("pixel", "et", "ExtraTrees — 300 pohon, tanpa batas kedalaman", "1.312 MB",
+    ("pixel", "et", "ExtraTrees — 300 pohon, max_depth=None (tidak dibatasi), min_samples_leaf=1", "1.312 MB",
      "11.718.914 node total; 39.063 node/pohon; kedalaman rata-rata 42,5 (maks 54)",
      0.513, 0.447, "Kandidat — berkas TERBESAR",
      "Split-nya **acak** dan kedalaman **tidak dibatasi**, sehingga pohon tumbuh sangat dalam → "
      "**2,6× lebih banyak node** dari RF. Hasilnya berkas 1,3 GB, **padahal skornya tidak lebih "
      "baik** dari model lain. Ini contoh paling ekstrem dari pesan di atas: **besar ≠ lebih akurat**."),
-    ("pixel", "lgbm", "LightGBM — 300 pohon, 31 daun/pohon", "6,1 MB",
+    ("pixel", "lgbm", "LightGBM — 300 pohon, learning_rate=0.1, num_leaves=31", "6,1 MB",
      "boosting; menyimpan struktur/histogram ringkas, bukan pohon penuh",
      0.522, 0.450, "Kandidat",
      "CV-nya tertinggi ke-2 (0,522), tetapi berkasnya **hanya 6,1 MB** — 214× lebih kecil dari ET "
      "— karena tiap pohon dibatasi 31 daun dan LightGBM menyimpan struktur ringkas."),
-    ("pixel", "svm", "SVM RBF — C=1", "1,1 MB",
+    ("pixel", "svm", "SVM RBF — C=1, gamma='scale' (StandardScaler di depan)", "1,1 MB",
      "7.264 support vector (dilatih pada subsample 8.861 baris)",
      0.537, 0.474, "PEMENANG CV (+ salinan best_model.pkl)",
      "**Juara CV** dengan berkas cuma 1,1 MB: SVM hanya menyimpan *support vector*, bukan seluruh "
      "data. Ironisnya model paling akurat justru paling lambat saat inferensi (±67 jam) → tidak "
      "dipakai memetakan."),
-    ("pixel", "logreg", "Logistic Regression — C=2", "~2 KB",
+    ("pixel", "logreg", "Logistic Regression — C=2.0, max_iter=2000 (StandardScaler di depan)", "~2 KB",
      "6 kelas × 9 fitur = 54 koefisien",
      0.335, 0.391, "Kandidat — baseline",
      "Berkas **terkecil** (2 KB, ~600.000× lebih kecil dari ET) dan tercepat, tetapi skornya jauh "
      "tertinggal → bukti batas antar kelas **tidak linier**, bukan kesalahan kode."),
-    ("mean", "rf", "Random Forest — 300 pohon, max_depth=25", "3,8 MB",
+    ("mean", "rf", "Random Forest — 300 pohon, max_depth=None (tidak dibatasi), min_samples_leaf=1", "3,8 MB",
      "32.574 node total (dilatih pada 204 baris, 1 baris/polygon)",
      0.441, 0.444, "Kandidat (representasi polygon-mean)",
      "Representasi polygon-mean membuat pohon jauh lebih kecil karena hanya ada 204 baris data; "
      "sebaran pixel di dalam polygon hilang."),
-    ("mean", "et", "ExtraTrees — 300 pohon, max_depth=25", "8,6 MB",
+    ("mean", "et", "ExtraTrees — 300 pohon, max_depth=None (tidak dibatasi), min_samples_leaf=1", "8,6 MB",
      "75.972 node total (dilatih pada 204 baris)",
      0.444, 0.404, "Kandidat (representasi polygon-mean)",
      "2,3× lebih besar dari mean-rf karena split acak menghasilkan lebih banyak node, tetapi "
      "skornya serupa."),
-    ("mean", "lgbm", "LightGBM — 300 pohon, 31 daun/pohon", "2,2 MB",
+    ("mean", "lgbm", "LightGBM — 300 pohon, learning_rate=0.05, num_leaves=31", "2,2 MB",
      "boosting ringkas pada 204 baris",
      0.422, 0.450, "Kandidat (representasi polygon-mean)",
      "Ringkas dan skornya setara model lain di kubu mean."),
-    ("mean", "svm", "SVM RBF — C=1", "0,03 MB",
+    ("mean", "svm", "SVM RBF — C=1, gamma='scale' (StandardScaler di depan)", "0,03 MB",
      "176 support vector saja (karena data latih hanya 204 baris)",
      0.421, 0.444, "Kandidat (representasi polygon-mean)",
      "Berkas sangat kecil (30 KB) karena data latihnya sedikit; skornya setara model mean lain."),
-    ("mean", "logreg", "Logistic Regression — C=2", "~2 KB",
+    ("mean", "logreg", "Logistic Regression — C=2.0, max_iter=2000 (StandardScaler di depan)", "~2 KB",
      "6 kelas × 9 fitur = 54 koefisien",
      0.425, 0.466, "Kandidat (representasi polygon-mean)",
      "Di kubu mean, skor test-nya justru tertinggi (0,466) — tetapi selang kepercayaannya lebar, "
@@ -202,6 +204,79 @@ def per_class_f1(cm):
                         index=[f"{i} {CN[i]}" for i in LABELS]).fillna(0.0)
 
 
+GRID_SPEC = {
+    "rf": ("RandomForestClassifier", "max_depth × min_samples_leaf",
+           "max_depth ∈ {None, 25}  ×  min_samples_leaf ∈ {1, 2}", 4),
+    "et": ("ExtraTreesClassifier", "max_depth × min_samples_leaf",
+           "max_depth ∈ {None, 25}  ×  min_samples_leaf ∈ {1, 2}", 4),
+    "lgbm": ("LGBMClassifier", "learning_rate × num_leaves",
+             "learning_rate ∈ {0.05, 0.1}  ×  num_leaves ∈ {31, 63}", 4),
+    "svm": ("Pipeline: StandardScaler → SVC", "C", "C ∈ {1, 10}", 2),
+    "logreg": ("Pipeline: StandardScaler → LogisticRegression", "C", "C ∈ {0.5, 2.0}", 2),
+}
+MODEL_ORDER = ["rf", "et", "lgbm", "svm", "logreg"]
+
+
+def fmt_params(name, s):
+    """Ubah teks params di cv_*.csv, mis. '(25, 1)' atau "{'C': 1}", menjadi nama parameter yang jelas."""
+    v = ast.literal_eval(s)
+    if name in ("rf", "et"):
+        return f"max_depth={v[0]}, min_samples_leaf={v[1]}"
+    if name == "lgbm":
+        return f"learning_rate={v[0]}, num_leaves={v[1]}"
+    return f"C={v['C']}"
+
+
+def best_cfg(cv):
+    """Konfigurasi terbaik per model = rata-rata polygon-F1 antar fold tertinggi (std = np.std, ddof=0)."""
+    g = (cv.groupby(["model", "params"])["polygon_f1"]
+         .agg(mean="mean", std=lambda s: float(s.to_numpy().std())).reset_index())
+    return g.sort_values("mean", ascending=False).groupby("model").head(1).set_index("model")
+
+
+def build_estimator(name, p):
+    """Bangun estimator dengan argumen yang SAMA seperti notebook Bab 4 (tidak dilatih).
+    Mengembalikan (estimator, parameter_diset_eksplisit, parameter_hasil_grid)."""
+    from sklearn.ensemble import ExtraTreesClassifier, RandomForestClassifier
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.pipeline import make_pipeline
+    from sklearn.preprocessing import StandardScaler
+    from sklearn.svm import SVC
+    if name in ("rf", "et"):
+        cls = RandomForestClassifier if name == "rf" else ExtraTreesClassifier
+        return (cls(n_estimators=300, max_depth=p[0], min_samples_leaf=p[1], random_state=42, n_jobs=-1),
+                {"n_estimators", "random_state", "n_jobs"}, {"max_depth", "min_samples_leaf"})
+    if name == "lgbm":
+        from lightgbm import LGBMClassifier
+        return (LGBMClassifier(n_estimators=300, learning_rate=p[0], num_leaves=p[1], random_state=42, verbose=-1),
+                {"n_estimators", "random_state", "verbose"}, {"learning_rate", "num_leaves"})
+    if name == "svm":
+        return (make_pipeline(StandardScaler(), SVC(C=p["C"], kernel="rbf", gamma="scale", random_state=42)),
+                {"svc__kernel", "svc__gamma", "svc__random_state"}, {"svc__C"})
+    return (make_pipeline(StandardScaler(), LogisticRegression(C=p["C"], max_iter=2000, random_state=42)),
+            {"logisticregression__max_iter", "logisticregression__random_state"}, {"logisticregression__C"})
+
+
+def param_table(name, params_str):
+    """Semua hyperparameter (termasuk yang default pustaka) untuk satu model terpilih."""
+    est, explicit, grid = build_estimator(name, ast.literal_eval(params_str))
+    rows = []
+    for k, v in est.get_params(deep=True).items():
+        if k in ("steps", "memory", "transform_input") or hasattr(v, "get_params"):
+            continue
+        asal = ("dipilih lewat grid CV" if k in grid
+                else "diset eksplisit di notebook" if k in explicit else "default pustaka")
+        rows.append({"parameter": k, "nilai": repr(v), "asal nilai": asal})
+    return pd.DataFrame(rows)
+
+
+@st.cache_data
+def boundary_area_ha():
+    import geopandas as gpd
+    bj = gpd.read_file(os.path.join(BASE, "data", "boundary_jatim.geojson"))
+    return float(bj.to_crs(32749).area.sum()) / 10000.0
+
+
 st.title("Klasifikasi Lahan Jawa Timur — Sentinel-2")
 st.caption(
     "Basemap (Esri World Imagery / Google Satellite) adalah tile XYZ (bukan WMS standar), "
@@ -220,7 +295,7 @@ if bad:
         "(3) unggah sebagai **GitHub Release asset**. Langkah lengkap: halaman **Deployment** (`deployment.md`)."
     )
 
-PAGES = ["Ringkasan", "Alur Data → Model", "Peta klasifikasi", "Luas per kelas",
+PAGES = ["Ringkasan", "Alur Data → Model", "Workflow lengkap", "Peta klasifikasi", "Luas per kelas",
          "Evaluasi model", "Unduh model", "Metodologi"]
 page = st.sidebar.radio("Halaman", PAGES)
 
@@ -235,6 +310,7 @@ if page == "Ringkasan":
     mmeta = json.load(open(os.path.join(MODELS, "metadata.json"), encoding="utf-8"))
     stats = load_csv("polygon_pixel_stats.csv")
     valid_bp = int(((diag["kode"] == "VALID") & diag["fid"].isin(stats.loc[stats["n_valid"] > 0, "fid"])).sum())
+    n_valid_code = int((diag["kode"] == "VALID").sum())
     svm = tv[(tv["tag"] == "pixel") & (tv["model"] == "svm")].iloc[0]
     rfp = tv[(tv["tag"] == "pixel") & (tv["model"] == "rf")].iloc[0]
     svm_ci = ci[(ci["tag"] == "pixel") & (ci["model"] == "svm")].iloc[0]
@@ -252,8 +328,8 @@ if page == "Ringkasan":
               help="Dipilih karena inferensi 2,1 jam vs 67,3 jam (seri dalam noise)")
     c5, c6, c7, c8 = st.columns(4)
     c5.metric("Polygon valid berpixel → terpilih", f"{valid_bp} → {len(sel)}",
-              help=f"875 lolos V1–V6, tetapi 107 berada di luar extent raster (0 pixel); "
-                   f"terpilih = 50/kelas, Laut 6")
+              help=f"{n_valid_code} lolos V1–V6, tetapi {n_valid_code - valid_bp} berada di luar extent raster "
+                   f"(0 pixel); terpilih = maksimal 50/kelas, Laut {int((sel['class_id'] == 5).sum())}")
     c6.metric("Split train / test", f"{int((split['split'] == 'train').sum())} / {int((split['split'] == 'test').sum())}",
               help="Per polygon (FID), random_state=42")
     c7.metric("Pixel valid di peta", f"{int(lc['pixel_count'].sum()):,}",
@@ -269,9 +345,11 @@ if page == "Ringkasan":
         columns={"f1m_pol": "test (52 polygon)", "cv_mean": "CV (semua konfigurasi)"})
     st.bar_chart(ch.sort_values("test (52 polygon)", ascending=False))
     st.caption("X = tiap kombinasi model; Y = macro-F1 level polygon (0–1, makin tinggi makin baik). "
-               "Bar biru = skor test, oranye = skor CV Bab 4. Amati: logreg paling pendek (pixel-logreg "
-               "0,39; mean-logreg di CV 0,33) → batas antar kelas tidak linier. Sisanya berkumpul "
-               "0,40–0,47 dan selang CI-nya tumpang tindih, jadi pemenang hanya ditentukan prosedur.")
+               "Bar biru = skor test, oranye = skor CV Bab 4 (rata-rata semua konfigurasi grid). Amati: hanya "
+               "pixel-logreg yang jelas paling rendah (test 0,39; CV konfigurasi terbaik 0,335) → bila tiap pixel "
+               "dipakai, batas antar kelas tidak linier. mean-logreg justru setara (test 0,47; CV 0,425) karena "
+               "datanya hanya 204 baris. Sisanya berkumpul 0,40–0,47 dan selang CI-nya tumpang tindih, jadi "
+               "pemenang hanya ditentukan prosedur.")
     with st.expander("Model apa saja ini? (baca sebelum menafsir grafik)"):
         st.markdown(
             "Kombinasi = **cara mewakili polygon** (tag) × **algoritma** (model).\n\n"
@@ -301,8 +379,9 @@ if page == "Ringkasan":
             "tidak dipakai untuk memilih.\n"
             "- **Model peta** = model yang benar-benar dipakai memetakan seluruh Jawa Timur. pixel-rf dipilih "
             "karena seri dalam noise tetapi jauh lebih cepat saat inferensi.\n"
-            "- **Polygon valid berpixel → terpilih** = dari 2.823 polygon mentah, 875 lolos V1–V6, 768 punya "
-            "pixel valid, lalu diambil maksimal 50 per kelas (Laut hanya 6) = 256.\n"
+            f"- **Polygon valid berpixel → terpilih** = dari {len(diag):,} polygon mentah, {n_valid_code} lolos "
+            f"V1–V6, {valid_bp} punya pixel valid, lalu diambil maksimal 50 per kelas (Laut hanya "
+            f"{int((sel['class_id'] == 5).sum())}) = {len(sel)}.\n"
             "- **Split train/test** = jumlah polygon untuk melatih vs menguji (per polygon, bukan per pixel).\n"
             "- **Pixel valid di peta** = pixel yang terklasifikasi (0–6) di raster final; sisanya nodata.\n"
             "- **Total area** = luas seluruh pixel terklasifikasi pada resolusi 10×10 m.")
@@ -449,17 +528,18 @@ elif page == "Alur Data → Model":
     n_v5 = (diag["kode"] == "V5").sum()
     n_v6 = (diag["kode"] == "V6").sum()
     berpixel = int((diag["kode"].eq("VALID") & diag["fid"].isin(stats.loc[stats["n_valid"] > 0, "fid"])).sum())
+    v5_final = n_v5 + (n_valid - berpixel)
     e1, e2, e3, e4 = st.columns(4)
     e1.metric("V1–V4 (geometri)", "0", help="Tidak ada polygon ganda/rusak/luar kelas — kode ini tidak muncul di file")
-    e2.metric("V6 (luar extent)", f"{n_v6}")
-    e3.metric("V5 (<1 pixel valid)", f"{n_v5:,}", help="Bab 2 diagnostik; di Bab 3 menjadi 2.008 bila 107 polygon VALID-di-luar-extent ikut terhitung")
+    e2.metric("V6 (overlap lintas kelas)", f"{n_v6}", help="Polygon beririsan >5% luasnya dengan polygon kelas lain")
+    e3.metric("V5 (<1 pixel valid)", f"{n_v5:,}", help=f"Bab 2 diagnostik; di Bab 3 menjadi {v5_final:,} bila {n_valid - berpixel} polygon VALID-di-luar-extent ikut terhitung")
     e4.metric("VALID → berpixel", f"{n_valid} → {berpixel}", help=f"{n_valid} lolos V1–V6, {n_valid - berpixel} berada di luar extent raster (0 pixel)")
     mrg = diag.merge(stats[["fid", "n_valid"]], on="fid")
     pool = (mrg[mrg["kode"].eq("VALID") & mrg["n_valid"].gt(0)]
             .groupby(["class_id", "class_name"]).size().rename("pool_berpixel").reset_index())
     st.dataframe(pool, width="stretch", hide_index=True)
     st.caption(f"Rekonsiliasi Bab 2 ↔ Bab 3: file diagnostik mencatat V5 = {n_v5:,}; di Bab 3 ditambah "
-               f"{n_valid - berpixel} polygon berkode VALID yang berada di luar extent (0 pixel) → 2.008 "
+               f"{n_valid - berpixel} polygon berkode VALID yang berada di luar extent (0 pixel) → {v5_final:,} "
                f"polygon tidak-berpixel. Dari {n_valid} VALID, hanya {berpixel} yang benar-benar punya pixel — "
                "itulah pool nyata untuk seleksi. Perhatikan: pool Laut hanya 6.")
     st.image(os.path.join(FIGURES, "hist_distribusi_pixel.png"), width=760,
@@ -468,18 +548,22 @@ elif page == "Alur Data → Model":
 
     # --- Tahap 5 ---
     stage(5, "Seleksi 50 per kelas (Bab 3)", "Target 300 tidak tercapai")
+    n_tv = int((exc["kategori"] == "tidak valid").sum()) if "kategori" in exc.columns else 0
+    n_kuota = len(exc) - n_tv
     f1, f2, f3 = st.columns(3)
     f1.metric("Terpilih", f"{len(sel)}", help="50/kelas × 5 kelas + Laut 6 = 256")
-    f2.metric("Dibuang", f"{len(exc):,}", help="2.055 tidak valid + 512 kelebihan kuota")
+    f2.metric("Dibuang", f"{len(exc):,}", help=f"{n_tv:,} tidak valid + {n_kuota:,} kelebihan kuota")
     f3.metric("Pool valid ≠ terpilih", "pool → 50", help="Laut pool hanya 6 → semua 6 diambil")
     j1 = pd.crosstab(sel["class_name"], sel["class_id"])
     st.dataframe(j1, width="stretch", hide_index=False)
     if "kategori" in exc.columns:
         st.dataframe(exc["kategori"].value_counts().rename("n").to_frame(), width="stretch")
-    st.markdown("**Cara memilih:** urutkan pool berpixel per kelas, ambil acak reproducible maksimal "
-                "**50/kelas** (`RandomState 42`, urut FID). Kelas dengan pool ≤50 diambil seluruhnya — "
-                "Laut hanya punya 6, jadi total 256 (bukan 300). Dua sebab pembuangan: **2.055 tidak valid** "
-                "(V1–V6) dan **512 kelebihan kuota** (polygon valid tetapi kelasnya sudah penuh).")
+    st.markdown("**Cara memilih:** per kelas, dari pool berpixel diambil acak "
+                "`pool.sample(n=min(50, ukuran pool), random_state=42)` (pandas); hasil digabung lalu diurutkan "
+                "menurut FID. Kelas dengan pool ≤50 diambil seluruhnya — "
+                f"Laut hanya punya {int((sel['class_id'] == 5).sum())}, jadi total {len(sel)} (bukan 300). "
+                f"Dua sebab pembuangan: **{n_tv:,} tidak valid** (V1–V6) dan **{n_kuota:,} kelebihan kuota** "
+                "(polygon valid tetapi kelasnya sudah penuh).")
 
     # --- Tahap 6 ---
     stage(6, "Ekstraksi pixel + cap 500 (Bab 3)", "Pixel per polygon dibatasi agar tidak didominasi raksasa")
@@ -547,7 +631,8 @@ elif page == "Alur Data → Model":
          "hanya pixel ber-centroid di dalam polygon"],
         ["9", "Buang nodata", "(arr != -32768).all(axis=0)", "pixel di luar extent dibuang"],
         ["10", "Cap 500/polygon", "rng = RandomState(42); rng.choice(n, 500, replace=False)",
-         "62 polygon terpotong; 345.893 → 51.508 pixel"],
+         f"{int(cap['terkena_cap'].sum())} polygon terpotong; {int(cap['n_sebelum'].sum()):,} → "
+         f"{int(cap['n_sesudah'].sum()):,} pixel"],
         ["11", "Hitung 3 indeks", "NDVI=(B08−B04)/(B08+B04); NDWI=(B03−B08)/(B03+B08); "
          "NDBI=(B11−B08)/(B11+B08)", "penyebut 0 → NaN (aktual 0 kasus)"],
         ["12", "Susun 9 fitur", "6 band (B02,B03,B04,B08,B11,B12) + NDVI,NDWI,NDBI", "matriks X semua model"],
@@ -600,7 +685,11 @@ elif page == "Alur Data → Model":
     j1, j2, j3 = st.columns(3)
     j1.metric("Kombinasi model", f"{cvp['model'].nunique()} model × {cvm['model'].nunique()} model",
               help="pixel-based vs polygon-mean, masing-masing 5 algoritma")
-    j2.metric("Subsample SVM", mmeta["svm_subsample"].split(" ")[0], help=mmeta["svm_subsample"])
+    _cap_svm = 8000 // 6 + 200
+    n_svm = int(sum(min(_cap_svm, int(n)) for n in tr_px["class_id"].value_counts()))
+    j2.metric("Subsample SVM", f"{n_svm:,}",
+              help=f"Per kelas: min({_cap_svm}, jumlah pixel kelas), seed 42, hanya training. Catatan: metadata.json "
+                   f"menulis '{mmeta['svm_subsample']}' — 8000 hanyalah target awal, jumlah sebenarnya {n_svm:,}.")
     j3.metric("Pemenang CV", f"{mmeta['best_cv_polygon_f1']:.3f}",
               help=f"{'-'.join(mmeta['best'])} best-param; fold = {mmeta['cv']}")
     st.dataframe(best_cfg[["model_tag", "params", "polygon_f1"]]
@@ -613,8 +702,9 @@ elif page == "Alur Data → Model":
          "skor jujur, test tak disentuh"],
         ["18", "Skala fitur", "StandardScaler di dalam pipeline (fit per fold, cegah kebocoran)", "SVM & LogReg"],
         ["19", "Subsample SVM", "stratified per kelas, seed 42, hanya training", "40.076 → 8.861 baris"],
-        ["20", "Grid hyperparameter", "RF/ET: max_depth×min_samples_leaf; LGBM: learning_rate×num_leaves; "
-         "SVM/LogReg: C", "4/4/4/2/2 konfigurasi"],
+        ["20", "Grid hyperparameter",
+         "RF/ET: max_depth ∈ {None, 25} × min_samples_leaf ∈ {1, 2}; LGBM: learning_rate ∈ {0.05, 0.1} × "
+         "num_leaves ∈ {31, 63}; SVM: C ∈ {1, 10}; LogReg: C ∈ {0.5, 2.0}", "4/4/4/2/2 konfigurasi"],
         ["21", "Skor pemilihan", "voting pixel per fid → macro-F1 level polygon",
          f"pemenang CV = pixel-svm {mmeta['best_cv_polygon_f1']:.3f}"],
     ], columns=["langkah", "proses", "rumus / aturan", "hasil aktual"]), width="stretch", hide_index=True)
@@ -629,10 +719,13 @@ elif page == "Alur Data → Model":
         ["pixel/mean-svm", "SVM (RBF)", "cari batas pemisah dengan margin terlebar", "kuat data kecil; lambat saat inferensi"],
         ["pixel/mean-logreg", "Logistic Regression", "batas pemisah linier", "baseline; skor rendah = kelas tidak terpisah linier"],
     ], columns=["kombinasi", "nama", "cara kerja singkat", "catatan"]), width="stretch", hide_index=True)
-    st.markdown("**Hyperparameter yang diuji** (dipilih lewat CV, bukan dilihat test): RF/ET → `max_depth` × "
-                "`min_samples_leaf` (300 pohon tetap); LGBM → `learning_rate` × `num_leaves`; SVM & LogReg → `C`. "
-                "Selain itu SVM di-subsample karena lambat, dan CV memakai `StratifiedGroupKFold` "
-                "(group = FID) supaya pixel satu polygon tidak terpecah antar fold.")
+    st.markdown("**Hyperparameter yang diuji** (dipilih lewat CV, bukan dilihat test): "
+                "RF dan ExtraTrees → `max_depth` ∈ {None, 25} × `min_samples_leaf` ∈ {1, 2} (300 pohon, "
+                "`max_leaf_nodes` tidak dibatasi); LightGBM → `learning_rate` ∈ {0.05, 0.1} × `num_leaves` ∈ "
+                "{31, 63} (300 pohon); SVM → `C` ∈ {1, 10} (kernel rbf, gamma='scale'); LogReg → `C` ∈ "
+                "{0.5, 2.0} (max_iter=2000). SVM di-subsample karena lambat, dan CV memakai "
+                "`StratifiedGroupKFold` (group = FID) supaya pixel satu polygon tidak terpecah antar fold. "
+                "**Daftar lengkap semua parameter (termasuk default pustaka) ada di halaman Workflow lengkap.**")
     st.caption(f"Fold pixel = 5; fold mean = {int(cvm['fold'].max() + 1)} "
                "(diturunkan dari 5 karena kelas minoritas Laut hanya 4 polygon train). "
                "cv_mean di tabel Tahap 10 = rata-rata SEMUA konfigurasi, bukan best-param.")
@@ -672,6 +765,12 @@ elif page == "Alur Data → Model":
     k3.metric("Pixel valid di peta", f"{valid_px:,}",
               help=f"{valid_px / rprof['total_pixel']:.2%} dari {rprof['total_pixel']:,} total; sisanya nodata")
     k4.metric("Luas total", f"{luas['luas_ha'].sum():,.0f} ha")
+    try:
+        _bha = boundary_area_ha()
+        st.caption(f"Cakupan: area terklasifikasi = {luas['luas_ha'].sum() / _bha:.1%} dari luas boundary "
+                   f"({_bha:,.0f} ha). Kolom persen = porsi dari area terklasifikasi, bukan komposisi seluruh provinsi.")
+    except Exception:
+        st.caption("Kolom persen = porsi dari area terklasifikasi saja, bukan komposisi seluruh provinsi.")
     st.dataframe(luas, width="stretch", hide_index=True)
     st.markdown("**DUA model berbeda — jangan tertukar:**")
     st.dataframe(pd.DataFrame([
@@ -711,6 +810,409 @@ elif page == "Alur Data → Model":
                 f"uint8, nodata 0, {rprof['width']}×{rprof['height']}, {rprof['crs']}); "
                 f"`best_model.pkl` ({fsize('outputs/models/best_model.pkl')}) = pemenang CV pixel-svm.")
     st.info(CATATAN_TEKNIS)
+
+elif page == "Workflow lengkap":
+    import sklearn
+
+    diag = load_csv("polygon_validity_diagnostic.csv")
+    stats = load_csv("polygon_pixel_stats.csv")
+    sel = load_csv("polygon_selected.csv")
+    exc = load_csv("polygon_excluded.csv")
+    cap = load_csv("pixel_cap_stats.csv")
+    split = load_csv("polygon_split.csv")
+    tr_px = load_csv("training_pixel.csv")
+    te_px = load_csv("testing_pixel.csv")
+    tr_me = load_csv("training_mean.csv")
+    te_me = load_csv("testing_mean.csv")
+    cvp = load_csv("cv_pixel.csv")
+    cvm = load_csv("cv_mean.csv")
+    tv = load_csv("test_vs_cv.csv")
+    ci = load_csv("test_bootstrap_ci.csv")
+    luas = load_csv("luas_per_kelas.csv")
+    lcv = load_csv("learning_curve.csv")
+    s2p = json.load(open(os.path.join(TABLES, "s2_profile.json")))
+    smeta = json.load(open(os.path.join(BASE, "data", "s2_jatim_metadata.json"), encoding="utf-8"))
+    mmeta = json.load(open(os.path.join(MODELS, "metadata.json"), encoding="utf-8"))
+
+    # ---- semua angka "Hasil aktual" dibaca dari berkas project ----
+    vc = diag["kode"].value_counts()
+    n_raw = len(diag)
+    n_valid_code = int(vc.get("VALID", 0))
+    berpixel = int((diag["kode"].eq("VALID") & diag["fid"].isin(stats.loc[stats["n_valid"] > 0, "fid"])).sum())
+    v5_final = int(vc.get("V5", 0)) + (n_valid_code - berpixel)
+    sel_txt = ", ".join(f"{CN[i]} {int(n)}" for i, n in sel["class_id"].value_counts().sort_index().items())
+    n_tr = int((split["split"] == "train").sum())
+    n_te = int((split["split"] == "test").sum())
+    n_overlap = len(set(split.loc[split["split"] == "train", "fid"]) & set(split.loc[split["split"] == "test", "fid"]))
+    nan_total = int(tr_px[FE].isna().sum().sum() + te_px[FE].isna().sum().sum())
+    px_valid = int(luas["pixel_count"].sum())
+    n_tv = int((exc["kategori"] == "tidak valid").sum()) if "kategori" in exc.columns else 0
+    n_svm = int(sum(min(8000 // 6 + 200, int(n)) for n in tr_px["class_id"].value_counts()))
+    bestp, bestm = best_cfg(cvp), best_cfg(cvm)
+    svm_t = tv[(tv["tag"] == "pixel") & (tv["model"] == "svm")].iloc[0]
+    rf_t = tv[(tv["tag"] == "pixel") & (tv["model"] == "rf")].iloc[0]
+    svm_ci = ci[(ci["tag"] == "pixel") & (ci["model"] == "svm")].iloc[0]
+    rf_tag = "pixel" if bestp.loc["rf", "mean"] >= bestm.loc["rf", "mean"] else "mean"
+    lc_m = lcv.groupby("frac")[["f1_pixel_svm", "f1_mean_et"]].mean()
+    try:
+        b_ha = boundary_area_ha()
+        cov_txt = (f"area terklasifikasi {luas['luas_ha'].sum():,.0f} ha = {luas['luas_ha'].sum() / b_ha:.1%} "
+                   f"dari luas boundary {b_ha:,.0f} ha")
+    except Exception:
+        cov_txt = f"area terklasifikasi {luas['luas_ha'].sum():,.0f} ha (luas boundary tidak dapat dihitung di sini)"
+
+    st.title("Workflow lengkap — dari data mentah sampai model berlaku penuh")
+    st.caption("Halaman ini menuliskan SEMUA langkah beserta aturan dan parameternya. Angka di kolom "
+               "'Hasil aktual' dibaca dari berkas project, bukan ditulis manual. Yang tidak diset di kode "
+               "notebook ditulis sebagai 'default pustaka' dan nilainya ditampilkan di bagian spesifikasi "
+               "hyperparameter di bawah.")
+    st.graphviz_chart(
+        'digraph G { rankdir=LR; node [shape=box, style=rounded, fontsize=10]; '
+        'A [label="A. Data mentah\\nraster · polygon · boundary"]; '
+        'B [label="B. Validasi\\nV1–V6"]; '
+        'C [label="C. Seleksi 50/kelas\\npixel centroid · cap 500\\nsplit 80/20 per polygon"]; '
+        'D [label="D. Training\\n10 kombinasi · CV per polygon"]; '
+        'E [label="E. Evaluasi\\ntest sekali · bootstrap"]; '
+        'F [label="F. Inferensi RF\\nseluruh raster"]; '
+        'G [label="G. Luas · overlay PNG"]; '
+        'H [label="H. Streamlit WebGIS"]; '
+        'A -> B -> C -> D -> E -> F -> G -> H; }')
+    st.info("**Cara membaca:** satu baris = satu langkah (ID W01, W02, ...). 'Input' = berkas yang dibaca, "
+            "'Output' = berkas yang dihasilkan. Seed acak selalu **42** kecuali learning curve (42, 7, 99).")
+
+    COLS = ["ID", "Langkah", "Aturan & parameter (eksplisit)", "Input", "Output", "Hasil aktual"]
+
+    def tabel(rows):
+        st.table(pd.DataFrame(rows, columns=COLS).set_index("ID"))
+
+    fa, fb, fc, fd, fe_, ff, fg, fh = st.tabs([
+        "A Data mentah", "B Validasi", "C Seleksi → dataset", "D Training",
+        "E Evaluasi", "F Inferensi", "G Pasca-proses", "H Aplikasi"])
+
+    with fa:
+        tabel([
+            ("W01", "Raster Sentinel-2",
+             f"{s2p['count']} band ({', '.join(s2p['bands'])}), tipe {s2p['dtype']}, nodata {s2p['nodata']}, "
+             f"resolusi {s2p['res'][0]:.0f} m, CRS {s2p['crs']}. Komposit median {smeta['koleksi']} "
+             f"{smeta['tanggal_mulai']} s.d. {smeta['tanggal_akhir']}, maksimum {smeta['max_cloud_cover_pct']}% awan. "
+             "B11 dan B12 aslinya 20 m dan sudah di-resample ke 10 m sebelum data diterima. Cloud mask dan "
+             "metode resampling tidak tercatat di metadata. Nilai pixel = DN (bukan reflektans terkoreksi).",
+             "data/s2_jatim.tif, data/s2_jatim_metadata.json", "— (hanya dibaca)",
+             f"{s2p['width']:,} × {s2p['height']:,} = {s2p['total_pixel']:,} pixel"),
+            ("W02", "Polygon label",
+             "Kolom: fid, class_id (1–6), class_name, source, source_class, geometry; CRS EPSG:4326. "
+             "Label dibentuk dari sumber sekunder (Kementan LBS2019 untuk Sawah; BIG Satupeta layer /5 dan /57; "
+             "Natural Earth ne_10m_ocean untuk Laut), bukan referensi resmi. Rincian per sumber: tabel "
+             "provenance di halaman Alur Data → Model, Tahap 3.",
+             "data/training_samples_jawa_timur.geojson (+ .gpkg isi sama)", "— (hanya dibaca)",
+             f"{n_raw:,} polygon mentah"),
+            ("W03", "Boundary Jawa Timur",
+             "1 fitur MultiPolygon, kolom hanya geometry, EPSG:4326. Dipakai untuk luas AOI (Bab 2) dan garis "
+             "batas di peta (Bab 6). Tidak dipakai untuk memotong raster atau memilih sampel di Bab 3–5.",
+             "data/boundary_jatim.geojson", "—", cov_txt),
+            ("W04", "Statistik raster (pemeriksaan)",
+             "Sampling sistematis: setiap pixel ke-20 pada baris dan kolom (fraksi 1/400), blok baca 2048×2048; "
+             "persentil dari setiap sampel ke-10 (≈1/4000). Hanya pemeriksaan, tidak mengubah data.",
+             "data/s2_jatim.tif", "tabel statistik di notebook Bab 2",
+             f"pixel bukan-nodata (terklasifikasi) = {px_valid / s2p['total_pixel']:.2%} dari total"),
+        ])
+
+    with fb:
+        st.caption("Urutan pemeriksaan: V1 → V2 → V3 → V4 → V6 → V5. Kode pertama yang kena menentukan; "
+                   "V5 terakhir karena butuh hitungan pixel.")
+        tabel([
+            ("W05", "V1 — geometri kosong / fid ganda",
+             "geometry null atau kosong, ATAU fid duplikat (duplicated(subset=['fid'], keep=False)).",
+             "polygon mentah", "kolom kode", f"{int(vc.get('V1', 0))} polygon"),
+            ("W06", "V2 — tipe geometri",
+             "Tipe geometri bukan Polygon / MultiPolygon.", "polygon mentah", "kolom kode",
+             f"{int(vc.get('V2', 0))} polygon"),
+            ("W07", "V3 — geometri rusak",
+             "geometry.is_valid (shapely/GEOS) bernilai False.", "polygon mentah", "kolom kode, alasan",
+             f"{int(vc.get('V3', 0))} polygon"),
+            ("W08", "V4 — label tidak konsisten",
+             "class_id di luar {1..6} ATAU class_name tidak sama dengan pemetaan 1 Sawah, 2 Bangunan / Permukiman, "
+             "3 Mangrove, 4 Lahan hijau, 5 Laut, 6 Danau.", "polygon mentah", "kolom kode",
+             f"{int(vc.get('V4', 0))} polygon"),
+            ("W09", "V6 — overlap lintas kelas",
+             "Dalam EPSG:32749: untuk setiap pasangan polygon beda kelas yang berpotongan (sjoin intersects), "
+             "polygon ditandai V6 bila luas irisan > 0,05 × luas polygon itu sendiri.",
+             "polygon berkode VALID", "kolom kode", f"{int(vc.get('V6', 0))} polygon"),
+            ("W10", "V5 — tanpa pixel valid",
+             "Polygon berkode VALID dengan n_valid < 1 (MIN_VALID_PIXELS = 1) menjadi V5. n_valid = jumlah pixel "
+             "yang titik pusatnya di dalam polygon dan tidak nodata di keenam band. Termasuk polygon yang gagal "
+             "dibaca karena di luar extent raster.",
+             "polygon_pixel_stats.csv", "validity_final.pkl",
+             f"file diagnostik Bab 2: V5 = {int(vc.get('V5', 0)):,}; VALID = {n_valid_code}. Setelah "
+             f"{n_valid_code - berpixel} polygon di luar extent ikut V5 (Bab 3): V5 = {v5_final:,}; "
+             f"pool berpixel = {berpixel}"),
+        ])
+
+    with fc:
+        tabel([
+            ("W11", "Pool seleksi",
+             "Pool = kode VALID dan n_valid ≥ 1.", "validity_final.pkl", "—",
+             f"{berpixel} polygon"),
+            ("W12", "Seleksi maksimal 50 per kelas",
+             "Per kelas: pool.sample(n=min(50, ukuran pool), random_state=42) (pandas). Kelas dengan pool ≤ 50 "
+             "diambil seluruhnya. Hasil digabung lalu diurutkan menurut fid.",
+             "pool", "polygon_selected.csv/.geojson, polygon_excluded.csv",
+             f"{len(sel)} terpilih ({sel_txt}); dibuang {len(exc):,} = {n_tv:,} tidak valid + "
+             f"{len(exc) - n_tv:,} kelebihan kuota"),
+            ("W13", "Ambil pixel per polygon",
+             "Polygon di-reproyeksi ke CRS raster. Window = from_bounds(batas polygon) dipotong ke ukuran raster "
+             "(boundless, fill = nodata). Mask = geometry_mask(all_touched=False, invert=True), yaitu hanya pixel "
+             "yang titik pusatnya (centroid) di dalam polygon. Pixel yang nodata di salah satu dari 6 band dibuang.",
+             "s2_jatim.tif + polygon_selected.geojson", "—",
+             f"total pixel sebelum cap: {int(cap['n_sebelum'].sum()):,}"),
+            ("W14", "Cap 500 pixel per polygon",
+             "Bila pixel polygon > 500: ambil 500 acak tanpa pengembalian, np.random.RandomState(42).choice(n, 500, "
+             "replace=False). Satu generator untuk semua polygon, polygon diproses menurut urutan fid. Polygon "
+             "≤ 500 pixel tidak diubah. CATATAN: 500 ini batas pixel per polygon, BUKAN parameter model.",
+             "pixel hasil W13", "pixel_cap_stats.csv",
+             f"{int(cap['terkena_cap'].sum())} dari {len(cap)} polygon terpotong; "
+             f"{int(cap['n_sebelum'].sum()):,} → {int(cap['n_sesudah'].sum()):,} pixel"),
+            ("W15", "Hitung 3 indeks",
+             "NDVI = (B08−B04)/(B08+B04); NDWI = (B03−B08)/(B03+B08); NDBI = (B11−B08)/(B11+B08), dihitung per pixel "
+             "setelah cap. Penyebut 0 → NaN. Baris NaN akan dibuang di Bab 4.",
+             "pixel setelah cap", "pixels_selected.pkl", f"NaN pada train+test = {nan_total}"),
+            ("W16", "Split per polygon",
+             "train_test_split(polygon_selected, test_size=0.20, random_state=42, stratify=class_id). Kunci split = "
+             "fid, sehingga semua pixel satu polygon berada di satu sisi.",
+             "polygon_selected.csv", "polygon_split.csv",
+             f"{n_tr} train / {n_te} test polygon; irisan FID = {n_overlap}"),
+            ("W17", "Dataset pixel-based",
+             "Setiap pixel mewarisi split dari fid-nya (merge many_to_one). 9 fitur berurutan: "
+             "B02, B03, B04, B08, B11, B12, NDVI, NDWI, NDBI.",
+             "pixels_selected.pkl + polygon_split.csv", "training_pixel.csv, testing_pixel.csv",
+             f"{len(tr_px):,} train / {len(te_px):,} test pixel"),
+            ("W18", "Dataset polygon-mean",
+             "Satu baris per polygon: rata-rata 6 band dari SEMUA pixel valid polygon (TANPA cap 500), lalu NDVI, "
+             "NDWI, NDBI dihitung dari nilai rata-rata band (bukan rata-rata indeks per pixel).",
+             "s2_jatim.tif + polygon_selected.geojson", "training_mean.csv, testing_mean.csv",
+             f"{len(tr_me)} train / {len(te_me)} test polygon"),
+        ])
+
+    with fd:
+        tabel([
+            ("W19", "Persiapan fitur",
+             "Pixel-based memakai 9 fitur W17; polygon-mean memakai mean_B02, mean_B03, mean_B04, mean_B08, "
+             "mean_B11, mean_B12, NDVI, NDWI, NDBI. Baris dengan NaN dibuang. TIDAK ada class_weight pada model "
+             "mana pun (semua kelas berbobot sama saat fit). Skala fitur: StandardScaler hanya di dalam pipeline "
+             "SVM dan LogReg (di-fit per fold); RF, ExtraTrees, LightGBM tanpa scaling.",
+             "training_pixel.csv, training_mean.csv", "—", f"NaN = {nan_total}"),
+            ("W20", "Subsample SVM (hanya pixel-svm)",
+             "Per kelas: RandomState(42).choice(indeks kelas, size=min(8000//6 + 200 = 1533, jumlah pixel kelas), "
+             "replace=False); lalu dikocok dengan rng.shuffle. Dipakai untuk CV DAN refit pixel-svm. Model lain "
+             "memakai seluruh data train.",
+             "training_pixel.csv", "—", f"{len(tr_px):,} → {n_svm:,} baris"),
+            ("W21", "Validasi silang (CV)",
+             "StratifiedGroupKFold, groups = fid. Pixel-based: n_splits = 5. Polygon-mean: n_splits = "
+             "max(2, min(5, polygon kelas minoritas)) = 4 (Laut hanya 4 polygon train). shuffle dan random_state "
+             "tidak diset (default False/None), jadi pembagian fold deterministik. Setiap konfigurasi dilatih "
+             "ulang dari awal di tiap fold. Skor fold = macro-F1 level polygon: prediksi pixel → kelas terbanyak "
+             "per fid (seri → class_id terkecil) → f1_score(average='macro', zero_division=0). Macro-F1 level "
+             "pixel dicatat sebagai tambahan.",
+             "training_pixel.csv / training_mean.csv", "cv_pixel.csv, cv_mean.csv",
+             f"{cvp['fold'].nunique()} fold pixel, {cvm['fold'].nunique()} fold mean"),
+            ("W22", "Grid hyperparameter",
+             "Setiap model diuji pada grid kecil (rincian nilai di bagian spesifikasi di bawah): RF 4, ExtraTrees 4, "
+             "LightGBM 4, SVM 2, LogReg 2 konfigurasi. Grid sama untuk pixel-based dan polygon-mean.",
+             "—", "—", f"{cvp.groupby(['model', 'params']).ngroups} konfigurasi pixel, "
+                       f"{cvm.groupby(['model', 'params']).ngroups} konfigurasi mean"),
+            ("W23", "Pilih konfigurasi & latih final",
+             "Konfigurasi terbaik = rata-rata polygon-F1 antar fold tertinggi. Model final dilatih ulang pada seluruh "
+             "data train representasinya (pixel: 40.076 baris, SVM: subsample W20; mean: 204 baris) dan disimpan "
+             "dengan joblib.dump.",
+             "cv_*.csv + data train", "pixel_*.pkl, mean_*.pkl (10 berkas)",
+             f"pixel-svm {bestp.loc['svm', 'mean']:.3f}±{bestp.loc['svm', 'std']:.3f}; "
+             f"pixel-rf {bestp.loc['rf', 'mean']:.3f}±{bestp.loc['rf', 'std']:.3f}"),
+            ("W24", "Tetapkan pemenang & model peta",
+             "Pemenang prosedural = CV polygon-F1 tertinggi dari 10 kombinasi → best_model.pkl (salinan). "
+             "RF terbaik = RF dengan CV tertinggi antara pixel-rf dan mean-rf → random_forest_best.pkl (salinan). "
+             "Test set TIDAK dipakai di langkah ini.",
+             "10 model", "best_model.pkl, random_forest_best.pkl, metadata.json",
+             f"pemenang = {'-'.join(mmeta['best'])} ({mmeta['best_cv_polygon_f1']:.3f}); "
+             f"RF terbaik = {rf_tag}-rf ({max(bestp.loc['rf', 'mean'], bestm.loc['rf', 'mean']):.3f})"),
+        ])
+
+    with fe_:
+        tabel([
+            ("W25", "Skor test (sekali)",
+             "Tiap dari 10 model memprediksi test set. Pixel → kelas terbanyak per fid (seri → class_id terkecil). "
+             "Metrik level polygon: akurasi, precision/recall/F1 macro. Level pixel hanya tambahan.",
+             "testing_pixel.csv, testing_mean.csv, 10 model", "test_metrics.csv (satu-satunya pemakaian test)",
+             f"pixel-svm: F1 macro {svm_t['f1m_pol']:.3f}, akurasi {svm_t['acc_pol']:.1%} "
+             f"({int(te_px['fid'].nunique())} polygon test)"),
+            ("W26", "Selang kepercayaan bootstrap",
+             "np.random.RandomState(42); 1.000 ulangan; tiap ulangan mengambil n polygon test dengan "
+             "pengembalian, menghitung macro-F1; CI90 = persentil ke-5 dan ke-95. Model tidak dilatih ulang.",
+             "prediksi test per polygon", "test_bootstrap_ci.csv",
+             f"pixel-svm CI90 = [{svm_ci['ci5']:.3f}, {svm_ci['ci95']:.3f}]"),
+            ("W27", "Gabung test dan CV",
+             "Kolom cv_mean/cv_std di test_vs_cv.csv = rata-rata SEMUA konfigurasi grid, bukan konfigurasi terbaik. "
+             "Konfigurasi terbaik ada di W23.",
+             "test_metrics.csv, cv_*.csv", "test_vs_cv.csv", f"{len(tv)} baris (10 kombinasi)"),
+            ("W28", "Learning curve (diagnostik)",
+             "Fraksi {0,25; 0,5; 0,75; 1,0} × seed {42, 7, 99}. Yang dikurangi adalah PIXEL per polygon "
+             "(jumlah polygon tetap 204). pixel-svm = StandardScaler + SVC(C=1, kernel='rbf', gamma='scale', "
+             "random_state=42); mean-et = ExtraTreesClassifier(n_estimators=300, random_state=42, n_jobs=-1). "
+             "Dibaca untuk tren, bukan level absolut.",
+             "training_pixel.csv, training_mean.csv", "learning_curve.csv",
+             f"pixel-svm {lc_m['f1_pixel_svm'].iloc[0]:.3f} → {lc_m['f1_pixel_svm'].iloc[-1]:.3f}; "
+             f"mean-et {lc_m['f1_mean_et'].iloc[0]:.3f} (datar)"),
+            ("W29", "Benchmark kecepatan & keputusan model peta",
+             "200.000 pixel (data test diulang 18×) diprediksi oleh pixel-svm dan pixel-rf; waktu → px/detik → "
+             "perkiraan jam untuk seluruh pixel valid. Karena skor CV/test berselisih dalam noise (CI saling "
+             "tumpang tindih), model peta = pixel-rf (≈ 2,1 jam), bukan pixel-svm (≈ 67,3 jam).",
+             "testing_pixel.csv, pixel_svm.pkl, pixel_rf.pkl", "—",
+             f"F1 test pixel-rf {rf_t['f1m_pol']:.3f} vs pixel-svm {svm_t['f1m_pol']:.3f}"),
+        ])
+
+    with ff:
+        tabel([
+            ("W30", "Model yang diterapkan",
+             f"random_forest_best.pkl = salinan {rf_tag}_rf.pkl (RandomForest 300 pohon, "
+             f"{fmt_params('rf', (bestp if rf_tag == 'pixel' else bestm).loc['rf', 'params'])}; "
+             "rincian lengkap di bagian spesifikasi di bawah).",
+             "outputs/models/random_forest_best.pkl", "—", "pixel-rf"),
+            ("W31", "Inferensi seluruh raster",
+             "Raster dibaca per strip 128 baris × lebar penuh. Pixel valid = keenam band bukan nodata. Untuk "
+             "pixel valid: hitung 9 fitur (6 band + NDVI, NDWI, NDBI) → nilai NaN/±inf diganti 0,0 "
+             "(np.nan_to_num) → model.predict → label 1–6. Pixel nodata = 0. Ditulis sebagai GeoTIFF uint8, "
+             "nodata 0, kompresi LZW, tiled 256×256, profil (CRS, ukuran, transform) sama dengan raster sumber.",
+             "data/s2_jatim.tif + random_forest_best.pkl", "outputs/raster/klasifikasi_jawa_timur.tif",
+             f"{px_valid:,} pixel valid diprediksi; sisanya nodata; indeks NaN dinetralkan = 0 pixel"),
+            ("W32", "Verifikasi hasil",
+             "Buka ulang GeoTIFF: CRS/ukuran/transform sama dengan sumber; nilai unik dihitung per blok 2048×2048. "
+             "Hasil: nilai unik hanya 0–6.",
+             "klasifikasi_jawa_timur.tif", "—", "nilai di luar 0–6: tidak ada"),
+            ("W33", "Hitung luas per kelas",
+             "pixel_count per kelas (np.bincount per blok 4096×4096) × luas pixel (res_x × res_y = 100 m² dari "
+             "transform) ÷ 10.000 = hektar. persen = luas kelas ÷ total area terklasifikasi (bukan ÷ luas provinsi).",
+             "klasifikasi_jawa_timur.tif", "luas_per_kelas.csv", cov_txt),
+        ])
+
+    with fg:
+        tabel([
+            ("W34", "Overlay PNG",
+             "Baca raster klasifikasi dengan decimasi 1/20 (nearest) → reproyeksi ke EPSG:4326 (nearest) → warna: "
+             "1 kuning, 2 merah, 3 hijau, 4 magenta, 5 biru, 6 cyan; 0 transparan (RGBA). Batas peta disimpan di "
+             "overlay_bounds.json.",
+             "klasifikasi_jawa_timur.tif", "figures/klasifikasi_overlay.png, figures/overlay_bounds.json",
+             "overlay ±20× lebih kecil per sisi dari raster asli"),
+            ("W35", "Peta folium (notebook)",
+             "Basemap Esri World Imagery (default) dan Google Satellite (opsi); overlay opacity awal 0,7 dengan "
+             "slider; batas Jawa Timur disederhanakan toleransi 0,005°.",
+             "overlay PNG + boundary", "peta HTML di notebook Bab 6", "—"),
+        ])
+
+    with fh:
+        tabel([
+            ("W36", "Aplikasi Streamlit",
+             "Membaca hasil tahap sebelumnya: CSV metrik/luas, overlay PNG, boundary, metadata. Yang DIHITUNG ULANG "
+             "saat app dibuka hanya confusion matrix pixel-svm pada testing_pixel.csv. Model peta (pixel-rf) dan "
+             "inferensi 143 juta pixel TIDAK dijalankan di app.",
+             "outputs/tables, outputs/figures, outputs/models/pixel_svm.pkl", "halaman web", "—"),
+            ("W37", "Status berlaku penuh",
+             "Model peta diterapkan ke seluruh pixel valid raster (tidak ada pixel valid yang dilewati); "
+             "nodata tetap 0. Cakupan peta dibatasi oleh data raster, bukan oleh model.",
+             "—", "—", f"{px_valid:,} pixel; {cov_txt}"),
+        ])
+
+    st.divider()
+    st.header("Spesifikasi hyperparameter lengkap (10 kombinasi)")
+    st.warning(
+        "**Tentang angka 500:** di project ini 500 hanya muncul sebagai **batas pixel per polygon** (W14). "
+        "Tidak ada model yang dibatasi 500 cabang/daun: pada RF dan ExtraTrees `max_leaf_nodes = None` "
+        "(tidak dibatasi). Yang dibatasi hanya **kedalaman pohon** (`max_depth`) pada pixel-rf, yaitu 25 tingkat; "
+        "pada pixel-et, mean-rf, mean-et kedalaman tidak dibatasi (`max_depth = None`).")
+
+    st.subheader("1. Ruang pencarian (grid) dan konfigurasi terpilih")
+    st.table(pd.DataFrame([
+        {"model": n, "estimator": GRID_SPEC[n][0], "parameter divariasikan": GRID_SPEC[n][1],
+         "nilai yang diuji": GRID_SPEC[n][2], "jumlah konfigurasi": GRID_SPEC[n][3],
+         "terpilih (pixel)": fmt_params(n, bestp.loc[n, "params"]),
+         "terpilih (mean)": fmt_params(n, bestm.loc[n, "params"])}
+        for n in MODEL_ORDER]).set_index("model"))
+
+    st.subheader("2. Parameter tetap (tidak divariasikan, diset eksplisit di notebook)")
+    st.table(pd.DataFrame([
+        ["rf", "n_estimators=300, random_state=42, n_jobs=-1"],
+        ["et", "n_estimators=300, random_state=42, n_jobs=-1"],
+        ["lgbm", "n_estimators=300, random_state=42, verbose=-1"],
+        ["svm", "StandardScaler() default; SVC(kernel='rbf', gamma='scale', random_state=42)"],
+        ["logreg", "StandardScaler() default; LogisticRegression(max_iter=2000, random_state=42)"],
+    ], columns=["model", "diset eksplisit"]).set_index("model"))
+
+    st.subheader("3. Batas struktur pohon (jawaban untuk 'maksimal cabang')")
+    tree_rows, lgb_rows = [], []
+    for tag, bd in (("pixel", bestp), ("mean", bestm)):
+        for n in ("rf", "et", "lgbm"):
+            try:
+                est, _, _ = build_estimator(n, ast.literal_eval(bd.loc[n, "params"]))
+            except ImportError:
+                continue
+            gp = est.get_params()
+            if n in ("rf", "et"):
+                tree_rows.append({"model": f"{tag}-{n}", **{k: repr(gp[k]) for k in (
+                    "n_estimators", "max_depth", "max_leaf_nodes", "min_samples_leaf", "min_samples_split",
+                    "max_features", "bootstrap") if k in gp}})
+            else:
+                lgb_rows.append({"model": f"{tag}-{n}", **{k: repr(gp[k]) for k in (
+                    "n_estimators", "learning_rate", "num_leaves", "max_depth", "min_child_samples",
+                    "subsample", "colsample_bytree") if k in gp}})
+    if tree_rows:
+        st.markdown("**RandomForest / ExtraTrees** (`max_leaf_nodes=None` = jumlah daun tidak dibatasi; "
+                    "`max_depth=None` = kedalaman tidak dibatasi):")
+        st.table(pd.DataFrame(tree_rows).set_index("model"))
+    if lgb_rows:
+        st.markdown("**LightGBM** (`num_leaves` = batas daun per pohon; `max_depth=-1` = kedalaman tidak dibatasi):")
+        st.table(pd.DataFrame(lgb_rows).set_index("model"))
+    elif not tree_rows:
+        st.caption("scikit-learn/lightgbm tidak terpasang di lingkungan ini.")
+
+    st.subheader("4. Daftar lengkap seluruh parameter tiap model terpilih")
+    libs = mmeta.get("libraries", {})
+    st.caption(f"Tabel dibangun dengan memanggil konstruktor yang sama seperti notebook Bab 4 (tanpa melatih) pada "
+               f"scikit-learn {sklearn.__version__}. Versi saat model dilatih: {libs}. Bila versi berbeda, nilai "
+               "default pustaka bisa sedikit berbeda dari yang tersimpan di berkas .pkl.")
+    for tab, tag, bd in zip(st.tabs(["pixel-based", "polygon-mean"]), ("pixel", "mean"), (bestp, bestm)):
+        with tab:
+            for n in MODEL_ORDER:
+                with st.expander(f"{tag}-{n} — {fmt_params(n, bd.loc[n, 'params'])} "
+                                 f"(CV polygon-F1 {bd.loc[n, 'mean']:.3f} ± {bd.loc[n, 'std']:.3f})"):
+                    try:
+                        st.dataframe(param_table(n, bd.loc[n, "params"]), width="stretch", hide_index=True)
+                    except ImportError:
+                        st.caption("Pustaka model ini tidak terpasang di lingkungan app, tabel tidak dapat dibuat.")
+
+    st.subheader("5. Skor CV semua konfigurasi")
+
+    def semua_konfigurasi(cv, best):
+        g = (cv.groupby(["model", "params"])["polygon_f1"]
+             .agg(mean="mean", std=lambda s: float(s.to_numpy().std())).reset_index())
+        g["model"] = pd.Categorical(g["model"], MODEL_ORDER, ordered=True)
+        g = g.sort_values(["model", "params"])
+        g["konfigurasi"] = [fmt_params(m, p) for m, p in zip(g["model"], g["params"])]
+        g["terpilih"] = ["✓" if best.loc[m, "params"] == p else "" for m, p in zip(g["model"], g["params"])]
+        return (g[["model", "konfigurasi", "mean", "std", "terpilih"]]
+                .rename(columns={"mean": "CV polygon-F1 (mean)", "std": "std antar fold"}))
+
+    for tab, cv, bd in zip(st.tabs(["pixel-based", "polygon-mean"]), (cvp, cvm), (bestp, bestm)):
+        with tab:
+            st.dataframe(semua_konfigurasi(cv, bd).style.format({"CV polygon-F1 (mean)": "{:.3f}",
+                                                                 "std antar fold": "{:.3f}"}),
+                         width="stretch", hide_index=True)
+
+    st.divider()
+    st.header("Batasan yang dinyatakan terang")
+    st.markdown(
+        "- Tuning hanya pada grid kecil di atas; tidak ada pencarian lebih luas dan tidak ada class_weight.\n"
+        f"- Test hanya {n_te} polygon (Laut 2 polygon), sehingga CI lebar dan semua model tidak terbedakan.\n"
+        "- Label sumber sekunder; CV dan test mengukur kecocokan dengan label itu, bukan akurasi terhadap lapangan.\n"
+        "- Satu snapshot 2 hari; tidak ada klaim perubahan lahan atau sebab-akibat.\n"
+        f"- Cakupan peta: {cov_txt}. Persentase kelas adalah porsi area terklasifikasi, bukan komposisi provinsi.")
 
 elif page == "Peta klasifikasi":
     basemap = st.sidebar.radio("Basemap", ["Esri World Imagery", "Google Satellite"])
@@ -787,6 +1289,12 @@ elif page == "Luas per kelas":
         st.bar_chart(lc.set_index("class_name")["luas_ha"], horizontal=True)
     st.caption(f"Total area terklasifikasi = {lc['luas_ha'].sum():,.1f} ha; "
                f"pixel valid = {int(lc['pixel_count'].sum()):,} (nodata = 0).")
+    try:
+        _bha = boundary_area_ha()
+        st.caption(f"Cakupan: area terklasifikasi = {lc['luas_ha'].sum() / _bha:.1%} dari luas boundary Jawa Timur "
+                   f"({_bha:,.0f} ha). Kolom persen = porsi dari area terklasifikasi saja, BUKAN komposisi seluruh provinsi.")
+    except Exception:
+        st.caption("Kolom persen = porsi dari area terklasifikasi saja, BUKAN komposisi seluruh provinsi.")
     st.download_button("Unduh luas_per_kelas.csv", lc.to_csv(index=False),
                        file_name="luas_per_kelas.csv", mime="text/csv")
     with st.expander("Catatan teknis"):
@@ -939,12 +1447,13 @@ else:  # Metodologi
     luas = load_csv("luas_per_kelas.csv")
     stats = load_csv("polygon_pixel_stats.csv")
     valid_bp = int(((diag["kode"] == "VALID") & diag["fid"].isin(stats.loc[stats["n_valid"] > 0, "fid"])).sum())
+    n_valid_code = int((diag["kode"] == "VALID").sum())
     st.subheader("Ringkasan data")
     st.markdown(
         "- Sentinel-2 L2A, komposit median **2025-09-01/02**, maksimum 20% awan, 6 band "
         "(B02, B03, B04, B08, B11, B12) + 3 indeks (NDVI, NDWI, NDBI) = 9 fitur.\n"
-        f"- Polygon label: {len(diag):,} mentah → 875 lolos V1–V6 → **{valid_bp} valid berpixel** "
-        f"(107 di luar extent) → "
+        f"- Polygon label: {len(diag):,} mentah → {n_valid_code} lolos V1–V6 → **{valid_bp} valid berpixel** "
+        f"({n_valid_code - valid_bp} di luar extent) → "
         f"**{len(sel)} terpilih** (50/kelas, Laut 6) → split per polygon "
         f"**{int((split['split'] == 'train').sum())} train / {int((split['split'] == 'test').sum())} test**.\n"
         f"- Pixel valid di peta: {int(luas['pixel_count'].sum()):,} (nodata 0 = di luar extent/badan air).\n"
@@ -965,7 +1474,10 @@ else:  # Metodologi
         "- Akurasi mengikuti label sumber sekunder (test macro-F1 polygon ≈ 0,47).\n"
         "- Tidak ada klaim kausal; 6 kelas adalah penyederhanaan dari acuan SNI/KLHK.\n"
         "- Awan, bayangan, dan tambak tak berkelas → sebagian pixel dipaksa ke 6 kelas.\n"
-        "- Peta = hasil model terbaik CV (pixel-svm menang prosedural, selisih dalam noise), "
-        "diproduksi dengan pixel-rf karena kelayakan inferensi."
+        "- Skor pemenang CV (pixel-svm) dan peta (pixel-rf) berasal dari DUA model berbeda: selisih skornya "
+        "dalam noise, dan peta memakai pixel-rf karena inferensi ±2,1 jam (pixel-svm ±67 jam).\n"
+        "- Sebagian besar pixel raster berisi nodata; area terklasifikasi hanya sebagian dari luas boundary "
+        "(lihat halaman Luas per kelas), jadi persentase kelas adalah porsi area terklasifikasi, bukan "
+        "komposisi seluruh provinsi."
     )
     st.info(CATATAN_TEKNIS)
